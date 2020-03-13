@@ -2,9 +2,10 @@
   "name": "oas2schema.org",
   "version": "1.0.0",
   "description": "Generate corresponding Schema.org metadata from OAS descriptions",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/tonen100/oas2schema.org#readme",
   "dependencies": {
     "apib2swagger": "^1.11.0",
+    "js-yaml": "^3.13.1",
     "oas-raml-converter": "^1.1.43",
     "openapi-enforcer": "^1.10.0",
     "swagger-parser": "github:BigstickCarpet/swagger-parser",
