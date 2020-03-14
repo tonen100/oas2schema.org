@@ -13,5 +13,8 @@ module.exports = new Map([
     ], [
         'UnsupportedInputFormat',
         (format) => new InvalidFormat("The format " + format + "of the API documentation is not supported")
+    ], [
+        'UnsupportedInputFileType',
+        new InvalidFormat("The type of the object that contains the API documentation is not supported (at least for this format of the API documentation)")
     ]
 ])
