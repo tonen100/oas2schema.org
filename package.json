@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/tonen100/oas2schema.org#readme",
   "dependencies": {
+    "@apidevtools/swagger-parser": "^9.0.0",
     "apib2swagger": "^1.11.0",
     "js-yaml": "^3.13.1",
     "oas-raml-converter": "^1.1.43",

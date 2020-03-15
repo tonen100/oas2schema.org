@@ -11,6 +11,9 @@ module.exports = new Map([
         'InvalidInputDocument',
         new InvalidFormat("The API documentation is incorrect")
     ], [
+        'InvalidOASDocument',
+        (error) => new InvalidFormat("The API documentation (or it's translation to OASv3) is incorrect for the following reasons: " + error)
+    ], [
         'UnsupportedInputFormat',
         (format) => new InvalidFormat("The format " + format + "of the API documentation is not supported")
     ], [

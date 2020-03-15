@@ -3,15 +3,18 @@
 const fs = require('fs');
 
 var errors = require('./errors');
-var documentationConverter = require("./converter");
+var oasConverter = require("./oasConverter");
+var oasValidator = require("./oasValidator");
+var semanticTranslator = require("./semanticTranslator");
 
 async function convertToMetadata(apiDocumentation, inputFormat = null, outputFormat = "JSON-LD") {
     if(inputFormat == null)
-        inputFormat = documentationConverter.extractFormat(apiDocumentation);
+        inputFormat = oasConverter.extractFormat(apiDocumentation);
     else if(typeof(apiDocumentation) != 'object')
         throw errors.get('InvalidInputDocument');
-    apiDocumentation = await documentationConverter.convertToOASv3(apiDocumentation, inputFormat);
-    return apiDocumentation;
+    var oasDocumentation = await oasConverter.convertToOASv3(apiDocumentation, inputFormat);
+    var metadata = semanticTranslator.extractMetadata(await oasValidator.evaluateDocument(oasDocumentation));
+    return metadata;
 }
 
 module.exports = {
