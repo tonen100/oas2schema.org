@@ -27,7 +27,7 @@ switch(process.argv.length) {
         var fileName = process.argv[2];
         var inputFormat = process.argv.length == 4 ? process.argv[3] : null;
         convertToMetadata(fs.readFileSync(fileName).toString(), inputFormat).then(
-            res => console.log(res),
+            res => fs.writeFileSync('./res.json', JSON.stringify(res, null, '\t')),
             (err) => console.log(err)
         );
     default:

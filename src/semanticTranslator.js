@@ -1,32 +1,40 @@
+var errors = require('./errors');
+const logicalParser = require('@jeanbenitez/logical-expression-parser');
+
 var external_values = {};
 const EXTERNAL_VALUES = (urlAPI, urlDoc) => { return {
     URL_API: urlAPI,
     URL_DOC: urlDoc
 } };
 
-const OAS_SchemaOrg_CORRESPONDENCES = new Map([
-    ['info.title', 'title'],
-    ['info.description', 'description'],
-    ['info.termsOfService', 'termsOfService'],
-    ['info.contact.name', 'brand:Organisation.name'],
-    ['info.contact.name', 'provider:Organisation.name'],
-    ['info.contact.url', 'brand:Organisation.url'],
-    ['info.contact.url', 'provider:Organisation.url'],
-    ['info.contact.email', 'brand:Organisation.email'],
-    ['info.contact.email', 'provider:Organisation.email'],
-    ['tags[].name~', 'category[]'],
-    ['URL_DOC', 'documentation'],
-    ['info.termsOfService', 'termsOfService'],
-    ['paths.{}~', 'availableChannel:ServiceChannel[].name'],
-    ['paths.{}.description', 'availableChannel:ServiceChannel[].description'],
-    ['paths.{}.summary', 'availableChannel:ServiceChannel[].disambiguatingDescription'],
-    //['(||servers[].url||_URL_API)&&paths.{}', 'availableChannel:ServiceChannel[].serviceUrl[]'],
-    ['paths.{}.{get|post|put|delete|options|head|patch|trace}', 'availableChannel:ServiceChannel[].providesService:EntryPoint[].httpMethod'],
-    ['paths.{}.{get|post|put|delete|options|head|patch|trace}.operationId~', 'availableChannel:ServiceChannel[].providesService:EntryPoint[].name'],
-    ['paths.{}.{get|post|put|delete|options|head|patch|trace}.description', 'availableChannel:ServiceChannel[].providesService:EntryPoint[].description'],
-    ['paths.{}.{get|post|put|delete|options|head|patch|trace}.summary', 'availableChannel:ServiceChannel[].providesService:EntryPoint[].disambiguatingDescription'],
-    ['paths.{}.{get|post|put|delete|options|head|patch|trace}.requestBody.content.encoding.contentType', 'availableChannel:ServiceChannel[].providesService:EntryPoint[].contentType'],
-    ['paths.{}.{get|post|put|delete|options|head|patch|trace}.responses.content.encoding.contentType', 'availableChannel:ServiceChannel[].providesService:EntryPoint[].encodingType'],
+// [] list of values
+// {} object keys as list (properties names)
+// ~ Normalize string (de-CamelCase...)
+// :OntologyType specify the type of the declared ontology
+const SchemaOrg_OAS_CORRESPONDENCES = new Map([
+    ['title', 'info.title'],
+    ['description', 'info.description'],
+    ['termsOfService', 'info.termsOfService'],
+    ['brand:Organisation.name', 'info.contact.name'],
+    ['provider:Organisation.name', 'info.contact.name'],
+    ['brand:Organisation.url', 'info.contact.url'],
+    ['provider:Organisation.url', 'info.contact.url'],
+    ['brand:Organisation.email', 'info.contact.email'],
+    ['provider:Organisation.email', 'info.contact.email'],
+    ['category', 'tags[].name~'],
+    ['documentation', 'URL_DOC'],
+    ['termsOfService', 'info.termsOfService'],
+    ['availableChannel:ServiceChannel[].name', 'paths.{}~'],
+    ['availableChannel:ServiceChannel[].description', 'paths.{}.description'],
+    ['availableChannel:ServiceChannel[].disambiguatingDescription', 'paths.{}.summary'],
+    ['availableChannel:ServiceChannel[].serviceUrl', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}'],
+    ['availableChannel:ServiceChannel[].providesService:EntryPoint[].httpMethod', 'paths.{}.{get|post|put|delete|options|head|patch|trace}'],
+    ['availableChannel:ServiceChannel[].providesService:EntryPoint[].name', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.operationId~'],
+    ['availableChannel:ServiceChannel[].providesService:EntryPoint[].url', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}'],
+    ['availableChannel:ServiceChannel[].providesService:EntryPoint[].description', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.description'],
+    ['availableChannel:ServiceChannel[].providesService:EntryPoint[].disambiguatingDescription', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.summary'],
+    ['availableChannel:ServiceChannel[].providesService:EntryPoint[].contentType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.requestBody.content.encoding.contentType'],
+    ['availableChannel:ServiceChannel[].providesService:EntryPoint[].encodingType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.responses.content.encoding.contentType'],
 ])
 
 function normalizeString(value) {
@@ -51,17 +59,12 @@ function normalizeString(value) {
     .replace(/\./ig, ' ');
 }
 
-// [] list of values
-// {} object keys as list (properties names)
-// ~ Normalize string (de-CamelCase...)
-// :OntologyType specify the type of the declared ontology
-function extractOASvalue(oasDocument, oasPath) {
-    if(oasDocument == null) {
+function extractOASValueFromProperty(oasValue, oasPath) {
+    if(oasValue == null) {
         return null;
     } else if(Object.keys(external_values).includes(oasPath)) {
-        return external_values[property];
+        return external_values[oasPath];
     } else {
-        var oasValue = oasDocument;
         var to_normalize_value = false;
         const lengthPath = oasPath.split('.').length;
         for(var [index, property] of oasPath.split('.').entries()) {
@@ -71,15 +74,15 @@ function extractOASvalue(oasDocument, oasPath) {
             }
             if(property.match(/^\{.*\}$/)) { // {} and {val1|val2} cases
                 var subProperties = Object.keys(oasValue);
-                if(property.match(/^\{.+\}$/)) {
+                if(property.match(/^\{.+\}$/)) { // {val1|val2} cases
                     var relevantValues = property.slice(0, property.length - 1).slice(1).split('|');
-                    subProperties.filter(subProperty => relevantValues.find(relevantValue => relevantValue == subProperty))
+                    subProperties = subProperties.filter(subProperty => relevantValues.find(relevantValue => relevantValue == subProperty))
                 }
                 if(lengthPath == index + 1) { // Last
                     oasValue = subProperties;
                 } else {
-                    oasValue = Object.keys(oasValue).map(
-                        subProperty =>  extractOASvalue(oasValue[subProperty], oasPath.split('.').filter((_, i) => i > index).join('.'))
+                    oasValue = subProperties.map(
+                        subProperty =>  extractOASValueFromProperty(oasValue[subProperty], oasPath.split('.').filter((_, i) => i > index).join('.'))
                     );
                     break;
                 }
@@ -87,8 +90,12 @@ function extractOASvalue(oasDocument, oasPath) {
                 if(property.endsWith('[]') && index + 1 < lengthPath) { // [] cases
                     property = property.slice(0, property.length - 2);
                     oasValue = oasValue[property] != null ? oasValue[property].map(
-                        element =>  extractOASvalue(element, oasPath.split('.').filter((pathVal, i) => i > index).join('.'))
+                        element =>  extractOASValueFromProperty(element, oasPath.split('.').filter((pathVal, i) => i > index).join('.'))
                     ) : null;
+                } else if(property.match(/^.*\[[0-9]*\]$/)) {
+                    var index = parseInt(property.replace(/^.*\[([0-9]*)\]$/, '$1'));
+                    property = property.replace(/^(.*)\[[0-9]*\]$/, '$1');
+                    oasValue = oasValue[property] != null ? oasValue[property][index] : null;
                 } else { // Simple property cases
                     oasValue = oasValue[property];
                 }
@@ -104,23 +111,119 @@ function extractOASvalue(oasDocument, oasPath) {
                         oasValue = normalizeString(oasValue);
                         break;
                     //default:
-                        //throw error
+                        //throw errorURL_API
                 }
             }
+            if(typeof(oasValue) == 'string') oasValue = oasValue.replace(/\n/g, ' ');
         }
         return oasValue;
     }
 }
 
+function readAST(ast, oasDocument, oasPath) {
+    switch(ast.op) {
+        case 'AND':
+            leftValue = readAST(ast.left, oasDocument, oasPath);
+            rightValue = readAST(ast.right, oasDocument, oasPath);
+            if(typeof(leftValue) == null || typeof(rightValue) == null) return null;
+            if(typeof(leftValue) == 'string') {
+                if(typeof(rightValue) == 'string') return leftValue + rightValue;
+                else if(typeof(rightValue) == 'object') return rightValue.map(right => leftValue + right);
+                else throw errors.get('IncorrectOASPathExpression')(oasPath);
+            } else if(typeof(leftValue) == 'object') {
+                if(typeof(rightValue) == 'string') return leftValue.map(left => left + rightValue);
+                else if(typeof(rightValue) == 'object' && leftValue.length == rightValue.length) return leftValue.map((left, index) => left + rightValue[index]);
+                else if(typeof(rightValue) == 'object') return leftValue.concat(rightValue);
+                else throw errors.get('IncorrectOASPathExpression')(oasPath);
+            } else {
+                throw errors.get('IncorrectOASPathExpression')(oasPath);
+            }
+        case 'OR':
+            leftValue = readAST(ast.left, oasDocument, oasPath);
+            if(leftValue != null && typeof(leftValue) == 'object') {
+                return leftValue.map(val => val != null ? val : readAST(ast.right, oasDocument, oasPath));
+            } else if(leftValue != null) {
+                return leftValue;
+            } else {
+                return readAST(ast.right, oasDocument, oasPath)
+            }
+        case 'LITERAL':
+            return extractOASValueFromProperty(oasDocument, ast.literal);
+    }
+}
+
+function extractOASvalue(oasDocument, oasPath) {
+    return readAST(logicalParser.ast(oasPath.replace(/\&\&/g, 'AND').replace(/\|\|/g, 'OR')), oasDocument, oasPath);
+}
+
+function fillSchemaOrgProperty(oasValue, metadata, schemaOrgPath) {
+    var subSchemaMetadata = metadata;
+    if(oasValue != null) {
+        const lengthPath = schemaOrgPath.split('.').length;
+        for(var [index, property] of schemaOrgPath.split('.').entries()) {
+            [ nameProperty, type ] = property.split(':');
+            if(property.endsWith('[]') && index + 1 < lengthPath) { // [] cases
+                type = type.slice(0, type.length - 2);
+                if(subSchemaMetadata[nameProperty] == null) {
+                    subSchemaMetadata[nameProperty] = oasValue.map(value => { return {
+                        "@type": type,
+                    } });
+                }
+                subSchemaMetadata[nameProperty] = subSchemaMetadata[nameProperty].map((val, iProperty) =>
+                    fillSchemaOrgProperty(
+                        typeof(oasValue) == 'object' ? oasValue[iProperty] : oasValue,
+                        val,
+                        schemaOrgPath.split('.').filter((pathVal, i) => i > index).join('.')
+                    )
+                );
+                return metadata;
+            } else if(property.match(/^.*\[[0-9]*\]$/) && index + 1 < lengthPath) {
+                var indexArray = parseInt(property.replace(/^.*\[([0-9]*)\]$/, '$1'));
+                type = type != null ? type.replace(/^(.*)\[[0-9]*\]$/, '$1') : null;
+                if(type != null) {
+                    if(subSchemaMetadata[nameProperty] == null) {
+                        if(indexArray == 0) {
+                            subSchemaMetadata[nameProperty] = [{
+                                "@type": type
+                            }];
+                        } else throw errors.get('IncorrectSchemaOrgPathExpression');
+                    }
+                    if(subSchemaMetadata[nameProperty][indexArray] == null) throw errors.get('IncorrectSchemaOrgPathExpression');
+                    subSchemaMetadata = subSchemaMetadata[nameProperty][indexArray];
+                } else {
+                    subSchemaMetadata[nameProperty] = oasValue;
+                }
+            } else { // Simple property cases
+                if(type != null) {
+                    if(subSchemaMetadata[nameProperty] == null) {
+                        subSchemaMetadata[nameProperty] = {
+                            "@type": type
+                        }
+                    }
+                    subSchemaMetadata = subSchemaMetadata[nameProperty];
+                } else {
+                    subSchemaMetadata[nameProperty] = typeof(oasValue) == 'object' && oasValue.length == 1 ? oasValue[0] : oasValue;
+                }
+            }
+        }
+    }
+    return metadata;
+}
+
 function extractMetadata(oasDocument, urlAPI, urlDoc) {
-    var metadata = {};
+    var metadata = {
+        "@context": "http://schema.org",
+        "@type": "WebAPI"
+    };
     external_values = EXTERNAL_VALUES(urlAPI, urlDoc);
-    OAS_SchemaOrg_CORRESPONDENCES.forEach((schemOrgPath, oasPath) => {
+    SchemaOrg_OAS_CORRESPONDENCES.forEach((oasPath, schemaOrgPath) => {
         oasValue = extractOASvalue(oasDocument, oasPath);
-        //console.log(oasValue);
-        //fillSchemaOrgProperty(oasValue, metadata, schemOrgPath);
+        metadata = fillSchemaOrgProperty(oasValue, metadata, schemaOrgPath);
+       
     });
-    return true;
+    //console.log(metadata);
+    //metadata = clearNullValues(metadata)
+    return metadata;
 }
 
 module.exports = {

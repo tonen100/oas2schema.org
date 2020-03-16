@@ -3,6 +3,11 @@ function InvalidFormat(message) {
     this.message = message;
 }
 
+function OASPathError(message) {
+    this.name = "OASPathError";
+    this.message = message;
+}
+
 module.exports = new Map([
     [
         'UnknownInputFormat',
@@ -19,5 +24,11 @@ module.exports = new Map([
     ], [
         'UnsupportedInputFileType',
         new InvalidFormat("The type of the object that contains the API documentation is not supported (at least for this format of the API documentation)")
+    ], [
+        'IncorrectOASPathExpression',
+        (path) => new OASPathError("The OAS path logical expression " + path + "returns values with incorrects of differents types. It's either an internal error or an incorrect OAS document definition")
+    ], [
+        'IncorrectSchemaOrgPathExpression',
+        (path) => new SchemaOrgPath("The Schema.Org path expression " + path + " couldnt match existing array to fill values in the metadata that he is generating, check if your OAS document is not missing some required values")
     ]
 ])
