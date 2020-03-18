@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "test",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "genDoc": "./node_modules/.bin/jsdoc -c jsDoc.conf.json"
   },
   "repository": {
     "type": "git",
@@ -31,5 +32,8 @@
     "openapi-enforcer": "^1.10.0",
     "swagger-parser": "github:BigstickCarpet/swagger-parser",
     "swagger2openapi": "^5.3.4"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.3"
   }
 }
