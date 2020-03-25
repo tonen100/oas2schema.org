@@ -1,6 +1,6 @@
 {
   "name": "oas2schema.org",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate corresponding Schema.org metadata from OAS descriptions for RESTfull APIs",
   "main": "src/index.js",
   "bin": "src/argv.js",
