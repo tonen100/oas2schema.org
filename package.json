@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "bin": "src/argv.js",
   "scripts": {
-    "test": "mocha --exit --timeout 5000",
+    "test": "mocha --exit --timeout 10000",
     "start": "node src/argv.js",
     "genDoc": "./node_modules/.bin/jsdoc -c jsDoc.conf.json"
   },
