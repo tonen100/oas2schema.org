@@ -1,0 +1,78 @@
+{
+	"@context": "http://schema.org",
+	"@type": "WebAPI",
+	"title": "Real World API",
+	"description": "This API Blueprint demonstrates a real world example documenting a portion of [App.net API](http://developers.app.net).  NOTE: This document is a **work in progress**.",
+	"category": " posts",
+	"availableChannel": [
+		{
+			"@type": "ServiceChannel",
+			"name": "Stream 0 posts post id",
+			"serviceUrl": "https://alpha-api.app.net//stream/0/posts/{post_id}",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": " retrieve a  post",
+					"url": "https://alpha-api.app.net//stream/0/posts/{post_id}",
+					"description": "Returns a specific Post.",
+					"disambiguatingDescription": "Retrieve a Post"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "delete",
+					"name": " delete a  post",
+					"url": "https://alpha-api.app.net//stream/0/posts/{post_id}",
+					"description": "Delete a Post. The current user must be the same user who created the Post. It returns the deleted Post on success.",
+					"disambiguatingDescription": "Delete a Post"
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Stream 0 posts",
+			"serviceUrl": "https://alpha-api.app.net//stream/0/posts",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "post",
+					"name": " create a  post",
+					"url": "https://alpha-api.app.net//stream/0/posts",
+					"description": "Create a new Post object. Mentions and hashtags will be parsed out of the post text, as will bare URLs...",
+					"disambiguatingDescription": "Create a Post"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": " retrieve all  posts",
+					"url": "https://alpha-api.app.net//stream/0/posts",
+					"description": "Retrieves all posts.",
+					"disambiguatingDescription": "Retrieve all Posts"
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Stream 0 posts post id star",
+			"serviceUrl": "https://alpha-api.app.net//stream/0/posts/{post_id}/star",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "post",
+					"name": " star a  post",
+					"url": "https://alpha-api.app.net//stream/0/posts/{post_id}/star",
+					"description": "Save a given Post to the current User’s stars. This is just a “save” action, not a sharing action.  *Note: A repost cannot be starred. Please star the parent Post.*",
+					"disambiguatingDescription": "Star a Post"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "delete",
+					"name": " unstar a  post",
+					"url": "https://alpha-api.app.net//stream/0/posts/{post_id}/star",
+					"description": "Remove a Star from a Post.",
+					"disambiguatingDescription": "Unstar a Post"
+				}
+			]
+		}
+	]
+}
