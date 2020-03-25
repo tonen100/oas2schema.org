@@ -1,8 +1,9 @@
 {
   "name": "oas2schema.org",
   "version": "1.0.0",
-  "description": "Generate corresponding Schema.org metadata from OAS descriptions",
+  "description": "Generate corresponding Schema.org metadata from OAS descriptions for RESTfull APIs",
   "main": "src/index.js",
+  "bin": "src/argv.js",
   "scripts": {
     "test": "mocha --exit --timeout 5000",
     "start": "node src/argv.js",
@@ -13,7 +14,9 @@
     "url": "git+https://github.com/tonen100/oas2schema.org.git"
   },
   "keywords": [
-    "OAS"
+    "OAS",
+    "Swagger",
+    "Schema.org"
   ],
   "author": "Pierre-François Giraud",
   "license": "GPL-3.0",
