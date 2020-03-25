@@ -65,7 +65,7 @@ class SemanticTranslator {
      * <li>['documentation', 'URL_DOC']</li>
      * <li>['termsOfService', 'info.termsOfService']</li>
      * <li>['availableChannel:ServiceChannel[].name', 'paths.{}~']</li>
-     * <li>['availableChannel:ServiceChannel[].description', 'paths.{}e.description']</li>
+     * <li>['availableChannel:ServiceChannel[].description', 'paths.{}.description']</li>
      * <li>['availableChannel:ServiceChannel[].disambiguatingDescription', 'paths.{}.summary']</li>
      * <li>['availableChannel:ServiceChannel[].serviceUrl', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}']</li>
      * <li>['availableChannel:ServiceChannel[].providesService:EntryPoint[].httpMethod', 'paths.{}.{get|post|put|delete|options|head|patch|trace}']</li>
@@ -96,7 +96,7 @@ class SemanticTranslator {
         ['documentation', 'URL_DOC'],
         ['termsOfService', 'info.termsOfService'],
         ['availableChannel:ServiceChannel[].name', 'paths.{}~'],
-        ['availableChannel:ServiceChannel[].description', 'paths.{}e.description'],
+        ['availableChannel:ServiceChannel[].description', 'paths.{}.description'],
         ['availableChannel:ServiceChannel[].disambiguatingDescription', 'paths.{}.summary'],
         ['availableChannel:ServiceChannel[].serviceUrl', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}'],
         ['availableChannel:ServiceChannel[].providesService:EntryPoint[].httpMethod', 'paths.{}.{get|post|put|delete|options|head|patch|trace}'],
@@ -129,7 +129,7 @@ class SemanticTranslator {
         // Replaces all underscores by a space (for snake_case strings)
         .replace(/_/g, ' ')
         // Inserts a space before all caps (for camelCase strings)
-        .replace(/([A-Z])/g, ' $1')
+        .replace(/([A-Z][a-z]+)/g, ' $1')
         // Lowercases all characters (for camelCase strings)
         .toLowerCase()
         // Uppercases the first character (for camelCase strings)
@@ -181,6 +181,7 @@ class SemanticTranslator {
                         oasValue = oasValue[property] != null ? oasValue[property].map(
                             element =>  this.extractOASValueFromProperty(element, oasPath.split('.').filter((pathVal, i) => i > index).join('.'))
                         ) : null;
+                        break;
                     } else if(property.match(/^.*\[[0-9]*\]$/)) {
                         var index = parseInt(property.replace(/^.*\[([0-9]*)\]$/, '$1'));
                         property = property.replace(/^(.*)\[[0-9]*\]$/, '$1');

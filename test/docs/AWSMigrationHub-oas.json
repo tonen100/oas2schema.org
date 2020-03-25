@@ -1,0 +1,3482 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+      {
+        "description": "The AWS Migration Hub multi-region endpoint",
+        "url": "http://mgh.{region}.amazonaws.com",
+        "variables": {
+          "region": {
+            "default": "us-east-1",
+            "description": "The AWS region",
+            "enum": [
+              "us-east-1",
+              "us-east-2",
+              "us-west-1",
+              "us-west-2",
+              "us-gov-west-1",
+              "us-gov-east-1",
+              "ca-central-1",
+              "eu-north-1",
+              "eu-west-1",
+              "eu-west-2",
+              "eu-west-3",
+              "eu-central-1",
+              "ap-northeast-1",
+              "ap-northeast-2",
+              "ap-northeast-3",
+              "ap-southeast-1",
+              "ap-southeast-2",
+              "ap-south-1",
+              "sa-east-1"
+            ]
+          }
+        }
+      },
+      {
+        "description": "The AWS Migration Hub multi-region endpoint",
+        "url": "https://mgh.{region}.amazonaws.com",
+        "variables": {
+          "region": {
+            "default": "us-east-1",
+            "description": "The AWS region",
+            "enum": [
+              "us-east-1",
+              "us-east-2",
+              "us-west-1",
+              "us-west-2",
+              "us-gov-west-1",
+              "us-gov-east-1",
+              "ca-central-1",
+              "eu-north-1",
+              "eu-west-1",
+              "eu-west-2",
+              "eu-west-3",
+              "eu-central-1",
+              "ap-northeast-1",
+              "ap-northeast-2",
+              "ap-northeast-3",
+              "ap-southeast-1",
+              "ap-southeast-2",
+              "ap-south-1",
+              "sa-east-1"
+            ]
+          }
+        }
+      },
+      {
+        "description": "The AWS Migration Hub endpoint for China (Beijing) and China (Ningxia)",
+        "url": "http://mgh.{region}.amazonaws.com.cn",
+        "variables": {
+          "region": {
+            "default": "cn-north-1",
+            "description": "The AWS region",
+            "enum": [
+              "cn-north-1",
+              "cn-northwest-1"
+            ]
+          }
+        }
+      },
+      {
+        "description": "The AWS Migration Hub endpoint for China (Beijing) and China (Ningxia)",
+        "url": "https://mgh.{region}.amazonaws.com.cn",
+        "variables": {
+          "region": {
+            "default": "cn-north-1",
+            "description": "The AWS region",
+            "enum": [
+              "cn-north-1",
+              "cn-northwest-1"
+            ]
+          }
+        }
+      }
+    ],
+    "x-hasEquivalentPaths": true,
+    "info": {
+      "contact": {
+        "email": "mike.ralphson@gmail.com",
+        "name": "Mike Ralphson",
+        "url": "https://github.com/mermade/aws2openapi",
+        "x-twitter": "PermittedSoc"
+      },
+      "description": "<p>The AWS Migration Hub API methods help to obtain server and application migration status and integrate your resource-specific migration tool by providing a programmatic interface to Migration Hub.</p> <p>Remember that you must set your AWS Migration Hub home region before you call any of these APIs, or a <code>HomeRegionNotSetException</code> error will be returned. Also, you must make the API calls while in your home region.</p>",
+      "license": {
+        "name": "Apache 2.0 License",
+        "url": "http://www.apache.org/licenses/"
+      },
+      "termsOfService": "https://aws.amazon.com/service-terms/",
+      "title": "AWS Migration Hub",
+      "version": "2017-05-31",
+      "x-apiClientRegistration": {
+        "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+      },
+      "x-apisguru-categories": [
+        "cloud"
+      ],
+      "x-logo": {
+        "backgroundColor": "#FFFFFF",
+        "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+      },
+      "x-origin": [
+        {
+          "contentType": "application/json",
+          "converter": {
+            "url": "https://github.com/mermade/aws2openapi",
+            "version": "1.0.0"
+          },
+          "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/AWSMigrationHub-2017-05-31.normal.json",
+          "x-apisguru-driver": "external"
+        }
+      ],
+      "x-preferred": true,
+      "x-providerName": "amazonaws.com",
+      "x-release": "v4",
+      "x-serviceName": "AWSMigrationHub"
+    },
+    "externalDocs": {
+      "description": "Amazon Web Services documentation",
+      "url": "https://docs.aws.amazon.com/mgh/"
+    },
+    "security": [
+      {
+        "hmac": []
+      }
+    ],
+    "paths": {
+      "/#X-Amz-Target=AWSMigrationHub.AssociateCreatedArtifact": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "<p>Associates a created artifact of an AWS cloud resource, the target receiving the migration, with the migration task performed by a migration tool. This API has the following traits:</p> <ul> <li> <p>Migration tools can call the <code>AssociateCreatedArtifact</code> operation to indicate which AWS artifact is associated with a migration task.</p> </li> <li> <p>The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.</p> </li> <li> <p>Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or DMS endpoint, etc.</p> </li> </ul>",
+          "operationId": "AssociateCreatedArtifact",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.AssociateCreatedArtifact"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssociateCreatedArtifactRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AssociateCreatedArtifactResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.AssociateDiscoveredResource": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Associates a discovered resource ID from Application Discovery Service with a migration task.",
+          "operationId": "AssociateDiscoveredResource",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.AssociateDiscoveredResource"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssociateDiscoveredResourceRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AssociateDiscoveredResourceResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PolicyErrorException"
+                  }
+                }
+              },
+              "description": "PolicyErrorException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "488": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.CreateProgressUpdateStream": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Creates a progress update stream which is an AWS resource used for access control as well as a namespace for migration task names that is implicitly linked to your AWS account. It must uniquely identify the migration tool as it is used for all updates made by the tool; however, it does not need to be unique for each AWS account because it is scoped to the AWS account.",
+          "operationId": "CreateProgressUpdateStream",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.CreateProgressUpdateStream"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateProgressUpdateStreamRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CreateProgressUpdateStreamResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.DeleteProgressUpdateStream": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "<p>Deletes a progress update stream, including all of its tasks, which was previously created as an AWS resource used for access control. This API has the following traits:</p> <ul> <li> <p>The only parameter needed for <code>DeleteProgressUpdateStream</code> is the stream name (same as a <code>CreateProgressUpdateStream</code> call).</p> </li> <li> <p>The call will return, and a background process will asynchronously delete the stream and all of its resources (tasks, associated resources, resource attributes, created artifacts).</p> </li> <li> <p>If the stream takes time to be deleted, it might still show up on a <code>ListProgressUpdateStreams</code> call.</p> </li> <li> <p> <code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>, <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs related to the tasks belonging to the stream will throw \"InvalidInputException\" if the stream of the same name is in the process of being deleted.</p> </li> <li> <p>Once the stream and all of its resources are deleted, <code>CreateProgressUpdateStream</code> for a stream of the same name will succeed, and that stream will be an entirely new logical resource (without any resources associated with the old stream).</p> </li> </ul>",
+          "operationId": "DeleteProgressUpdateStream",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.DeleteProgressUpdateStream"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteProgressUpdateStreamRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DeleteProgressUpdateStreamResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.DescribeApplicationState": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Gets the migration status of an application.",
+          "operationId": "DescribeApplicationState",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.DescribeApplicationState"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DescribeApplicationStateRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DescribeApplicationStateResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PolicyErrorException"
+                  }
+                }
+              },
+              "description": "PolicyErrorException"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.DescribeMigrationTask": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Retrieves a list of all attributes associated with a specific migration task.",
+          "operationId": "DescribeMigrationTask",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.DescribeMigrationTask"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DescribeMigrationTaskRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DescribeMigrationTaskResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.DisassociateCreatedArtifact": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "<p>Disassociates a created artifact of an AWS resource with a migration task performed by a migration tool that was previously associated. This API has the following traits:</p> <ul> <li> <p>A migration user can call the <code>DisassociateCreatedArtifacts</code> operation to disassociate a created AWS Artifact from a migration task.</p> </li> <li> <p>The created artifact name must be provided in ARN (Amazon Resource Name) format which will contain information about type and region; for example: <code>arn:aws:ec2:us-east-1:488216288981:image/ami-6d0ba87b</code>.</p> </li> <li> <p>Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or RDS instance, etc.</p> </li> </ul>",
+          "operationId": "DisassociateCreatedArtifact",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.DisassociateCreatedArtifact"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisassociateCreatedArtifactRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DisassociateCreatedArtifactResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.DisassociateDiscoveredResource": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Disassociate an Application Discovery Service discovered resource from a migration task.",
+          "operationId": "DisassociateDiscoveredResource",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.DisassociateDiscoveredResource"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisassociateDiscoveredResourceRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DisassociateDiscoveredResourceResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.ImportMigrationTask": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "<p>Registers a new migration task which represents a server, database, etc., being migrated to AWS by a migration tool.</p> <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as the migration tool must first register the migration task with Migration Hub.</p>",
+          "operationId": "ImportMigrationTask",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.ImportMigrationTask"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportMigrationTaskRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ImportMigrationTaskResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.ListApplicationStates": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Lists all the migration statuses for your applications. If you use the optional <code>ApplicationIds</code> parameter, only the migration statuses for those applications will be returned.",
+          "operationId": "ListApplicationStates",
+          "parameters": [
+            {
+              "description": "Pagination limit",
+              "in": "query",
+              "name": "MaxResults",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "description": "Pagination token",
+              "in": "query",
+              "name": "NextToken",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.ListApplicationStates"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListApplicationStatesRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ListApplicationStatesResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.ListCreatedArtifacts": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "<p>Lists the created artifacts attached to a given migration task in an update stream. This API has the following traits:</p> <ul> <li> <p>Gets the list of the created artifacts while migration is taking place.</p> </li> <li> <p>Shows the artifacts created by the migration tool that was associated by the <code>AssociateCreatedArtifact</code> API. </p> </li> <li> <p>Lists created artifacts in a paginated interface. </p> </li> </ul>",
+          "operationId": "ListCreatedArtifacts",
+          "parameters": [
+            {
+              "description": "Pagination limit",
+              "in": "query",
+              "name": "MaxResults",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "description": "Pagination token",
+              "in": "query",
+              "name": "NextToken",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.ListCreatedArtifacts"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCreatedArtifactsRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ListCreatedArtifactsResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.ListDiscoveredResources": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Lists discovered resources associated with the given <code>MigrationTask</code>.",
+          "operationId": "ListDiscoveredResources",
+          "parameters": [
+            {
+              "description": "Pagination limit",
+              "in": "query",
+              "name": "MaxResults",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "description": "Pagination token",
+              "in": "query",
+              "name": "NextToken",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.ListDiscoveredResources"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDiscoveredResourcesRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ListDiscoveredResourcesResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.ListMigrationTasks": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "<p>Lists all, or filtered by resource name, migration tasks associated with the user account making this call. This API has the following traits:</p> <ul> <li> <p>Can show a summary list of the most recent migration tasks.</p> </li> <li> <p>Can show a summary list of migration tasks associated with a given discovered resource.</p> </li> <li> <p>Lists migration tasks in a paginated interface.</p> </li> </ul>",
+          "operationId": "ListMigrationTasks",
+          "parameters": [
+            {
+              "description": "Pagination limit",
+              "in": "query",
+              "name": "MaxResults",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "description": "Pagination token",
+              "in": "query",
+              "name": "NextToken",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.ListMigrationTasks"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMigrationTasksRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ListMigrationTasksResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PolicyErrorException"
+                  }
+                }
+              },
+              "description": "PolicyErrorException"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.ListProgressUpdateStreams": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Lists progress update streams associated with the user account making this call.",
+          "operationId": "ListProgressUpdateStreams",
+          "parameters": [
+            {
+              "description": "Pagination limit",
+              "in": "query",
+              "name": "MaxResults",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "description": "Pagination token",
+              "in": "query",
+              "name": "NextToken",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.ListProgressUpdateStreams"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListProgressUpdateStreamsRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ListProgressUpdateStreamsResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.NotifyApplicationState": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "Sets the migration state of an application. For a given application identified by the value passed to <code>ApplicationId</code>, its status is set or updated by passing one of three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS | COMPLETED</code>.",
+          "operationId": "NotifyApplicationState",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.NotifyApplicationState"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotifyApplicationStateRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotifyApplicationStateResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PolicyErrorException"
+                  }
+                }
+              },
+              "description": "PolicyErrorException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "488": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.NotifyMigrationTaskState": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "<p>Notifies Migration Hub of the current status, progress, or other detail regarding a migration task. This API has the following traits:</p> <ul> <li> <p>Migration tools will call the <code>NotifyMigrationTaskState</code> API to share the latest progress and status.</p> </li> <li> <p> <code>MigrationTaskName</code> is used for addressing updates to the correct target.</p> </li> <li> <p> <code>ProgressUpdateStream</code> is used for access control and to provide a namespace for each migration tool.</p> </li> </ul>",
+          "operationId": "NotifyMigrationTaskState",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.NotifyMigrationTaskState"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotifyMigrationTaskStateRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotifyMigrationTaskStateResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      },
+      "/#X-Amz-Target=AWSMigrationHub.PutResourceAttributes": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Amz-Content-Sha256"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Date"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Algorithm"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Credential"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Security-Token"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-Signature"
+          },
+          {
+            "$ref": "#/components/parameters/X-Amz-SignedHeaders"
+          }
+        ],
+        "post": {
+          "description": "<p>Provides identifying details of the resource being migrated so that it can be associated in the Application Discovery Service repository. This association occurs asynchronously after <code>PutResourceAttributes</code> returns.</p> <important> <ul> <li> <p>Keep in mind that subsequent calls to PutResourceAttributes will override previously stored attributes. For example, if it is first called with a MAC address, but later, it is desired to <i>add</i> an IP address, it will then be required to call it with <i>both</i> the IP and MAC addresses to prevent overriding the MAC address.</p> </li> <li> <p>Note the instructions regarding the special use case of the <a href=\"https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList\"> <code>ResourceAttributeList</code> </a> parameter when specifying any \"VM\" related value.</p> </li> </ul> </important> <note> <p>Because this is an asynchronous call, it will always return 200, whether an association occurs or not. To confirm if an association was found based on the provided details, call <code>ListDiscoveredResources</code>.</p> </note>",
+          "operationId": "PutResourceAttributes",
+          "parameters": [
+            {
+              "in": "header",
+              "name": "X-Amz-Target",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "AWSMigrationHub.PutResourceAttributes"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutResourceAttributesRequest"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PutResourceAttributesResult"
+                  }
+                }
+              },
+              "description": "Success"
+            },
+            "480": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AccessDeniedException"
+                  }
+                }
+              },
+              "description": "AccessDeniedException"
+            },
+            "481": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InternalServerError"
+                  }
+                }
+              },
+              "description": "InternalServerError"
+            },
+            "482": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ServiceUnavailableException"
+                  }
+                }
+              },
+              "description": "ServiceUnavailableException"
+            },
+            "483": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DryRunOperation"
+                  }
+                }
+              },
+              "description": "DryRunOperation"
+            },
+            "484": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedOperation"
+                  }
+                }
+              },
+              "description": "UnauthorizedOperation"
+            },
+            "485": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InvalidInputException"
+                  }
+                }
+              },
+              "description": "InvalidInputException"
+            },
+            "486": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                  }
+                }
+              },
+              "description": "ResourceNotFoundException"
+            },
+            "487": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HomeRegionNotSetException"
+                  }
+                }
+              },
+              "description": "HomeRegionNotSetException"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "parameters": {
+        "X-Amz-Algorithm": {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "X-Amz-Content-Sha256": {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "X-Amz-Credential": {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "X-Amz-Date": {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "X-Amz-Security-Token": {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "X-Amz-Signature": {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "X-Amz-SignedHeaders": {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "schemas": {
+        "AccessDeniedException": {},
+        "ApplicationId": {
+          "maxLength": 1600,
+          "minLength": 1,
+          "type": "string"
+        },
+        "ApplicationIds": {
+          "items": {
+            "$ref": "#/components/schemas/ApplicationId"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "type": "array"
+        },
+        "ApplicationState": {
+          "description": "The state of an application discovered through Migration Hub import, the AWS Agentless Discovery Connector, or the AWS Application Discovery Agent.",
+          "properties": {
+            "ApplicationId": {
+              "$ref": "#/components/schemas/ApplicationId",
+              "description": "The configurationId from the Application Discovery Service that uniquely identifies an application."
+            },
+            "ApplicationStatus": {
+              "$ref": "#/components/schemas/ApplicationStatus",
+              "description": "The current status of an application."
+            },
+            "LastUpdatedTime": {
+              "$ref": "#/components/schemas/UpdateDateTime",
+              "description": "The timestamp when the application status was last updated."
+            }
+          },
+          "type": "object"
+        },
+        "ApplicationStateList": {
+          "items": {
+            "$ref": "#/components/schemas/ApplicationState"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "ApplicationStatus": {
+          "enum": [
+            "NOT_STARTED",
+            "IN_PROGRESS",
+            "COMPLETED"
+          ],
+          "type": "string"
+        },
+        "AssociateCreatedArtifactRequest": {
+          "properties": {
+            "CreatedArtifact": {
+              "$ref": "#/components/schemas/CreatedArtifact",
+              "description": "An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.) "
+            },
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName",
+            "CreatedArtifact"
+          ],
+          "title": "AssociateCreatedArtifactRequest",
+          "type": "object"
+        },
+        "AssociateCreatedArtifactResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "AssociateDiscoveredResourceRequest": {
+          "properties": {
+            "DiscoveredResource": {
+              "$ref": "#/components/schemas/DiscoveredResource",
+              "description": "Object representing a Resource."
+            },
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream."
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName",
+            "DiscoveredResource"
+          ],
+          "title": "AssociateDiscoveredResourceRequest",
+          "type": "object"
+        },
+        "AssociateDiscoveredResourceResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "ConfigurationId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "CreateProgressUpdateStreamRequest": {
+          "properties": {
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "ProgressUpdateStreamName": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> "
+            }
+          },
+          "required": [
+            "ProgressUpdateStreamName"
+          ],
+          "title": "CreateProgressUpdateStreamRequest",
+          "type": "object"
+        },
+        "CreateProgressUpdateStreamResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "CreatedArtifact": {
+          "description": "An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).",
+          "properties": {
+            "Description": {
+              "$ref": "#/components/schemas/CreatedArtifactDescription",
+              "description": "A description that can be free-form text to record additional detail about the artifact for clarity or for later reference."
+            },
+            "Name": {
+              "$ref": "#/components/schemas/CreatedArtifactName",
+              "description": "An ARN that uniquely identifies the result of a migration task."
+            }
+          },
+          "required": [
+            "Name"
+          ],
+          "type": "object"
+        },
+        "CreatedArtifactDescription": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "CreatedArtifactList": {
+          "items": {
+            "$ref": "#/components/schemas/CreatedArtifact"
+          },
+          "type": "array"
+        },
+        "CreatedArtifactName": {
+          "maxLength": 1600,
+          "minLength": 1,
+          "pattern": "arn:[a-z-]+:[a-z0-9-]+:(?:[a-z0-9-]+|):(?:[0-9]{12}|):.*",
+          "type": "string"
+        },
+        "DeleteProgressUpdateStreamRequest": {
+          "properties": {
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "ProgressUpdateStreamName": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> "
+            }
+          },
+          "required": [
+            "ProgressUpdateStreamName"
+          ],
+          "title": "DeleteProgressUpdateStreamRequest",
+          "type": "object"
+        },
+        "DeleteProgressUpdateStreamResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "DescribeApplicationStateRequest": {
+          "properties": {
+            "ApplicationId": {
+              "$ref": "#/components/schemas/ApplicationId",
+              "description": "The configurationId in Application Discovery Service that uniquely identifies the grouped application."
+            }
+          },
+          "required": [
+            "ApplicationId"
+          ],
+          "title": "DescribeApplicationStateRequest",
+          "type": "object"
+        },
+        "DescribeApplicationStateResult": {
+          "properties": {
+            "ApplicationStatus": {
+              "$ref": "#/components/schemas/ApplicationStatus",
+              "description": "Status of the application - Not Started, In-Progress, Complete."
+            },
+            "LastUpdatedTime": {
+              "$ref": "#/components/schemas/UpdateDateTime",
+              "description": "The timestamp when the application status was last updated."
+            }
+          },
+          "type": "object"
+        },
+        "DescribeMigrationTaskRequest": {
+          "properties": {
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName"
+          ],
+          "title": "DescribeMigrationTaskRequest",
+          "type": "object"
+        },
+        "DescribeMigrationTaskResult": {
+          "properties": {
+            "MigrationTask": {
+              "$ref": "#/components/schemas/MigrationTask",
+              "description": "Object encapsulating information about the migration task."
+            }
+          },
+          "type": "object"
+        },
+        "DisassociateCreatedArtifactRequest": {
+          "properties": {
+            "CreatedArtifactName": {
+              "$ref": "#/components/schemas/CreatedArtifactName",
+              "description": "An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)"
+            },
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "Unique identifier that references the migration task to be disassociated with the artifact. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName",
+            "CreatedArtifactName"
+          ],
+          "title": "DisassociateCreatedArtifactRequest",
+          "type": "object"
+        },
+        "DisassociateCreatedArtifactResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "DisassociateDiscoveredResourceRequest": {
+          "properties": {
+            "ConfigurationId": {
+              "$ref": "#/components/schemas/ConfigurationId",
+              "description": "ConfigurationId of the Application Discovery Service resource to be disassociated."
+            },
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream."
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName",
+            "ConfigurationId"
+          ],
+          "title": "DisassociateDiscoveredResourceRequest",
+          "type": "object"
+        },
+        "DisassociateDiscoveredResourceResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "DiscoveredResource": {
+          "description": "Object representing the on-premises resource being migrated.",
+          "properties": {
+            "ConfigurationId": {
+              "$ref": "#/components/schemas/ConfigurationId",
+              "description": "The configurationId in Application Discovery Service that uniquely identifies the on-premise resource."
+            },
+            "Description": {
+              "$ref": "#/components/schemas/DiscoveredResourceDescription",
+              "description": "A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference."
+            }
+          },
+          "required": [
+            "ConfigurationId"
+          ],
+          "type": "object"
+        },
+        "DiscoveredResourceDescription": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "DiscoveredResourceList": {
+          "items": {
+            "$ref": "#/components/schemas/DiscoveredResource"
+          },
+          "type": "array"
+        },
+        "DryRun": {
+          "type": "boolean"
+        },
+        "DryRunOperation": {},
+        "HomeRegionNotSetException": {},
+        "ImportMigrationTaskRequest": {
+          "properties": {
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. &gt;"
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName"
+          ],
+          "title": "ImportMigrationTaskRequest",
+          "type": "object"
+        },
+        "ImportMigrationTaskResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "InternalServerError": {},
+        "InvalidInputException": {},
+        "LatestResourceAttributeList": {
+          "items": {
+            "$ref": "#/components/schemas/ResourceAttribute"
+          },
+          "maxItems": 100,
+          "minItems": 0,
+          "type": "array"
+        },
+        "ListApplicationStatesRequest": {
+          "properties": {
+            "ApplicationIds": {
+              "$ref": "#/components/schemas/ApplicationIds",
+              "description": "The configurationIds from the Application Discovery Service that uniquely identifies your applications."
+            },
+            "MaxResults": {
+              "$ref": "#/components/schemas/MaxResults",
+              "description": "Maximum number of results to be returned per page."
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          },
+          "title": "ListApplicationStatesRequest",
+          "type": "object"
+        },
+        "ListApplicationStatesResult": {
+          "properties": {
+            "ApplicationStateList": {
+              "$ref": "#/components/schemas/ApplicationStateList",
+              "description": "A list of Applications that exist in Application Discovery Service."
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          },
+          "type": "object"
+        },
+        "ListCreatedArtifactsRequest": {
+          "properties": {
+            "MaxResults": {
+              "$ref": "#/components/schemas/MaxResultsCreatedArtifacts",
+              "description": "Maximum number of results to be returned per page."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. "
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName"
+          ],
+          "title": "ListCreatedArtifactsRequest",
+          "type": "object"
+        },
+        "ListCreatedArtifactsResult": {
+          "properties": {
+            "CreatedArtifactList": {
+              "$ref": "#/components/schemas/CreatedArtifactList",
+              "description": "List of created artifacts up to the maximum number of results specified in the request."
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+            }
+          },
+          "type": "object"
+        },
+        "ListDiscoveredResourcesRequest": {
+          "properties": {
+            "MaxResults": {
+              "$ref": "#/components/schemas/MaxResultsResources",
+              "description": "The maximum number of results returned per page."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "The name of the MigrationTask. <i>Do not store personal data in this field.</i> "
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream."
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName"
+          ],
+          "title": "ListDiscoveredResourcesRequest",
+          "type": "object"
+        },
+        "ListDiscoveredResourcesResult": {
+          "properties": {
+            "DiscoveredResourceList": {
+              "$ref": "#/components/schemas/DiscoveredResourceList",
+              "description": "Returned list of discovered resources associated with the given MigrationTask."
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If there are more discovered resources than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+            }
+          },
+          "type": "object"
+        },
+        "ListMigrationTasksRequest": {
+          "properties": {
+            "MaxResults": {
+              "$ref": "#/components/schemas/MaxResults",
+              "description": "Value to specify how many results are returned per page."
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            },
+            "ResourceName": {
+              "$ref": "#/components/schemas/ResourceName",
+              "description": "Filter migration tasks by discovered resource name."
+            }
+          },
+          "title": "ListMigrationTasksRequest",
+          "type": "object"
+        },
+        "ListMigrationTasksResult": {
+          "properties": {
+            "MigrationTaskSummaryList": {
+              "$ref": "#/components/schemas/MigrationTaskSummaryList",
+              "description": "Lists the migration task's summary which includes: <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and the <code>UpdateDateTime</code> for each task."
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+            }
+          },
+          "type": "object"
+        },
+        "ListProgressUpdateStreamsRequest": {
+          "properties": {
+            "MaxResults": {
+              "$ref": "#/components/schemas/MaxResults",
+              "description": "Filter to limit the maximum number of results to list per page."
+            },
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+            }
+          },
+          "title": "ListProgressUpdateStreamsRequest",
+          "type": "object"
+        },
+        "ListProgressUpdateStreamsResult": {
+          "properties": {
+            "NextToken": {
+              "$ref": "#/components/schemas/Token",
+              "description": "If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+            },
+            "ProgressUpdateStreamSummaryList": {
+              "$ref": "#/components/schemas/ProgressUpdateStreamSummaryList",
+              "description": "List of progress update streams up to the max number of results passed in the input."
+            }
+          },
+          "type": "object"
+        },
+        "MaxResults": {
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "MaxResultsCreatedArtifacts": {
+          "maximum": 10,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "MaxResultsResources": {
+          "maximum": 10,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "MigrationTask": {
+          "description": "Represents a migration task in a migration tool.",
+          "properties": {
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "A name that identifies the vendor of the migration tool being used."
+            },
+            "ResourceAttributeList": {
+              "$ref": "#/components/schemas/LatestResourceAttributeList",
+              "description": "Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository."
+            },
+            "Task": {
+              "$ref": "#/components/schemas/Task",
+              "description": "Task object encapsulating task information."
+            },
+            "UpdateDateTime": {
+              "$ref": "#/components/schemas/UpdateDateTime",
+              "description": "The timestamp when the task was gathered."
+            }
+          },
+          "type": "object"
+        },
+        "MigrationTaskName": {
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "[^:|]+",
+          "type": "string"
+        },
+        "MigrationTaskSummary": {
+          "description": "MigrationTaskSummary includes <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and <code>UpdateDateTime</code> for each task.",
+          "properties": {
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressPercent": {
+              "$ref": "#/components/schemas/ProgressPercent",
+              "description": "Indication of the percentage completion of the task."
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool."
+            },
+            "Status": {
+              "$ref": "#/components/schemas/Status",
+              "description": "Status of the task."
+            },
+            "StatusDetail": {
+              "$ref": "#/components/schemas/StatusDetail",
+              "description": "Detail information of what is being done within the overall status state."
+            },
+            "UpdateDateTime": {
+              "$ref": "#/components/schemas/UpdateDateTime",
+              "description": "The timestamp when the task was gathered."
+            }
+          },
+          "type": "object"
+        },
+        "MigrationTaskSummaryList": {
+          "items": {
+            "$ref": "#/components/schemas/MigrationTaskSummary"
+          },
+          "type": "array"
+        },
+        "NextUpdateSeconds": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "NotifyApplicationStateRequest": {
+          "properties": {
+            "ApplicationId": {
+              "$ref": "#/components/schemas/ApplicationId",
+              "description": "The configurationId in Application Discovery Service that uniquely identifies the grouped application."
+            },
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "Status": {
+              "$ref": "#/components/schemas/ApplicationStatus",
+              "description": "Status of the application - Not Started, In-Progress, Complete."
+            },
+            "UpdateDateTime": {
+              "$ref": "#/components/schemas/UpdateDateTime",
+              "description": "The timestamp when the application state changed."
+            }
+          },
+          "required": [
+            "ApplicationId",
+            "Status"
+          ],
+          "title": "NotifyApplicationStateRequest",
+          "type": "object"
+        },
+        "NotifyApplicationStateResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "NotifyMigrationTaskStateRequest": {
+          "properties": {
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            },
+            "NextUpdateSeconds": {
+              "$ref": "#/components/schemas/NextUpdateSeconds",
+              "description": "Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale."
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. "
+            },
+            "Task": {
+              "$ref": "#/components/schemas/Task",
+              "description": "Information about the task's progress and status."
+            },
+            "UpdateDateTime": {
+              "$ref": "#/components/schemas/UpdateDateTime",
+              "description": "The timestamp when the task was gathered."
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName",
+            "Task",
+            "UpdateDateTime",
+            "NextUpdateSeconds"
+          ],
+          "title": "NotifyMigrationTaskStateRequest",
+          "type": "object"
+        },
+        "NotifyMigrationTaskStateResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "PolicyErrorException": {},
+        "ProgressPercent": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "ProgressUpdateStream": {
+          "maxLength": 50,
+          "minLength": 1,
+          "pattern": "[^/:|\\000-\\037]+",
+          "type": "string"
+        },
+        "ProgressUpdateStreamSummary": {
+          "description": "Summary of the AWS resource used for access control that is implicitly linked to your AWS account.",
+          "properties": {
+            "ProgressUpdateStreamName": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> "
+            }
+          },
+          "type": "object"
+        },
+        "ProgressUpdateStreamSummaryList": {
+          "items": {
+            "$ref": "#/components/schemas/ProgressUpdateStreamSummary"
+          },
+          "type": "array"
+        },
+        "PutResourceAttributesRequest": {
+          "properties": {
+            "DryRun": {
+              "$ref": "#/components/schemas/DryRun",
+              "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+            },
+            "MigrationTaskName": {
+              "$ref": "#/components/schemas/MigrationTaskName",
+              "description": "Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> "
+            },
+            "ProgressUpdateStream": {
+              "$ref": "#/components/schemas/ProgressUpdateStream",
+              "description": "The name of the ProgressUpdateStream. "
+            },
+            "ResourceAttributeList": {
+              "$ref": "#/components/schemas/ResourceAttributeList",
+              "description": "<p>Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.</p> <note> <p>Takes the object array of <code>ResourceAttribute</code> where the <code>Type</code> field is reserved for the following values: <code>IPV4_ADDRESS | IPV6_ADDRESS | MAC_ADDRESS | FQDN | VM_MANAGER_ID | VM_MANAGED_OBJECT_REFERENCE | VM_NAME | VM_PATH | BIOS_ID | MOTHERBOARD_SERIAL_NUMBER</code> where the identifying value can be a string up to 256 characters.</p> </note> <important> <ul> <li> <p>If any \"VM\" related value is set for a <code>ResourceAttribute</code> object, it is required that <code>VM_MANAGER_ID</code>, as a minimum, is always set. If <code>VM_MANAGER_ID</code> is not set, then all \"VM\" fields will be discarded and \"VM\" fields will not be used for matching the migration task to a server in Application Discovery Service repository. See the <a href=\"https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples\">Example</a> section below for a use case of specifying \"VM\" related values.</p> </li> <li> <p> If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the <code>ResourceAttributeList</code> parameter to maximize the chances of matching.</p> </li> </ul> </important>"
+            }
+          },
+          "required": [
+            "ProgressUpdateStream",
+            "MigrationTaskName",
+            "ResourceAttributeList"
+          ],
+          "title": "PutResourceAttributesRequest",
+          "type": "object"
+        },
+        "PutResourceAttributesResult": {
+          "properties": {},
+          "type": "object"
+        },
+        "ResourceAttribute": {
+          "description": "<p>Attribute associated with a resource.</p> <p>Note the corresponding format required per type listed below:</p> <dl> <dt>IPV4</dt> <dd> <p> <code>x.x.x.x</code> </p> <p> <i>where x is an integer in the range [0,255]</i> </p> </dd> <dt>IPV6</dt> <dd> <p> <code>y : y : y : y : y : y : y : y</code> </p> <p> <i>where y is a hexadecimal between 0 and FFFF. [0, FFFF]</i> </p> </dd> <dt>MAC_ADDRESS</dt> <dd> <p> <code>^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$</code> </p> </dd> <dt>FQDN</dt> <dd> <p> <code>^[^&lt;&gt;{}\\\\\\\\/?,=\\\\p{Cntrl}]{1,256}$</code> </p> </dd> </dl>",
+          "properties": {
+            "Type": {
+              "$ref": "#/components/schemas/ResourceAttributeType",
+              "description": "Type of resource."
+            },
+            "Value": {
+              "$ref": "#/components/schemas/ResourceAttributeValue",
+              "description": "Value of the resource type."
+            }
+          },
+          "required": [
+            "Type",
+            "Value"
+          ],
+          "type": "object"
+        },
+        "ResourceAttributeList": {
+          "items": {
+            "$ref": "#/components/schemas/ResourceAttribute"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "type": "array"
+        },
+        "ResourceAttributeType": {
+          "enum": [
+            "IPV4_ADDRESS",
+            "IPV6_ADDRESS",
+            "MAC_ADDRESS",
+            "FQDN",
+            "VM_MANAGER_ID",
+            "VM_MANAGED_OBJECT_REFERENCE",
+            "VM_NAME",
+            "VM_PATH",
+            "BIOS_ID",
+            "MOTHERBOARD_SERIAL_NUMBER"
+          ],
+          "type": "string"
+        },
+        "ResourceAttributeValue": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "ResourceName": {
+          "maxLength": 1600,
+          "minLength": 1,
+          "type": "string"
+        },
+        "ResourceNotFoundException": {},
+        "ServiceUnavailableException": {},
+        "Status": {
+          "enum": [
+            "NOT_STARTED",
+            "IN_PROGRESS",
+            "FAILED",
+            "COMPLETED"
+          ],
+          "type": "string"
+        },
+        "StatusDetail": {
+          "maxLength": 500,
+          "minLength": 0,
+          "type": "string"
+        },
+        "Task": {
+          "description": "Task object encapsulating task information.",
+          "properties": {
+            "ProgressPercent": {
+              "$ref": "#/components/schemas/ProgressPercent",
+              "description": "Indication of the percentage completion of the task."
+            },
+            "Status": {
+              "$ref": "#/components/schemas/Status",
+              "description": "Status of the task - Not Started, In-Progress, Complete."
+            },
+            "StatusDetail": {
+              "$ref": "#/components/schemas/StatusDetail",
+              "description": "Details of task status as notified by a migration tool. A tool might use this field to provide clarifying information about the status that is unique to that tool or that explains an error state."
+            }
+          },
+          "required": [
+            "Status"
+          ],
+          "type": "object"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "UnauthorizedOperation": {},
+        "UpdateDateTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "securitySchemes": {
+        "hmac": {
+          "description": "Amazon Signature authorization v4",
+          "in": "header",
+          "name": "Authorization",
+          "type": "apiKey",
+          "x-amazon-apigateway-authtype": "awsSigv4"
+        }
+      }
+    }
+  }
+  

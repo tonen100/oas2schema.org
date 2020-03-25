@@ -108,6 +108,20 @@
 		},
 		{
 			"@type": "ServiceChannel",
+			"name": "Application rate limit status (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/application/rate_limit_status.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": "Application rate limit status",
+					"url": "https://api.twitter.com/1.1/application/rate_limit_status.json",
+					"description": "Returns the current rate limits for methods belonging to the specified resource families.  Each 1.1 API resource belongs to a \"resource family\" which is indicated in its method documentation. You can typically determine a method's resource family from the first component of the path after the resource version.  This method responds with a map of methods belonging to the families specified by the resources parameter, the current remaining uses for each of those resources within the current rate limiting window, and its expiration time in epoch time. It also includes a rate_limit_context field that indicates the current access token context.  You may also issue requests to this method without any parameters to receive a map of all rate limited GET methods. If your application only uses a few of methods, please explicitly provide a resources parameter with the specified resource families you work with."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
 			"name": "Blocks create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/blocks/create.json",
 			"providesService": [
@@ -276,6 +290,34 @@
 		},
 		{
 			"@type": "ServiceChannel",
+			"name": "Followers ids (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/followers/ids.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": "Followers ids",
+					"url": "https://api.twitter.com/1.1/followers/ids.json",
+					"description": "Returns a cursored collection of user IDs for every user following the specified user.  At this time, results are ordered with the most recent following first — however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent requests. See Using cursors to navigate collections for more information.  This method is especially powerful when used in conjunction with GET users/lookup, a method that allows you to convert user IDs into full user objects in bulk."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Friends ids (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/friends/ids.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": "Friends ids",
+					"url": "https://api.twitter.com/1.1/friends/ids.json",
+					"description": "Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their \"friends\").  At this time, results are ordered with the most recent following first — however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent requests. See Using cursors to navigate collections for more information.  This method is especially powerful when used in conjunction with GET users/lookup, a method that allows you to convert user IDs into full user objects in bulk."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
 			"name": "Friendships create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friendships/create.json",
 			"providesService": [
@@ -374,6 +416,20 @@
 		},
 		{
 			"@type": "ServiceChannel",
+			"name": "Geo id place id (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/geo/id/{place_id}.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": "Geo place id",
+					"url": "https://api.twitter.com/1.1/geo/id/{place_id}.json",
+					"description": "Returns all the information about a known place.Example Values: df51dec6f4ee2b2c"
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
 			"name": "Geo places (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/geo/places.json",
 			"providesService": [
@@ -425,20 +481,6 @@
 					"name": "Geo similar places",
 					"url": "https://api.twitter.com/1.1/geo/similar_places.json",
 					"description": "Locates places near the given coordinates which are similar in name.  Conceptually you would use this method to get a list of known places to choose from first. Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.  The token contained in the response is the token needed to be able to create a new place."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
-			"name": "Geo id place id (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/geo/id/{place_id}.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Geo place id",
-					"url": "https://api.twitter.com/1.1/geo/id/{place_id}.json",
-					"description": "Returns all the information about a known place.Example Values: df51dec6f4ee2b2c"
 				}
 			]
 		},
@@ -766,20 +808,6 @@
 		},
 		{
 			"@type": "ServiceChannel",
-			"name": "Saved searches list (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/saved_searches/list.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Saved searches list",
-					"url": "https://api.twitter.com/1.1/saved_searches/list.json",
-					"description": "Returns the authenticated user's saved search queries."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
 			"name": "Saved searches destroy id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/saved_searches/destroy/{id}.json",
 			"providesService": [
@@ -794,6 +822,20 @@
 		},
 		{
 			"@type": "ServiceChannel",
+			"name": "Saved searches list (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/saved_searches/list.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": "Saved searches list",
+					"url": "https://api.twitter.com/1.1/saved_searches/list.json",
+					"description": "Returns the authenticated user's saved search queries."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
 			"name": "Saved searches show id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/saved_searches/show/{id}.json",
 			"providesService": [
@@ -803,6 +845,34 @@
 					"name": "Savedsearchesid",
 					"url": "https://api.twitter.com/1.1/saved_searches/show/{id}.json",
 					"description": "Returns the authenticated user's saved search queries."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Search tweets (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/search/tweets.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": "Search tweets",
+					"url": "https://api.twitter.com/1.1/search/tweets.json",
+					"description": "Returns a collection of relevant Tweets matching a specified query.  Please note that Twitter's search service and, by extension, the Search API is not meant to be an exhaustive source of Tweets. Not all Tweets will be indexed or made available via the search interface.  In API v1.1, the response format of the Search API has been improved to return Tweet objects more similar to the objects you'll find across the REST API and platform. You may need to tolerate some inconsistencies and variance in perspectival values (fields that pertain to the perspective of the authenticating user) and embedded user objects."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Statuses destroy id (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/statuses/destroy/{id}.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "post",
+					"name": "Statuses destroy",
+					"url": "https://api.twitter.com/1.1/statuses/destroy/{id}.json",
+					"description": "Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful."
 				}
 			]
 		},
@@ -850,62 +920,6 @@
 		},
 		{
 			"@type": "ServiceChannel",
-			"name": "Statuses update (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/statuses/update.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Statuses update",
-					"url": "https://api.twitter.com/1.1/statuses/update.json",
-					"description": "Updates the authenticating user's status, also known as tweeting. To upload an image to accompany the tweet, use POST statuses/update_with_media (https://dev.twitter.com/docs/api/1/post/statuses/update_with_media). For each update attempt, the update text is compared with the authenticating user's recent tweets. Any attempt that would result in duplication will be blocked, resulting in a 403 error. Therefore, a user cannot submit the same status twice in a row. While not rate limited by the API a user is limited in the number of tweets they can create at a time. If the number of updates posted by the user reaches the current allowed limit this method will return an HTTP 403 error."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
-			"name": "Statuses update with media (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/statuses/update_with_media.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Statuses update with media",
-					"url": "https://api.twitter.com/1.1/statuses/update_with_media.json",
-					"description": "Updates the authenticating user's status and attaches media for upload. Unlike POST statuses/update (https://dev.twitter.com/docs/api/1.1/post/statuses/update), this method expects raw multipart data. Your POST request's Content-Type should be set to multipart/form-data with the media[] parameter. The Tweet text will be rewritten to include the media URL(s), which will reduce the number of characters allowed in the Tweet text. If the URL(s) cannot be appended without text truncation, the tweet will be rejected and this method will return an HTTP 403 error. Important: Make sure that you're using upload.twitter.com as your host while posting statuses with media. It is strongly recommended to use SSL with this method."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
-			"name": "Statuses user timeline (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/statuses/user_timeline.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Statuses user timeline",
-					"url": "https://api.twitter.com/1.1/statuses/user_timeline.json",
-					"description": "Returns the 20 most recent statuses posted by the authenticating user. It is also possible to request another user's timeline by using the screen_name or user_id parameter. The other users timeline will only be visible if they are not protected, or if the authenticating user's follow request was accepted by the protected user. The timeline returned is the equivalent of the one seen when you view a user's profile on twitter.com. This method can only return up to 3,200 of a user's most recent statuses. Native retweets of other statuses by the user is included in this total, regardless of whether include_rts is specified when requesting this resource. This method will not include retweets in the XML and JSON responses unless the include_rts parameter is set. The RSS and Atom responses will always include retweets as statuses prefixed with RT, regardless of provided parameters. Always specify either an user_id or screen_name when requesting a user timeline."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
-			"name": "Statuses destroy id (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/statuses/destroy/{id}.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Statuses destroy",
-					"url": "https://api.twitter.com/1.1/statuses/destroy/{id}.json",
-					"description": "Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
 			"name": "Statuses retweet id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/retweet/{id}.json",
 			"providesService": [
@@ -943,6 +957,48 @@
 					"name": "Statuses show",
 					"url": "https://api.twitter.com/1.1/statuses/show/{id}.json",
 					"description": "Returns a single status, specified by the id parameter below. The status's author will be returned inline."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Statuses update (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/statuses/update.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "post",
+					"name": "Statuses update",
+					"url": "https://api.twitter.com/1.1/statuses/update.json",
+					"description": "Updates the authenticating user's status, also known as tweeting. To upload an image to accompany the tweet, use POST statuses/update_with_media (https://dev.twitter.com/docs/api/1/post/statuses/update_with_media). For each update attempt, the update text is compared with the authenticating user's recent tweets. Any attempt that would result in duplication will be blocked, resulting in a 403 error. Therefore, a user cannot submit the same status twice in a row. While not rate limited by the API a user is limited in the number of tweets they can create at a time. If the number of updates posted by the user reaches the current allowed limit this method will return an HTTP 403 error."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Statuses update with media (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/statuses/update_with_media.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "post",
+					"name": "Statuses update with media",
+					"url": "https://api.twitter.com/1.1/statuses/update_with_media.json",
+					"description": "Updates the authenticating user's status and attaches media for upload. Unlike POST statuses/update (https://dev.twitter.com/docs/api/1.1/post/statuses/update), this method expects raw multipart data. Your POST request's Content-Type should be set to multipart/form-data with the media[] parameter. The Tweet text will be rewritten to include the media URL(s), which will reduce the number of characters allowed in the Tweet text. If the URL(s) cannot be appended without text truncation, the tweet will be rejected and this method will return an HTTP 403 error. Important: Make sure that you're using upload.twitter.com as your host while posting statuses with media. It is strongly recommended to use SSL with this method."
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Statuses user timeline (json format)",
+			"serviceUrl": "https://api.twitter.com/1.1/statuses/user_timeline.json",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": "Statuses user timeline",
+					"url": "https://api.twitter.com/1.1/statuses/user_timeline.json",
+					"description": "Returns the 20 most recent statuses posted by the authenticating user. It is also possible to request another user's timeline by using the screen_name or user_id parameter. The other users timeline will only be visible if they are not protected, or if the authenticating user's follow request was accepted by the protected user. The timeline returned is the equivalent of the one seen when you view a user's profile on twitter.com. This method can only return up to 3,200 of a user's most recent statuses. Native retweets of other statuses by the user is included in this total, regardless of whether include_rts is specified when requesting this resource. This method will not include retweets in the XML and JSON responses unless the include_rts parameter is set. The RSS and Atom responses will always include retweets as statuses prefixed with RT, regardless of provided parameters. Always specify either an user_id or screen_name when requesting a user timeline."
 				}
 			]
 		},
@@ -1111,62 +1167,6 @@
 					"name": "Users suggestionsslugmembers",
 					"url": "https://api.twitter.com/1.1/users/suggestions/{slug}/members.json",
 					"description": "Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
-			"name": "Application rate limit status (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/application/rate_limit_status.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Application rate limit status",
-					"url": "https://api.twitter.com/1.1/application/rate_limit_status.json",
-					"description": "Returns the current rate limits for methods belonging to the specified resource families.  Each 1.1 API resource belongs to a \"resource family\" which is indicated in its method documentation. You can typically determine a method's resource family from the first component of the path after the resource version.  This method responds with a map of methods belonging to the families specified by the resources parameter, the current remaining uses for each of those resources within the current rate limiting window, and its expiration time in epoch time. It also includes a rate_limit_context field that indicates the current access token context.  You may also issue requests to this method without any parameters to receive a map of all rate limited GET methods. If your application only uses a few of methods, please explicitly provide a resources parameter with the specified resource families you work with."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
-			"name": "Followers ids (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/followers/ids.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Followers ids",
-					"url": "https://api.twitter.com/1.1/followers/ids.json",
-					"description": "Returns a cursored collection of user IDs for every user following the specified user.  At this time, results are ordered with the most recent following first — however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent requests. See Using cursors to navigate collections for more information.  This method is especially powerful when used in conjunction with GET users/lookup, a method that allows you to convert user IDs into full user objects in bulk."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
-			"name": "Friends ids (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/friends/ids.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Friends ids",
-					"url": "https://api.twitter.com/1.1/friends/ids.json",
-					"description": "Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their \"friends\").  At this time, results are ordered with the most recent following first — however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent requests. See Using cursors to navigate collections for more information.  This method is especially powerful when used in conjunction with GET users/lookup, a method that allows you to convert user IDs into full user objects in bulk."
-				}
-			]
-		},
-		{
-			"@type": "ServiceChannel",
-			"name": "Search tweets (json format)",
-			"serviceUrl": "https://api.twitter.com/1.1/search/tweets.json",
-			"providesService": [
-				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Search tweets",
-					"url": "https://api.twitter.com/1.1/search/tweets.json",
-					"description": "Returns a collection of relevant Tweets matching a specified query.  Please note that Twitter's search service and, by extension, the Search API is not meant to be an exhaustive source of Tweets. Not all Tweets will be indexed or made available via the search interface.  In API v1.1, the response format of the Search API has been improved to return Tweet objects more similar to the objects you'll find across the REST API and platform. You may need to tolerate some inconsistencies and variance in perspectival values (fields that pertain to the perspective of the authenticating user) and embedded user objects."
 				}
 			]
 		}

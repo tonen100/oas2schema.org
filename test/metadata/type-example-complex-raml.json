@@ -1,0 +1,20 @@
+{
+	"@context": "http://schema.org",
+	"@type": "WebAPI",
+	"title": "My API with Types",
+	"availableChannel": [
+		{
+			"@type": "ServiceChannel",
+			"name": "Orgs org id",
+			"serviceUrl": "undefined/orgs/{orgId}",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": "Get orgs-org id",
+					"url": "undefined/orgs/{orgId}"
+				}
+			]
+		}
+	]
+}

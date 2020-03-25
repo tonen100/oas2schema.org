@@ -1,0 +1,143 @@
+{
+	"@context": "http://schema.org",
+	"@type": "WebAPI",
+	"title": "Gist Fox API",
+	"description": "Gist Fox API is a **pastes service** similar to [GitHub's Gist](http://gist.github.com).  ## Authentication  *Gist Fox API* uses OAuth Authorization. First you create a new (or acquire existing) OAuth token using Basic Authentication. After you have acquired your token you can use it to access other resources within token' scope.  ## Media Types  Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.  Requests with a message-body are using plain JSON to set or update resource states.  ## Error States  The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) are used.",
+	"category": [
+		" gist",
+		" access  authorization and  control"
+	],
+	"availableChannel": [
+		{
+			"@type": "ServiceChannel",
+			"name": "",
+			"serviceUrl": "undefined/",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": " retrieve the  entry  point",
+					"url": "undefined/",
+					"description": "",
+					"disambiguatingDescription": "Retrieve the Entry Point"
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Gists id",
+			"serviceUrl": "undefined/gists/{id}",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": " retrieve a  single  gist",
+					"url": "undefined/gists/{id}",
+					"description": "",
+					"disambiguatingDescription": "Retrieve a Single Gist"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "patch",
+					"name": " edit a  gist",
+					"url": "undefined/gists/{id}",
+					"description": "To update a Gist send a JSON with updated value for one or more of the Gist resource attributes. All attributes values (states) from the previous version of this Gist are carried over by default if not included in the hash.",
+					"disambiguatingDescription": "Edit a Gist"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "delete",
+					"name": " delete a  gist",
+					"url": "undefined/gists/{id}",
+					"description": "",
+					"disambiguatingDescription": "Delete a Gist"
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Gists",
+			"serviceUrl": "undefined/gists",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": " list  all  gists",
+					"url": "undefined/gists",
+					"description": "",
+					"disambiguatingDescription": "List All Gists"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "post",
+					"name": " create a  gist",
+					"url": "undefined/gists",
+					"description": "To create a new Gist simply provide a JSON hash of the *description* and *content* attributes for the new Gist.  This action requires an `access_token` with `gist_write` scope.",
+					"disambiguatingDescription": "Create a Gist"
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Gists id star",
+			"serviceUrl": "undefined/gists/{id}/star",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "put",
+					"name": " star a  gist",
+					"url": "undefined/gists/{id}/star",
+					"description": "This action requires an `access_token` with `gist_write` scope.",
+					"disambiguatingDescription": "Star a Gist"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "delete",
+					"name": " unstar a  gist",
+					"url": "undefined/gists/{id}/star",
+					"description": "This action requires an `access_token` with `gist_write` scope.",
+					"disambiguatingDescription": "Unstar a Gist"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": " check if a  gist is  starred",
+					"url": "undefined/gists/{id}/star",
+					"description": "",
+					"disambiguatingDescription": "Check if a Gist is Starred"
+				}
+			]
+		},
+		{
+			"@type": "ServiceChannel",
+			"name": "Authorization",
+			"serviceUrl": "undefined/authorization",
+			"providesService": [
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "get",
+					"name": " retrieve  authorization",
+					"url": "undefined/authorization",
+					"description": "",
+					"disambiguatingDescription": "Retrieve Authorization"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "post",
+					"name": " create  authorization",
+					"url": "undefined/authorization",
+					"description": "",
+					"disambiguatingDescription": "Create Authorization"
+				},
+				{
+					"@type": "EntryPoint",
+					"httpMethod": "delete",
+					"name": " remove an  authorization",
+					"url": "undefined/authorization",
+					"description": "",
+					"disambiguatingDescription": "Remove an Authorization"
+				}
+			]
+		}
+	]
+}

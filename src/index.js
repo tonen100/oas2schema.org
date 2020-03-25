@@ -1,7 +1,5 @@
 'use strict';
 
-const fs = require('fs');
-
 var errors = require('./errors');
 var oasConverter = require("./oasConverter");
 var oasValidator = require("./oasValidator");
@@ -18,6 +16,7 @@ var semanticTranslator = require("./semanticTranslator");
  * </ul>
  * @param {(Object|string)} apiDocumentation The documentation of the API in Swagger (OASv2), OASv3, RAML, or API Blueprint format
  * @param {('OASv2'|'OASv3'|'RAMLv1'|'Blueprint')} [inputFormat] The format of the API (If you specify it, make sure it's the right one). Can be either "OASv2", "OASv3", "RAMLv1" or "Blueprint"
+ * @param {(Object)} apiDocumentation Particular behavior o optional extern values to add to the metadata
  * @returns {Object} The generate Schema.Org WebAPI instance in JSON-LD format
  * @see {@link module:SemanticTranslator#SchemaOrg_OAS_CORRESPONDENCES}
  * @throws {InvalidFormatError} if it has trouble detecting the format, if the format isn't supported or if the document in itself is somewhat invalid
@@ -25,13 +24,13 @@ var semanticTranslator = require("./semanticTranslator");
  * @alias convertToMetadata
  * @access public
  */
-async function convertToMetadata(apiDocumentation, inputFormat = null) {
+async function convertToMetadata(apiDocumentation, inputFormat = null, options = {}) {
     if(inputFormat == null)
         inputFormat = oasConverter.extractFormat(apiDocumentation);
-    else if(typeof(apiDocumentation) != 'object')
+    else if(typeof(apiDocumentation) != 'object' && typeof(apiDocumentation) != 'string')
         throw errors.get('InvalidInputDocument');
     var oasDocumentation = await oasConverter.convertToOASv3(apiDocumentation, inputFormat);
-    var metadata = semanticTranslator.extractMetadata(await oasValidator.evaluateDocument(oasDocumentation));
+    var metadata = semanticTranslator.extractMetadata(await oasValidator.evaluateDocument(oasDocumentation), options.urlAPI, options.urlDoc);
     return metadata;
 }
 
@@ -56,16 +55,4 @@ module.exports = {
      * @access private
      */
     semanticTranslator,
-}
-
-switch(process.argv.length) {
-    case 3:
-    case 4:
-        var fileName = process.argv[2];
-        var inputFormat = process.argv.length == 4 ? process.argv[3] : null;
-        convertToMetadata(fs.readFileSync(fileName).toString(), inputFormat).then(
-            res => fs.writeFileSync('./res.json', JSON.stringify(res, null, '\t')),
-            (err) => console.log(err)
-        );
-    default:
 }
