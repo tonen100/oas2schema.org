@@ -1,14 +1,23 @@
 # oas2schema.org (WebAPI ontology)
 
+## Table of contents
+1. [Introduction](#introduction)
+2. [Use Case](#use_case)
+3. [Functionality](#functionality)
+4. [Output metadata structure](#structure)
+5. [Licensing](#licensing)
+
+## Introduction <a name="introduction"></a>
+
 RESTfull APIs are spreading rapidly and widely, yet current standard search engines struggle to reference them, forcing APIs consumers to look for alternative platforms, although standard search engines like Google are supposed to be the perfect candidates to reference them the best way possible. Many issues can cause this problem, but the biggest one is without any doubt the lack of semantics metadata (in this case from the Schema.org ontology schema).
 
 You have great RESTfull APIs with beautiful documentation, but you need to enrich it with semantics metadata from Schema.org (the ontology schema used by Google, Bing, Yahoo...)? You want traditionnal search engines to find it and reference it more easily? Well, this tool proposes a solution to automatize this process semantic anotation by extracting from your OAS, RAML or even API Blueprint, the metadata that can be used to describe it semantically. It use as a main ontology (altough subOntologies are used within it) the recent WebAPI ontology released by Schema.org, in order to describe any types of API (but this tool focus on RESTfull APIs).
 
-## Use case
+## Use case <a name="use_case"></a>
 
 This tool is meant to be used for the automatic generation of an instance of the Schema.Org ontology WebAPI from a RESTfull API documentation (that can be in OASv2, know as Swagger, OASv3, RAML v1 o or API Blueprint, altough OASv3 and Swagger are recommended). The output metadata are in JSON-LD.
 
-## Functionnality
+## Functionality <a name="functionality"></a>
 
 The core functionality of this package is accessible through the function convertToMetadata, which performs:
 
@@ -38,22 +47,22 @@ oas2schema.org -o /path/to/outputFile.json -i format /path/to/documentation
 Format is optional can be either OASv2, OASv3, RAMLv1 or Blueprint.
 If the -o option is not specified, the result will be prompted to terminal.
 
-## Produced metadata structure
+## Output metadata structure <a name="structure"></a>
 
 The metada this tools produced describes at the same time the main information (title, provider...) but also detailled information about every routes.
 
 The matching described in the following diagrams has been split in three for more clarity
 
 For the main API:
-![OAS Mappings with WebAPI ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-EntryPoint.png?raw=true "OAS Submappings with WebAPI ontology")
+![OAS Mappings with WebAPI ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-WebAPI.png?raw=true "OAS Submappings with WebAPI ontology")
 
 For each route of the API:
-![OAS Submappings with ServiceChannel ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-EntryPoint.png?raw=true "OAS Submappings with ServiceChannel ontology")
+![OAS Submappings with ServiceChannel ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-ServiceChannel.png?raw=true "OAS Submappings with ServiceChannel ontology")
 
 For each HTTP operation of each route:
 ![OAS Submappings with EntryPoint ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-EntryPoint.png?raw=true "OAS Submappings with EntryPoint ontology")
 
-## Licensing
+## Licensing <a name="licensing"></a>
 
 This package is licensed under the GNU General Public License v3.0, making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
 
