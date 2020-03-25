@@ -53,14 +53,17 @@ The metada this tools produced describes at the same time the main information (
 
 The matching described in the following diagrams has been split in three for more clarity
 
-For the main API:
-![OAS Mappings with WebAPI ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-WebAPI.png?raw=true "OAS Submappings with WebAPI ontology")
+### For the main API:
 
-For each route of the API:
-![OAS Submappings with ServiceChannel ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-ServiceChannel.png?raw=true "OAS Submappings with ServiceChannel ontology")
+<img src="https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-WebAPI.png?raw=true" align="left" height="859" width="800" alt="OAS Mappings with WebAPI ontology">
 
-For each HTTP operation of each route:
-![OAS Submappings with EntryPoint ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-EntryPoint.png?raw=true "OAS Submappings with EntryPoint ontology")
+### For each route of the API:
+
+<img src="https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-ServiceChannel.png?raw=true" align="left" height="854" width="700" alt="OAS Submappings with ServiceChannel ontology">
+
+### For each HTTP operation of each route:
+
+<img src="https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-EntryPoint.png?raw=true" align="left" height="750" width="700" alt="OAS Submappings with EntryPoint ontology">
 
 ## Licensing <a name="licensing"></a>
 
