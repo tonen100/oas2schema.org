@@ -31,11 +31,11 @@ The core functionality of this package is accessible through the function conver
 ```js
 var oas2SchemaOrg = require('oas2schema.org')
 
-var metadata = oas2SchemaOrg.convertToMetadat(apiDocumentation, inputFormat, { urlAPI: URL_ROOT_OF_THE_API, urlDoc: URL_TO_YOUR_DOCUMENTATION}) 
+var metadata = oas2SchemaOrg.convertToMetadata(apiDocumentation, inputFormat, { urlAPI: URL_ROOT_OF_THE_API, urlDoc: URL_TO_YOUR_DOCUMENTATION}) 
 ```
 or without optional parameters
 ```js
-var metadata = oas2SchemaOrg.convertToMetadat(apiDocumentation) 
+var metadata = oas2SchemaOrg.convertToMetadata(apiDocumentation) 
 ```
 
 The urlAPI (that designate the root of the API) and urlDoc options are not mandatory but usefull to add relevant information to the metadata, altough urlAPI is only used if such URL cant be find within the description (with the servers attributes in OASv3 for example).
@@ -56,6 +56,8 @@ The matching described in the following diagrams has been split in three for mor
 ### For the main API:
 
 ![OAS Mappings with WebAPI ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-WebAPI.png?raw=true "OAS Submappings with WebAPI ontology")
+
+(The aggregate rating is pending implementation and is not yet 100% sure to really be implemented)
 
 ### For each route of the API:
 
