@@ -3,7 +3,9 @@
   "version": "1.0.1",
   "description": "Generate corresponding Schema.org metadata from OAS descriptions for RESTfull APIs",
   "main": "src/index.js",
-  "bin": "src/argv.js",
+  "bin": {
+    "oas2schema.org": "src/argv.js"
+  },
   "scripts": {
     "test": "mocha --exit --timeout 10000",
     "start": "node src/argv.js",

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 
 var path = require('path');
@@ -33,6 +34,8 @@ var argv = yargs
     })
     .help()
     .alias('help', 'h')
+    .usage('Usage: oas2schema.org -o /path/to/outputFile.json -i format -api url_api -doc url_doc /path/to/documentation')
+    .showHelpOnFail(false, "Specify --help for available options")
     .argv;
 
 var metadataGenerator = require('./index');
@@ -54,4 +57,6 @@ if (argv._.length == 1) {
         res => outputFile != null ? ensureDirectoryExistence(outputFile) && fs.writeFileSync(outputFile, JSON.stringify(res, null, '\t')) : console.log(JSON.stringify(res, null, '\t')),
         err => console.log(err)
     );
+} else if(argv._.length == 0) {
+    yargs.showHelp();
 }
