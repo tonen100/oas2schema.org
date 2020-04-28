@@ -63,6 +63,7 @@ class SemanticTranslator {
      * <li>['provider:Organisation.email', 'info.contact.email']</li>
      * <li>['category', 'tags[].name~']</li>
      * <li>['documentation', 'URL_DOC']</li>
+     * <li>['url', 'URL_API || servers[].url']</li>
      * <li>['termsOfService', 'info.termsOfService']</li>
      * <li>['availableChannel:ServiceChannel[].name', 'paths.{}~']</li>
      * <li>['availableChannel:ServiceChannel[].description', 'paths.{}.description']</li>
@@ -94,6 +95,7 @@ class SemanticTranslator {
         ['provider:Organisation.email', 'info.contact.email'],
         ['category', 'tags[].name~'],
         ['documentation', 'URL_DOC'],
+        ['url', 'URL_API || servers[].url'],
         ['termsOfService', 'info.termsOfService'],
         ['availableChannel:ServiceChannel[].name', 'paths.{}~'],
         ['availableChannel:ServiceChannel[].description', 'paths.{}.description'],

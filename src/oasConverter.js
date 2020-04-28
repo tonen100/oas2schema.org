@@ -1,3 +1,5 @@
+'use strict';
+
 var swagger2openapi = require('swagger2openapi');
 var oas_raml_converter = require('oas-raml-converter');
 var raml2openapi = new oas_raml_converter.Converter(oas_raml_converter.Formats.RAML, oas_raml_converter.Formats.OAS20);

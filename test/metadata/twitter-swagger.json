@@ -14,6 +14,7 @@
 		"url": "https://dev.twitter.com",
 		"email": "support@twitter.com"
 	},
+	"url": "https://api.twitter.com/1.1",
 	"availableChannel": [
 		{
 			"@type": "ServiceChannel",

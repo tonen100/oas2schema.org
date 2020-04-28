@@ -16,6 +16,12 @@
 		"url": "https://github.com/mermade/aws2openapi",
 		"email": "mike.ralphson@gmail.com"
 	},
+	"url": [
+		"http://securityhub.{region}.amazonaws.com",
+		"https://securityhub.{region}.amazonaws.com",
+		"http://securityhub.{region}.amazonaws.com.cn",
+		"https://securityhub.{region}.amazonaws.com.cn"
+	],
 	"availableChannel": [
 		{
 			"@type": "ServiceChannel",

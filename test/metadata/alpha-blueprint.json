@@ -4,6 +4,7 @@
 	"title": "Real World API",
 	"description": "This API Blueprint demonstrates a real world example documenting a portion of [App.net API](http://developers.app.net).  NOTE: This document is a **work in progress**.",
 	"category": " posts",
+	"url": "https://alpha-api.app.net/",
 	"availableChannel": [
 		{
 			"@type": "ServiceChannel",
