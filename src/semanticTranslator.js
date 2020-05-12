@@ -52,15 +52,15 @@ class SemanticTranslator {
      * Constants names defined in EXTERNAL_VALUES can be used INSTEAD of a path
      * <p>Here are the currents mappings beeing made:</p>
      * <ul>
-     * <li>['title', 'info.title']</li>
+     * <li>['name', 'info.title']</li>
      * <li>['description', 'info.description']</li>
      * <li>['termsOfService', 'info.termsOfService']</li>
-     * <li>['brand:Organisation.name', 'info.contact.name']</li>
-     * <li>['provider:Organisation.name', 'info.contact.name']</li>
-     * <li>['brand:Organisation.url', 'info.contact.url']</li>
-     * <li>['provider:Organisation.url', 'info.contact.url']</li>
-     * <li>['brand:Organisation.email', 'info.contact.email']</li>
-     * <li>['provider:Organisation.email', 'info.contact.email']</li>
+     * <li>['brand:Organization.name', 'info.contact.name']</li>
+     * <li>['provider:Organization.name', 'info.contact.name']</li>
+     * <li>['brand:Organization.url', 'info.contact.url']</li>
+     * <li>['provider:Organization.url', 'info.contact.url']</li>
+     * <li>['brand:Organization.email', 'info.contact.email']</li>
+     * <li>['provider:Organization.email', 'info.contact.email']</li>
      * <li>['category', 'tags[].name~']</li>
      * <li>['documentation', 'URL_DOC']</li>
      * <li>['url', 'URL_API || servers[].url']</li>
@@ -84,15 +84,15 @@ class SemanticTranslator {
      * @access public
      */
     SchemaOrg_OAS_CORRESPONDENCES = new Map([
-        ['title', 'info.title'],
+        ['name', 'info.title'],
         ['description', 'info.description'],
         ['termsOfService', 'info.termsOfService'],
-        ['brand:Organisation.name', 'info.contact.name'],
-        ['provider:Organisation.name', 'info.contact.name'],
-        ['brand:Organisation.url', 'info.contact.url'],
-        ['provider:Organisation.url', 'info.contact.url'],
-        ['brand:Organisation.email', 'info.contact.email'],
-        ['provider:Organisation.email', 'info.contact.email'],
+        ['brand:Organization.name', 'info.contact.name'],
+        ['provider:Organization.name', 'info.contact.name'],
+        ['brand:Organization.url', 'info.contact.url'],
+        ['provider:Organization.url', 'info.contact.url'],
+        ['brand:Organization.email', 'info.contact.email'],
+        ['provider:Organization.email', 'info.contact.email'],
         ['category', 'tags[].name~'],
         ['documentation', 'URL_DOC'],
         ['url', 'URL_API || servers[].url'],

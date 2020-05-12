@@ -1,7 +1,7 @@
 {
 	"@context": "http://schema.org",
 	"@type": "WebAPI",
-	"title": "My API with Types",
+	"name": "My API with Types",
 	"availableChannel": [
 		{
 			"@type": "ServiceChannel",

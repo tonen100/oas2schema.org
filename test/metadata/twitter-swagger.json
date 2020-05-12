@@ -1,15 +1,15 @@
 {
 	"@context": "http://schema.org",
 	"@type": "WebAPI",
-	"title": "Twitter",
+	"name": "Twitter",
 	"brand": {
-		"@type": "Organisation",
+		"@type": "Organization",
 		"name": "Twitter support",
 		"url": "https://dev.twitter.com",
 		"email": "support@twitter.com"
 	},
 	"provider": {
-		"@type": "Organisation",
+		"@type": "Organization",
 		"name": "Twitter support",
 		"url": "https://dev.twitter.com",
 		"email": "support@twitter.com"

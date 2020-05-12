@@ -1,7 +1,7 @@
 {
 	"@context": "http://schema.org",
 	"@type": "WebAPI",
-	"title": "Gist Fox API",
+	"name": "Gist Fox API",
 	"description": "Gist Fox API is a **pastes service** similar to [GitHub's Gist](http://gist.github.com).  ## Authentication  *Gist Fox API* uses OAuth Authorization. First you create a new (or acquire existing) OAuth token using Basic Authentication. After you have acquired your token you can use it to access other resources within token' scope.  ## Media Types  Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.  Requests with a message-body are using plain JSON to set or update resource states.  ## Error States  The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) are used.",
 	"category": [
 		" gist",
