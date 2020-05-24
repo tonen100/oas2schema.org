@@ -48,7 +48,8 @@ class SemanticTranslator {
      * This symbol can be used INSTEAD of a property name
      * <ul><li> {} for an object keys (property names) that will be transformed into a list (the keys can be specified within the brackets to include only the values of these keys into the list, separated with the operator |)</li></ul>
      * This symbol can be used at the end of the last property
-     * <ul><li> ~ for to transform the retrieved value string into a normal sentence (replaces slashes, dots, camelCase, Snakecase...  with the required spaces)</li></ul>
+     * <ul><li> ~ for to transform the retrieved value string into a normal sentence (replaces slashes, dots, camelCase, Snakecase...  with the required spaces)</li>
+     * <li> ~U which the same but with the result uppercased </li></ul>
      * Constants names defined in EXTERNAL_VALUES can be used INSTEAD of a path
      * <p>Here are the currents mappings beeing made:</p>
      * <ul>
@@ -62,20 +63,26 @@ class SemanticTranslator {
      * <li>['brand:Organization.email', 'info.contact.email']</li>
      * <li>['provider:Organization.email', 'info.contact.email']</li>
      * <li>['category', 'tags[].name~']</li>
-     * <li>['documentation', 'URL_DOC']</li>
      * <li>['url', 'URL_API || servers[].url']</li>
      * <li>['termsOfService', 'info.termsOfService']</li>
+     * <li>['logo', 'x-logo.url']</li>
+     * <li>['documentation', 'URL_DOC || x-documentation.url']</li>
+     * <li>['offers:Offer[].name', 'x-princing[].name']</li>
+     * <li>['offers:Offer[].category', 'x-princing[].type']</li>
+     * <li>['offers:Offer[].price', 'x-princing[].price']</li>
+     * <li>['offers:Offer[].priceCurrency', 'x-princing[].currency']</li>
+     * <li>['offers:Offer[].description', 'x-princing[].description']</li>
      * <li>['availableChannel:ServiceChannel[].name', 'paths.{}~']</li>
      * <li>['availableChannel:ServiceChannel[].description', 'paths.{}.description']</li>
      * <li>['availableChannel:ServiceChannel[].disambiguatingDescription', 'paths.{}.summary']</li>
      * <li>['availableChannel:ServiceChannel[].serviceUrl', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}']</li>
-     * <li>['availableChannel:ServiceChannel[].providesService:EntryPoint[].httpMethod', 'paths.{}.{get|post|put|delete|options|head|patch|trace}']</li>
-     * <li>['availableChannel:ServiceChannel[].providesService:EntryPoint[].name', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.operationId~']</li>
-     * <li>['availableChannel:ServiceChannel[].providesService:EntryPoint[].url', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}']</li>
-     * <li>['availableChannel:ServiceChannel[].providesService:EntryPoint[].description', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.description']</li>
-     * <li>['availableChannel:ServiceChannel[].providesService:EntryPoint[].disambiguatingDescription', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.summary']</li>
-     * <li>['availableChannel:ServiceChannel[].providesService:EntryPoint[].contentType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.requestBody.content.encoding.contentType']</li>
-     * <li>['availableChannel:ServiceChannel[].providesService:EntryPoint[].encodingType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.responses.content.encoding.contentType']</li>
+     * <li>['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.httpMethod', 'paths.{}.{get|post|put|delete|options|head|patch|trace}^U']</li>
+     * <li>['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.name', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.operationId~']</li>
+     * <li>['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.url', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}']</li>
+     * <li>['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.description', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.description']</li>
+     * <li>['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.disambiguatingDescription', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.summary']</li>
+     * <li>['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.contentType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.requestBody.content.encoding.contentType']</li>
+     * <li>['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.encodingType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.responses.content.encoding.contentType']</li>
      * </ul>
      * @constant
      * @type {Map<string, string>}
@@ -94,21 +101,27 @@ class SemanticTranslator {
         ['brand:Organization.email', 'info.contact.email'],
         ['provider:Organization.email', 'info.contact.email'],
         ['category', 'tags[].name~'],
-        ['documentation', 'URL_DOC'],
         ['url', 'URL_API || servers[].url'],
         ['termsOfService', 'info.termsOfService'],
+        ['logo', 'info.x-logo.url'],
+        ['documentation', 'URL_DOC || x-documentation-url'],
+        ['offers:Offer[].name', 'x-princing[].name'],
+        ['offers:Offer[].category', 'x-princing[].type'],
+        ['offers:Offer[].price', 'x-princing[].price'],
+        ['offers:Offer[].priceCurrency', 'x-princing[].currency'],
+        ['offers:Offer[].description', 'x-princing[].description'],
         ['availableChannel:ServiceChannel[].name', 'paths.{}~'],
         ['availableChannel:ServiceChannel[].description', 'paths.{}.description'],
         ['availableChannel:ServiceChannel[].disambiguatingDescription', 'paths.{}.summary'],
         ['availableChannel:ServiceChannel[].serviceUrl', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}'],
-        ['availableChannel:ServiceChannel[].providesService:EntryPoint[].httpMethod', 'paths.{}.{get|post|put|delete|options|head|patch|trace}'],
-        ['availableChannel:ServiceChannel[].providesService:EntryPoint[].name', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.operationId~'],
-        ['availableChannel:ServiceChannel[].providesService:EntryPoint[].url', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}'],
-        ['availableChannel:ServiceChannel[].providesService:EntryPoint[].description', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.description'],
-        ['availableChannel:ServiceChannel[].providesService:EntryPoint[].disambiguatingDescription', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.summary'],
-        ['availableChannel:ServiceChannel[].providesService:EntryPoint[].contentType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.requestBody.content.encoding.contentType'],
-        ['availableChannel:ServiceChannel[].providesService:EntryPoint[].encodingType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.responses.content.encoding.contentType'],
-    ])
+        ['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.httpMethod', 'paths.{}.{get|post|put|delete|options|head|patch|trace}^U'],
+        ['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.name', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.operationId~'],
+        ['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.url', '(paths.{}.servers[0].url || servers[0].url || URL_API) && paths.{}'],
+        ['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.description', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.description'],
+        ['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.disambiguatingDescription', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.summary'],
+        ['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.contentType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.requestBody.content.encoding.contentType'],
+        ['availableChannel:ServiceChannel[].potentialAction:Action[].target:EntryPoint.encodingType', 'paths.{}.{get|post|put|delete|options|head|patch|trace}.responses.content.encoding.contentType'],
+    ]);
 
     /**
      * @summary Transform a string into a normal sentence
@@ -156,12 +169,20 @@ class SemanticTranslator {
             return this.external_values[oasPath];
         } else {
             var to_normalize_value = false;
+            var to_uppercase_value = false;
             const lengthPath = oasPath.split('.').length;
             //iterates on properties of the path
             for(var [index, property] of oasPath.split('.').entries()) {
                 if(property.endsWith('~')) { // ~ cases
                     to_normalize_value = true;
                     property = property.slice(0, property.length - 1);
+                }  else if(property.endsWith('~^U')) { // ~U cases
+                    to_normalize_value = true;
+                    to_uppercase_value = true;
+                    property = property.slice(0, property.length - 3);
+                } else if(property.endsWith('^U')) { // ~U cases
+                    to_uppercase_value = true;
+                    property = property.slice(0, property.length - 2);
                 }
                 if(property.match(/^\{.*\}$/)) { // {} and {val1|val2} cases
                     var subProperties = Object.keys(oasValue);
@@ -194,14 +215,26 @@ class SemanticTranslator {
                 }
                 if(oasValue == null) {
                     break;
-                } else if(to_normalize_value) {
-                    switch(typeof(oasValue)) {
-                        case 'object': // array
-                            oasValue = oasValue.map(value => this.normalizeString(value));
-                            break;
-                        case 'string':
-                            oasValue = this.normalizeString(oasValue);
-                            break;
+                } else {
+                    if(to_normalize_value) {
+                        switch(typeof(oasValue)) {
+                            case 'object': // array
+                                oasValue = oasValue.map(value => this.normalizeString(value));
+                                break;
+                            case 'string':
+                                oasValue = this.normalizeString(oasValue);
+                                break;
+                        }
+                    }
+                    if(to_uppercase_value) {
+                        switch(typeof(oasValue)) {
+                            case 'object': // array
+                                oasValue = oasValue.map(value => value.toUpperCase());
+                                break;
+                            case 'string':
+                                oasValue = oasValue.toUpperCase();
+                                break;
+                        }
                     }
                 }
                 if(typeof(oasValue) == 'string') oasValue = oasValue.replace(/\n/g, ' ');

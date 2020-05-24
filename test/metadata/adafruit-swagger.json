@@ -7,18 +7,22 @@
 		"https://io.adafruit.com/api/v2",
 		"http://io.adafruit.com/api/v2"
 	],
+	"logo": "https://api.apis.guru/v2/cache/logo/https_twitter.com_adafruit_profile_image.jpeg",
 	"availableChannel": [
 		{
 			"@type": "ServiceChannel",
 			"name": "User",
 			"serviceUrl": "https://io.adafruit.com/api/v2/user",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Current user",
-					"url": "https://io.adafruit.com/api/v2/user",
-					"disambiguatingDescription": "Get information about the current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Current user",
+						"url": "https://io.adafruit.com/api/v2/user",
+						"disambiguatingDescription": "Get information about the current user"
+					}
 				}
 			]
 		},
@@ -26,14 +30,17 @@
 			"@type": "ServiceChannel",
 			"name": "Webhooks feed :token",
 			"serviceUrl": "https://io.adafruit.com/api/v2/webhooks/feed/:token",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create webhook feed data",
-					"url": "https://io.adafruit.com/api/v2/webhooks/feed/:token",
-					"description": "",
-					"disambiguatingDescription": "Send data to a feed via webhook URL."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create webhook feed data",
+						"url": "https://io.adafruit.com/api/v2/webhooks/feed/:token",
+						"description": "",
+						"disambiguatingDescription": "Send data to a feed via webhook URL."
+					}
 				}
 			]
 		},
@@ -41,14 +48,17 @@
 			"@type": "ServiceChannel",
 			"name": "Webhooks feed :token raw",
 			"serviceUrl": "https://io.adafruit.com/api/v2/webhooks/feed/:token/raw",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create raw webhook feed data",
-					"url": "https://io.adafruit.com/api/v2/webhooks/feed/:token/raw",
-					"description": "The raw data webhook receiver accepts POST requests and stores the raw request body on your feed. This is useful when you don't have control of the webhook sender. If feed history is turned on, payloads will be truncated at 1024 bytes. If feed history is turned off, payloads will be truncated at 100KB.",
-					"disambiguatingDescription": "Send arbitrary data to a feed via webhook URL."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create raw webhook feed data",
+						"url": "https://io.adafruit.com/api/v2/webhooks/feed/:token/raw",
+						"description": "The raw data webhook receiver accepts POST requests and stores the raw request body on your feed. This is useful when you don't have control of the webhook sender. If feed history is turned on, payloads will be truncated at 1024 bytes. If feed history is turned off, payloads will be truncated at 100KB.",
+						"disambiguatingDescription": "Send arbitrary data to a feed via webhook URL."
+					}
 				}
 			]
 		},
@@ -56,22 +66,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username activities",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/activities",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy activities",
-					"url": "https://io.adafruit.com/api/v2/{username}/activities",
-					"description": "Delete all your activities.",
-					"disambiguatingDescription": "All activities for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy activities",
+						"url": "https://io.adafruit.com/api/v2/{username}/activities",
+						"description": "Delete all your activities.",
+						"disambiguatingDescription": "All activities for current user"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All activities",
-					"url": "https://io.adafruit.com/api/v2/{username}/activities",
-					"description": "The Activities endpoint returns information about the user's activities.",
-					"disambiguatingDescription": "All activities for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All activities",
+						"url": "https://io.adafruit.com/api/v2/{username}/activities",
+						"description": "The Activities endpoint returns information about the user's activities.",
+						"disambiguatingDescription": "All activities for current user"
+					}
 				}
 			]
 		},
@@ -79,14 +95,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username activities type",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/activities/{type}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get activity",
-					"url": "https://io.adafruit.com/api/v2/{username}/activities/{type}",
-					"description": "The Activities endpoint returns information about the user's activities.",
-					"disambiguatingDescription": "Get activities by type for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get activity",
+						"url": "https://io.adafruit.com/api/v2/{username}/activities/{type}",
+						"description": "The Activities endpoint returns information about the user's activities.",
+						"disambiguatingDescription": "Get activities by type for current user"
+					}
 				}
 			]
 		},
@@ -94,22 +113,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username dashboards",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/dashboards",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All dashboards",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards",
-					"description": "The Dashboards endpoint returns information about the user's dashboards. ",
-					"disambiguatingDescription": "All dashboards for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All dashboards",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards",
+						"description": "The Dashboards endpoint returns information about the user's dashboards. ",
+						"disambiguatingDescription": "All dashboards for current user"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create dashboard",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards",
-					"description": "",
-					"disambiguatingDescription": "Create a new Dashboard"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create dashboard",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards",
+						"description": "",
+						"disambiguatingDescription": "Create a new Dashboard"
+					}
 				}
 			]
 		},
@@ -117,22 +142,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username dashboards dashboard id blocks",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All blocks",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks",
-					"description": "The Blocks endpoint returns information about the user's blocks. ",
-					"disambiguatingDescription": "All blocks for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All blocks",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks",
+						"description": "The Blocks endpoint returns information about the user's blocks. ",
+						"disambiguatingDescription": "All blocks for current user"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create block",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks",
-					"description": "",
-					"disambiguatingDescription": "Create a new Block"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create block",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks",
+						"description": "",
+						"disambiguatingDescription": "Create a new Block"
+					}
 				}
 			]
 		},
@@ -140,38 +171,50 @@
 			"@type": "ServiceChannel",
 			"name": "Username dashboards dashboard id blocks id",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy block",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
-					"description": "",
-					"disambiguatingDescription": "Delete an existing Block"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy block",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
+						"description": "",
+						"disambiguatingDescription": "Delete an existing Block"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get block",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
-					"description": "",
-					"disambiguatingDescription": "Returns Block based on ID"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get block",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
+						"description": "",
+						"disambiguatingDescription": "Returns Block based on ID"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": "Update block",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
-					"description": "",
-					"disambiguatingDescription": "Update properties of an existing Block"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": "Update block",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
+						"description": "",
+						"disambiguatingDescription": "Update properties of an existing Block"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": "Replace block",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
-					"description": "",
-					"disambiguatingDescription": "Replace an existing Block"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": "Replace block",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{dashboard_id}/blocks/{id}",
+						"description": "",
+						"disambiguatingDescription": "Replace an existing Block"
+					}
 				}
 			]
 		},
@@ -179,38 +222,50 @@
 			"@type": "ServiceChannel",
 			"name": "Username dashboards id",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy dashboard",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
-					"description": "",
-					"disambiguatingDescription": "Delete an existing Dashboard"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy dashboard",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
+						"description": "",
+						"disambiguatingDescription": "Delete an existing Dashboard"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get dashboard",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
-					"description": "",
-					"disambiguatingDescription": "Returns Dashboard based on ID"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get dashboard",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
+						"description": "",
+						"disambiguatingDescription": "Returns Dashboard based on ID"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": "Update dashboard",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
-					"description": "",
-					"disambiguatingDescription": "Update properties of an existing Dashboard"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": "Update dashboard",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
+						"description": "",
+						"disambiguatingDescription": "Update properties of an existing Dashboard"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": "Replace dashboard",
-					"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
-					"description": "",
-					"disambiguatingDescription": "Replace an existing Dashboard"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": "Replace dashboard",
+						"url": "https://io.adafruit.com/api/v2/{username}/dashboards/{id}",
+						"description": "",
+						"disambiguatingDescription": "Replace an existing Dashboard"
+					}
 				}
 			]
 		},
@@ -218,22 +273,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All feeds",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds",
-					"description": "The Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed.",
-					"disambiguatingDescription": "All feeds for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All feeds",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds",
+						"description": "The Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed.",
+						"disambiguatingDescription": "All feeds for current user"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create feed",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds",
-					"description": "",
-					"disambiguatingDescription": "Create a new Feed"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create feed",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds",
+						"description": "",
+						"disambiguatingDescription": "Create a new Feed"
+					}
 				}
 			]
 		},
@@ -241,38 +302,50 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy feed",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
-					"description": "",
-					"disambiguatingDescription": "Delete an existing Feed"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy feed",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
+						"description": "",
+						"disambiguatingDescription": "Delete an existing Feed"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get feed",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
-					"description": "Returns feed based on the feed key",
-					"disambiguatingDescription": "Get feed by feed key"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get feed",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
+						"description": "Returns feed based on the feed key",
+						"disambiguatingDescription": "Get feed by feed key"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": "Update feed",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
-					"description": "",
-					"disambiguatingDescription": "Update properties of an existing Feed"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": "Update feed",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
+						"description": "",
+						"disambiguatingDescription": "Update properties of an existing Feed"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": "Replace feed",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
-					"description": "",
-					"disambiguatingDescription": "Replace an existing Feed"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": "Replace feed",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}",
+						"description": "",
+						"disambiguatingDescription": "Replace an existing Feed"
+					}
 				}
 			]
 		},
@@ -280,22 +353,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data",
-					"description": "",
-					"disambiguatingDescription": "Get all data for the given feed"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data",
+						"description": "",
+						"disambiguatingDescription": "Get all data for the given feed"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data",
-					"description": "Create new data records on the given feed.  **NOTE:** when feed history is on, data `value` size is limited to 1KB, when feed history is turned off data value size is limited to 100KB.",
-					"disambiguatingDescription": "Create new Data"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data",
+						"description": "Create new data records on the given feed.  **NOTE:** when feed history is on, data `value` size is limited to 1KB, when feed history is turned off data value size is limited to 100KB.",
+						"disambiguatingDescription": "Create new Data"
+					}
 				}
 			]
 		},
@@ -303,13 +382,16 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data batch",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/batch",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Batch create data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/batch",
-					"disambiguatingDescription": "Create multiple new Data records"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Batch create data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/batch",
+						"disambiguatingDescription": "Create multiple new Data records"
+					}
 				}
 			]
 		},
@@ -317,14 +399,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data chart",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/chart",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Chart data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/chart",
-					"description": "The Chart API is what we use on io.adafruit.com to populate charts over varying timespans with a consistent number of data points. The maximum number of points returned is 480. This API works by aggregating slices of time into a single value by averaging.  All time-based parameters are optional, if none are given it will default to 1 hour at the finest-grained resolution possible.",
-					"disambiguatingDescription": "Chart data for current feed"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Chart data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/chart",
+						"description": "The Chart API is what we use on io.adafruit.com to populate charts over varying timespans with a consistent number of data points. The maximum number of points returned is 480. This API works by aggregating slices of time into a single value by averaging.  All time-based parameters are optional, if none are given it will default to 1 hour at the finest-grained resolution possible.",
+						"disambiguatingDescription": "Chart data for current feed"
+					}
 				}
 			]
 		},
@@ -332,14 +417,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data first",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/first",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "First data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/first",
-					"description": "Get the oldest data point in the feed. This request sets the queue pointer to the beginning of the feed.",
-					"disambiguatingDescription": "First Data in Queue"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "First data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/first",
+						"description": "Get the oldest data point in the feed. This request sets the queue pointer to the beginning of the feed.",
+						"disambiguatingDescription": "First Data in Queue"
+					}
 				}
 			]
 		},
@@ -347,14 +435,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data last",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/last",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Last data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/last",
-					"description": "Get the most recent data point in the feed. This request sets the queue pointer to the end of the feed.",
-					"disambiguatingDescription": "Last Data in Queue"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Last data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/last",
+						"description": "Get the most recent data point in the feed. This request sets the queue pointer to the end of the feed.",
+						"disambiguatingDescription": "Last Data in Queue"
+					}
 				}
 			]
 		},
@@ -362,14 +453,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data next",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/next",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Next data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/next",
-					"description": "Get the next newest data point in the feed. If queue processing hasn't been started, the first data point in the feed will be returned.",
-					"disambiguatingDescription": "Next Data in Queue"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Next data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/next",
+						"description": "Get the next newest data point in the feed. If queue processing hasn't been started, the first data point in the feed will be returned.",
+						"disambiguatingDescription": "Next Data in Queue"
+					}
 				}
 			]
 		},
@@ -377,14 +471,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data previous",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/previous",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Previous data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/previous",
-					"description": "Get the previously processed data point in the feed. NOTE: this method doesn't move the processing queue pointer.",
-					"disambiguatingDescription": "Previous Data in Queue"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Previous data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/previous",
+						"description": "Get the previously processed data point in the feed. NOTE: this method doesn't move the processing queue pointer.",
+						"disambiguatingDescription": "Previous Data in Queue"
+					}
 				}
 			]
 		},
@@ -392,14 +489,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data retain",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/retain",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Retain data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/retain",
-					"description": "Get the most recent data point in the feed in an MQTT compatible CSV format: `value,lat,lon,ele`",
-					"disambiguatingDescription": "Last Data in MQTT CSV format"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Retain data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/retain",
+						"description": "Get the most recent data point in the feed in an MQTT compatible CSV format: `value,lat,lon,ele`",
+						"disambiguatingDescription": "Last Data in MQTT CSV format"
+					}
 				}
 			]
 		},
@@ -407,38 +507,50 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key data id",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
-					"description": "",
-					"disambiguatingDescription": "Delete existing Data"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
+						"description": "",
+						"disambiguatingDescription": "Delete existing Data"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
-					"description": "",
-					"disambiguatingDescription": "Returns data based on feed key"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
+						"description": "",
+						"disambiguatingDescription": "Returns data based on feed key"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": "Update data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
-					"description": "",
-					"disambiguatingDescription": "Update properties of existing Data"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": "Update data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
+						"description": "",
+						"disambiguatingDescription": "Update properties of existing Data"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": "Replace data",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
-					"description": "",
-					"disambiguatingDescription": "Replace existing Data"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": "Replace data",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/data/{id}",
+						"description": "",
+						"disambiguatingDescription": "Replace existing Data"
+					}
 				}
 			]
 		},
@@ -446,14 +558,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username feeds feed key details",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/details",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get feed details",
-					"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/details",
-					"description": "Returns more detailed feed record based on the feed key",
-					"disambiguatingDescription": "Get detailed feed by feed key"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get feed details",
+						"url": "https://io.adafruit.com/api/v2/{username}/feeds/{feed_key}/details",
+						"description": "Returns more detailed feed record based on the feed key",
+						"disambiguatingDescription": "Get detailed feed by feed key"
+					}
 				}
 			]
 		},
@@ -461,22 +576,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username groups",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/groups",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All groups",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups",
-					"description": "The Groups endpoint returns information about the user's groups. The response includes the latest value of each feed in the group, and other metadata about the group. ",
-					"disambiguatingDescription": "All groups for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All groups",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups",
+						"description": "The Groups endpoint returns information about the user's groups. The response includes the latest value of each feed in the group, and other metadata about the group. ",
+						"disambiguatingDescription": "All groups for current user"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create group",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups",
-					"description": "",
-					"disambiguatingDescription": "Create a new Group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create group",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups",
+						"description": "",
+						"disambiguatingDescription": "Create a new Group"
+					}
 				}
 			]
 		},
@@ -484,37 +605,49 @@
 			"@type": "ServiceChannel",
 			"name": "Username groups group key",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy group",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
-					"description": "",
-					"disambiguatingDescription": "Delete an existing Group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy group",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
+						"description": "",
+						"disambiguatingDescription": "Delete an existing Group"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get group",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
-					"disambiguatingDescription": "Returns Group based on ID"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get group",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
+						"disambiguatingDescription": "Returns Group based on ID"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": "Update group",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
-					"description": "",
-					"disambiguatingDescription": "Update properties of an existing Group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": "Update group",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
+						"description": "",
+						"disambiguatingDescription": "Update properties of an existing Group"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": "Replace group",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
-					"description": "",
-					"disambiguatingDescription": "Replace an existing Group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": "Replace group",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}",
+						"description": "",
+						"disambiguatingDescription": "Replace an existing Group"
+					}
 				}
 			]
 		},
@@ -522,14 +655,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username groups group key add",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/add",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Add feed to group",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/add",
-					"description": "",
-					"disambiguatingDescription": "Add an existing Feed to a Group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Add feed to group",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/add",
+						"description": "",
+						"disambiguatingDescription": "Add an existing Feed to a Group"
+					}
 				}
 			]
 		},
@@ -537,13 +673,16 @@
 			"@type": "ServiceChannel",
 			"name": "Username groups group key data",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/data",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create group data",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/data",
-					"disambiguatingDescription": "Create new data for multiple feeds in a group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create group data",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/data",
+						"disambiguatingDescription": "Create new data for multiple feeds in a group"
+					}
 				}
 			]
 		},
@@ -551,22 +690,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username groups group key feeds",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All group feeds",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds",
-					"description": "The Group Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed, but only for feeds within the given group.",
-					"disambiguatingDescription": "All feeds for current user in a given group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All group feeds",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds",
+						"description": "The Group Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed, but only for feeds within the given group.",
+						"disambiguatingDescription": "All feeds for current user in a given group"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create group feed",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds",
-					"description": "",
-					"disambiguatingDescription": "Create a new Feed in a Group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create group feed",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds",
+						"description": "",
+						"disambiguatingDescription": "Create a new Feed in a Group"
+					}
 				}
 			]
 		},
@@ -574,21 +719,27 @@
 			"@type": "ServiceChannel",
 			"name": "Username groups group key feeds feed key data",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds/{feed_key}/data",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All group feed data",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds/{feed_key}/data",
-					"description": "",
-					"disambiguatingDescription": "All data for current feed in a specific group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All group feed data",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds/{feed_key}/data",
+						"description": "",
+						"disambiguatingDescription": "All data for current feed in a specific group"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create group feed data",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds/{feed_key}/data",
-					"disambiguatingDescription": "Create new Data in a feed belonging to a particular group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create group feed data",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds/{feed_key}/data",
+						"disambiguatingDescription": "Create new Data in a feed belonging to a particular group"
+					}
 				}
 			]
 		},
@@ -596,13 +747,16 @@
 			"@type": "ServiceChannel",
 			"name": "Username groups group key feeds feed key data batch",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds/{feed_key}/data/batch",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Batch create group feed data",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds/{feed_key}/data/batch",
-					"disambiguatingDescription": "Create multiple new Data records in a feed belonging to a particular group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Batch create group feed data",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/feeds/{feed_key}/data/batch",
+						"disambiguatingDescription": "Create multiple new Data records in a feed belonging to a particular group"
+					}
 				}
 			]
 		},
@@ -610,14 +764,17 @@
 			"@type": "ServiceChannel",
 			"name": "Username groups group key remove",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/remove",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Remove feed from group",
-					"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/remove",
-					"description": "",
-					"disambiguatingDescription": "Remove a Feed from a Group"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Remove feed from group",
+						"url": "https://io.adafruit.com/api/v2/{username}/groups/{group_key}/remove",
+						"description": "",
+						"disambiguatingDescription": "Remove a Feed from a Group"
+					}
 				}
 			]
 		},
@@ -625,13 +782,16 @@
 			"@type": "ServiceChannel",
 			"name": "Username throttle",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/throttle",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get current user throttle",
-					"url": "https://io.adafruit.com/api/v2/{username}/throttle",
-					"disambiguatingDescription": "Get the user's data rate limit and current activity level."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get current user throttle",
+						"url": "https://io.adafruit.com/api/v2/{username}/throttle",
+						"disambiguatingDescription": "Get the user's data rate limit and current activity level."
+					}
 				}
 			]
 		},
@@ -639,22 +799,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username tokens",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/tokens",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All tokens",
-					"url": "https://io.adafruit.com/api/v2/{username}/tokens",
-					"description": "The Tokens endpoint returns information about the user's tokens. ",
-					"disambiguatingDescription": "All tokens for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All tokens",
+						"url": "https://io.adafruit.com/api/v2/{username}/tokens",
+						"description": "The Tokens endpoint returns information about the user's tokens. ",
+						"disambiguatingDescription": "All tokens for current user"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create token",
-					"url": "https://io.adafruit.com/api/v2/{username}/tokens",
-					"description": "",
-					"disambiguatingDescription": "Create a new Token"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create token",
+						"url": "https://io.adafruit.com/api/v2/{username}/tokens",
+						"description": "",
+						"disambiguatingDescription": "Create a new Token"
+					}
 				}
 			]
 		},
@@ -662,38 +828,50 @@
 			"@type": "ServiceChannel",
 			"name": "Username tokens id",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy token",
-					"url": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
-					"description": "",
-					"disambiguatingDescription": "Delete an existing Token"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy token",
+						"url": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
+						"description": "",
+						"disambiguatingDescription": "Delete an existing Token"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get token",
-					"url": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
-					"description": "",
-					"disambiguatingDescription": "Returns Token based on ID"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get token",
+						"url": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
+						"description": "",
+						"disambiguatingDescription": "Returns Token based on ID"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": "Update token",
-					"url": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
-					"description": "",
-					"disambiguatingDescription": "Update properties of an existing Token"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": "Update token",
+						"url": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
+						"description": "",
+						"disambiguatingDescription": "Update properties of an existing Token"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": "Replace token",
-					"url": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
-					"description": "",
-					"disambiguatingDescription": "Replace an existing Token"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": "Replace token",
+						"url": "https://io.adafruit.com/api/v2/{username}/tokens/{id}",
+						"description": "",
+						"disambiguatingDescription": "Replace an existing Token"
+					}
 				}
 			]
 		},
@@ -701,22 +879,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username triggers",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/triggers",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All triggers",
-					"url": "https://io.adafruit.com/api/v2/{username}/triggers",
-					"description": "The Triggers endpoint returns information about the user's triggers. ",
-					"disambiguatingDescription": "All triggers for current user"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All triggers",
+						"url": "https://io.adafruit.com/api/v2/{username}/triggers",
+						"description": "The Triggers endpoint returns information about the user's triggers. ",
+						"disambiguatingDescription": "All triggers for current user"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create trigger",
-					"url": "https://io.adafruit.com/api/v2/{username}/triggers",
-					"description": "",
-					"disambiguatingDescription": "Create a new Trigger"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create trigger",
+						"url": "https://io.adafruit.com/api/v2/{username}/triggers",
+						"description": "",
+						"disambiguatingDescription": "Create a new Trigger"
+					}
 				}
 			]
 		},
@@ -724,38 +908,50 @@
 			"@type": "ServiceChannel",
 			"name": "Username triggers id",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy trigger",
-					"url": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
-					"description": "",
-					"disambiguatingDescription": "Delete an existing Trigger"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy trigger",
+						"url": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
+						"description": "",
+						"disambiguatingDescription": "Delete an existing Trigger"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get trigger",
-					"url": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
-					"description": "",
-					"disambiguatingDescription": "Returns Trigger based on ID"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get trigger",
+						"url": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
+						"description": "",
+						"disambiguatingDescription": "Returns Trigger based on ID"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": "Update trigger",
-					"url": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
-					"description": "",
-					"disambiguatingDescription": "Update properties of an existing Trigger"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": "Update trigger",
+						"url": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
+						"description": "",
+						"disambiguatingDescription": "Update properties of an existing Trigger"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": "Replace trigger",
-					"url": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
-					"description": "",
-					"disambiguatingDescription": "Replace an existing Trigger"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": "Replace trigger",
+						"url": "https://io.adafruit.com/api/v2/{username}/triggers/{id}",
+						"description": "",
+						"disambiguatingDescription": "Replace an existing Trigger"
+					}
 				}
 			]
 		},
@@ -763,22 +959,28 @@
 			"@type": "ServiceChannel",
 			"name": "Username type type id acl",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "All permissions",
-					"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl",
-					"description": "The Permissions endpoint returns information about the user's permissions. ",
-					"disambiguatingDescription": "All permissions for current user and type"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "All permissions",
+						"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl",
+						"description": "The Permissions endpoint returns information about the user's permissions. ",
+						"disambiguatingDescription": "All permissions for current user and type"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Create permission",
-					"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl",
-					"description": "",
-					"disambiguatingDescription": "Create a new Permission"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Create permission",
+						"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl",
+						"description": "",
+						"disambiguatingDescription": "Create a new Permission"
+					}
 				}
 			]
 		},
@@ -786,38 +988,50 @@
 			"@type": "ServiceChannel",
 			"name": "Username type type id acl id",
 			"serviceUrl": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": "Destroy permission",
-					"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
-					"description": "",
-					"disambiguatingDescription": "Delete an existing Permission"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": "Destroy permission",
+						"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
+						"description": "",
+						"disambiguatingDescription": "Delete an existing Permission"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get permission",
-					"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
-					"description": "",
-					"disambiguatingDescription": "Returns Permission based on ID"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get permission",
+						"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
+						"description": "",
+						"disambiguatingDescription": "Returns Permission based on ID"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": "Update permission",
-					"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
-					"description": "",
-					"disambiguatingDescription": "Update properties of an existing Permission"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": "Update permission",
+						"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
+						"description": "",
+						"disambiguatingDescription": "Update properties of an existing Permission"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": "Replace permission",
-					"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
-					"description": "",
-					"disambiguatingDescription": "Replace an existing Permission"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": "Replace permission",
+						"url": "https://io.adafruit.com/api/v2/{username}/{type}/{type_id}/acl/{id}",
+						"description": "",
+						"disambiguatingDescription": "Replace an existing Permission"
+					}
 				}
 			]
 		}

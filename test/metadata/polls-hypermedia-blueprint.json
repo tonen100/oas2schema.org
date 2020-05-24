@@ -10,14 +10,17 @@
 			"@type": "ServiceChannel",
 			"name": "",
 			"serviceUrl": "http://polls.apiblueprint.org//",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " retrieve the  entry  point",
-					"url": "http://polls.apiblueprint.org//",
-					"description": "",
-					"disambiguatingDescription": "Retrieve the Entry Point"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " retrieve the  entry  point",
+						"url": "http://polls.apiblueprint.org//",
+						"description": "",
+						"disambiguatingDescription": "Retrieve the Entry Point"
+					}
 				}
 			]
 		},
@@ -25,22 +28,28 @@
 			"@type": "ServiceChannel",
 			"name": "Questions",
 			"serviceUrl": "http://polls.apiblueprint.org//questions",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " list  all  questions",
-					"url": "http://polls.apiblueprint.org//questions",
-					"description": "",
-					"disambiguatingDescription": "List All Questions"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " list  all  questions",
+						"url": "http://polls.apiblueprint.org//questions",
+						"description": "",
+						"disambiguatingDescription": "List All Questions"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " create a  new  question",
-					"url": "http://polls.apiblueprint.org//questions",
-					"description": "You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.  + question (string) - The question  + choices (array[string]) - A collection of choices.",
-					"disambiguatingDescription": "Create a New Question"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " create a  new  question",
+						"url": "http://polls.apiblueprint.org//questions",
+						"description": "You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.  + question (string) - The question  + choices (array[string]) - A collection of choices.",
+						"disambiguatingDescription": "Create a New Question"
+					}
 				}
 			]
 		},
@@ -48,14 +57,17 @@
 			"@type": "ServiceChannel",
 			"name": "Questions question id",
 			"serviceUrl": "http://polls.apiblueprint.org//questions/{question_id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " view a  questions  detail",
-					"url": "http://polls.apiblueprint.org//questions/{question_id}",
-					"description": "",
-					"disambiguatingDescription": "View a Questions Detail"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " view a  questions  detail",
+						"url": "http://polls.apiblueprint.org//questions/{question_id}",
+						"description": "",
+						"disambiguatingDescription": "View a Questions Detail"
+					}
 				}
 			]
 		},
@@ -63,22 +75,28 @@
 			"@type": "ServiceChannel",
 			"name": "Questions question id choices choice id",
 			"serviceUrl": "http://polls.apiblueprint.org//questions/{question_id}/choices/{choice_id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " view a  choice  detail",
-					"url": "http://polls.apiblueprint.org//questions/{question_id}/choices/{choice_id}",
-					"description": "",
-					"disambiguatingDescription": "View a Choice Detail"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " view a  choice  detail",
+						"url": "http://polls.apiblueprint.org//questions/{question_id}/choices/{choice_id}",
+						"description": "",
+						"disambiguatingDescription": "View a Choice Detail"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " vote on a  choice",
-					"url": "http://polls.apiblueprint.org//questions/{question_id}/choices/{choice_id}",
-					"description": "This action allows you to vote on a question's choice.",
-					"disambiguatingDescription": "Vote on a Choice"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " vote on a  choice",
+						"url": "http://polls.apiblueprint.org//questions/{question_id}/choices/{choice_id}",
+						"description": "This action allows you to vote on a question's choice.",
+						"disambiguatingDescription": "Vote on a Choice"
+					}
 				}
 			]
 		}

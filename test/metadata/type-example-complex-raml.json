@@ -7,12 +7,15 @@
 			"@type": "ServiceChannel",
 			"name": "Orgs org id",
 			"serviceUrl": "undefined/orgs/{orgId}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Get orgs-org id",
-					"url": "undefined/orgs/{orgId}"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Get orgs-org id",
+						"url": "undefined/orgs/{orgId}"
+					}
 				}
 			]
 		}

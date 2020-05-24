@@ -12,14 +12,17 @@
 			"@type": "ServiceChannel",
 			"name": "",
 			"serviceUrl": "undefined/",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " retrieve the  entry  point",
-					"url": "undefined/",
-					"description": "",
-					"disambiguatingDescription": "Retrieve the Entry Point"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " retrieve the  entry  point",
+						"url": "undefined/",
+						"description": "",
+						"disambiguatingDescription": "Retrieve the Entry Point"
+					}
 				}
 			]
 		},
@@ -27,30 +30,39 @@
 			"@type": "ServiceChannel",
 			"name": "Gists id",
 			"serviceUrl": "undefined/gists/{id}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " retrieve a  single  gist",
-					"url": "undefined/gists/{id}",
-					"description": "",
-					"disambiguatingDescription": "Retrieve a Single Gist"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " retrieve a  single  gist",
+						"url": "undefined/gists/{id}",
+						"description": "",
+						"disambiguatingDescription": "Retrieve a Single Gist"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": " edit a  gist",
-					"url": "undefined/gists/{id}",
-					"description": "To update a Gist send a JSON with updated value for one or more of the Gist resource attributes. All attributes values (states) from the previous version of this Gist are carried over by default if not included in the hash.",
-					"disambiguatingDescription": "Edit a Gist"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": " edit a  gist",
+						"url": "undefined/gists/{id}",
+						"description": "To update a Gist send a JSON with updated value for one or more of the Gist resource attributes. All attributes values (states) from the previous version of this Gist are carried over by default if not included in the hash.",
+						"disambiguatingDescription": "Edit a Gist"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": " delete a  gist",
-					"url": "undefined/gists/{id}",
-					"description": "",
-					"disambiguatingDescription": "Delete a Gist"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": " delete a  gist",
+						"url": "undefined/gists/{id}",
+						"description": "",
+						"disambiguatingDescription": "Delete a Gist"
+					}
 				}
 			]
 		},
@@ -58,22 +70,28 @@
 			"@type": "ServiceChannel",
 			"name": "Gists",
 			"serviceUrl": "undefined/gists",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " list  all  gists",
-					"url": "undefined/gists",
-					"description": "",
-					"disambiguatingDescription": "List All Gists"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " list  all  gists",
+						"url": "undefined/gists",
+						"description": "",
+						"disambiguatingDescription": "List All Gists"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " create a  gist",
-					"url": "undefined/gists",
-					"description": "To create a new Gist simply provide a JSON hash of the *description* and *content* attributes for the new Gist.  This action requires an `access_token` with `gist_write` scope.",
-					"disambiguatingDescription": "Create a Gist"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " create a  gist",
+						"url": "undefined/gists",
+						"description": "To create a new Gist simply provide a JSON hash of the *description* and *content* attributes for the new Gist.  This action requires an `access_token` with `gist_write` scope.",
+						"disambiguatingDescription": "Create a Gist"
+					}
 				}
 			]
 		},
@@ -81,30 +99,39 @@
 			"@type": "ServiceChannel",
 			"name": "Gists id star",
 			"serviceUrl": "undefined/gists/{id}/star",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "put",
-					"name": " star a  gist",
-					"url": "undefined/gists/{id}/star",
-					"description": "This action requires an `access_token` with `gist_write` scope.",
-					"disambiguatingDescription": "Star a Gist"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PUT",
+						"name": " star a  gist",
+						"url": "undefined/gists/{id}/star",
+						"description": "This action requires an `access_token` with `gist_write` scope.",
+						"disambiguatingDescription": "Star a Gist"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": " unstar a  gist",
-					"url": "undefined/gists/{id}/star",
-					"description": "This action requires an `access_token` with `gist_write` scope.",
-					"disambiguatingDescription": "Unstar a Gist"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": " unstar a  gist",
+						"url": "undefined/gists/{id}/star",
+						"description": "This action requires an `access_token` with `gist_write` scope.",
+						"disambiguatingDescription": "Unstar a Gist"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " check if a  gist is  starred",
-					"url": "undefined/gists/{id}/star",
-					"description": "",
-					"disambiguatingDescription": "Check if a Gist is Starred"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " check if a  gist is  starred",
+						"url": "undefined/gists/{id}/star",
+						"description": "",
+						"disambiguatingDescription": "Check if a Gist is Starred"
+					}
 				}
 			]
 		},
@@ -112,30 +139,39 @@
 			"@type": "ServiceChannel",
 			"name": "Authorization",
 			"serviceUrl": "undefined/authorization",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " retrieve  authorization",
-					"url": "undefined/authorization",
-					"description": "",
-					"disambiguatingDescription": "Retrieve Authorization"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " retrieve  authorization",
+						"url": "undefined/authorization",
+						"description": "",
+						"disambiguatingDescription": "Retrieve Authorization"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " create  authorization",
-					"url": "undefined/authorization",
-					"description": "",
-					"disambiguatingDescription": "Create Authorization"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " create  authorization",
+						"url": "undefined/authorization",
+						"description": "",
+						"disambiguatingDescription": "Create Authorization"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": " remove an  authorization",
-					"url": "undefined/authorization",
-					"description": "",
-					"disambiguatingDescription": "Remove an Authorization"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": " remove an  authorization",
+						"url": "undefined/authorization",
+						"description": "",
+						"disambiguatingDescription": "Remove an Authorization"
+					}
 				}
 			]
 		}

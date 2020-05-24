@@ -15,25 +15,32 @@
 		"email": "support@twitter.com"
 	},
 	"url": "https://api.twitter.com/1.1",
+	"logo": "https://api.apis.guru/v2/cache/logo/https_twitter.com_twitter_profile_image.png",
 	"availableChannel": [
 		{
 			"@type": "ServiceChannel",
 			"name": "Account settings (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/account/settings.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Account settings get",
-					"url": "https://api.twitter.com/1.1/account/settings.json",
-					"description": "Returns settings (including current trend, geo and sleep time information) for the authenticating user."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Account settings get",
+						"url": "https://api.twitter.com/1.1/account/settings.json",
+						"description": "Returns settings (including current trend, geo and sleep time information) for the authenticating user."
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Account settings post",
-					"url": "https://api.twitter.com/1.1/account/settings.json",
-					"description": "Updates the authenticating user's settings."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Account settings post",
+						"url": "https://api.twitter.com/1.1/account/settings.json",
+						"description": "Updates the authenticating user's settings."
+					}
 				}
 			]
 		},
@@ -41,13 +48,16 @@
 			"@type": "ServiceChannel",
 			"name": "Account update delivery device (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/account/update_delivery_device.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Account update delivery device",
-					"url": "https://api.twitter.com/1.1/account/update_delivery_device.json",
-					"description": "Sets which device Twitter delivers updates to for the authenticating user. Sending none as the device parameter will disable SMS updates."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Account update delivery device",
+						"url": "https://api.twitter.com/1.1/account/update_delivery_device.json",
+						"description": "Sets which device Twitter delivers updates to for the authenticating user. Sending none as the device parameter will disable SMS updates."
+					}
 				}
 			]
 		},
@@ -55,13 +65,16 @@
 			"@type": "ServiceChannel",
 			"name": "Account update profile (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/account/update_profile.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Account update profile",
-					"url": "https://api.twitter.com/1.1/account/update_profile.json",
-					"description": "Sets values that users are able to set under the Account tab of their settings page. Only the parameters specified will be updated."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Account update profile",
+						"url": "https://api.twitter.com/1.1/account/update_profile.json",
+						"description": "Sets values that users are able to set under the Account tab of their settings page. Only the parameters specified will be updated."
+					}
 				}
 			]
 		},
@@ -69,13 +82,16 @@
 			"@type": "ServiceChannel",
 			"name": "Account update profile background image (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/account/update_profile_background_image.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Accounts update profile background image",
-					"url": "https://api.twitter.com/1.1/account/update_profile_background_image.json",
-					"description": "Updates the authenticating user's profile background image. This method can also be used to enable or disable the profile background image. Although each parameter is marked as optional, at least one of image, tile or use must be provided when making this request."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Accounts update profile background image",
+						"url": "https://api.twitter.com/1.1/account/update_profile_background_image.json",
+						"description": "Updates the authenticating user's profile background image. This method can also be used to enable or disable the profile background image. Although each parameter is marked as optional, at least one of image, tile or use must be provided when making this request."
+					}
 				}
 			]
 		},
@@ -83,13 +99,16 @@
 			"@type": "ServiceChannel",
 			"name": "Account update profile colors (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/account/update_profile_colors.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Accounts update profile colors",
-					"url": "https://api.twitter.com/1.1/account/update_profile_colors.json",
-					"description": "Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com. Each parameter's value must be a valid hexidecimal value, and may be either three or six characters (ex: #fff or #ffffff)."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Accounts update profile colors",
+						"url": "https://api.twitter.com/1.1/account/update_profile_colors.json",
+						"description": "Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com. Each parameter's value must be a valid hexidecimal value, and may be either three or six characters (ex: #fff or #ffffff)."
+					}
 				}
 			]
 		},
@@ -97,13 +116,16 @@
 			"@type": "ServiceChannel",
 			"name": "Account update profile image (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/account/update_profile_image.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Accounts update profile image",
-					"url": "https://api.twitter.com/1.1/account/update_profile_image.json",
-					"description": "Updates the authenticating user's profile image. Note that this method expects raw multipart data, not a URL to an image. This method asynchronously processes the uploaded file before updating the user's profile image URL. You can either update your local cache the next time you request the user's information, or, at least 5 seconds after uploading the image, ask for the updated URL using GET users/profile_image/:screen_name (https://dev.twitter.com/docs/api/1/get/users/profile_image/:screen_name)."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Accounts update profile image",
+						"url": "https://api.twitter.com/1.1/account/update_profile_image.json",
+						"description": "Updates the authenticating user's profile image. Note that this method expects raw multipart data, not a URL to an image. This method asynchronously processes the uploaded file before updating the user's profile image URL. You can either update your local cache the next time you request the user's information, or, at least 5 seconds after uploading the image, ask for the updated URL using GET users/profile_image/:screen_name (https://dev.twitter.com/docs/api/1/get/users/profile_image/:screen_name)."
+					}
 				}
 			]
 		},
@@ -111,13 +133,16 @@
 			"@type": "ServiceChannel",
 			"name": "Application rate limit status (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/application/rate_limit_status.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Application rate limit status",
-					"url": "https://api.twitter.com/1.1/application/rate_limit_status.json",
-					"description": "Returns the current rate limits for methods belonging to the specified resource families.  Each 1.1 API resource belongs to a \"resource family\" which is indicated in its method documentation. You can typically determine a method's resource family from the first component of the path after the resource version.  This method responds with a map of methods belonging to the families specified by the resources parameter, the current remaining uses for each of those resources within the current rate limiting window, and its expiration time in epoch time. It also includes a rate_limit_context field that indicates the current access token context.  You may also issue requests to this method without any parameters to receive a map of all rate limited GET methods. If your application only uses a few of methods, please explicitly provide a resources parameter with the specified resource families you work with."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Application rate limit status",
+						"url": "https://api.twitter.com/1.1/application/rate_limit_status.json",
+						"description": "Returns the current rate limits for methods belonging to the specified resource families.  Each 1.1 API resource belongs to a \"resource family\" which is indicated in its method documentation. You can typically determine a method's resource family from the first component of the path after the resource version.  This method responds with a map of methods belonging to the families specified by the resources parameter, the current remaining uses for each of those resources within the current rate limiting window, and its expiration time in epoch time. It also includes a rate_limit_context field that indicates the current access token context.  You may also issue requests to this method without any parameters to receive a map of all rate limited GET methods. If your application only uses a few of methods, please explicitly provide a resources parameter with the specified resource families you work with."
+					}
 				}
 			]
 		},
@@ -125,13 +150,16 @@
 			"@type": "ServiceChannel",
 			"name": "Blocks create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/blocks/create.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Blocks create",
-					"url": "https://api.twitter.com/1.1/blocks/create.json",
-					"description": "Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Blocks create",
+						"url": "https://api.twitter.com/1.1/blocks/create.json",
+						"description": "Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed."
+					}
 				}
 			]
 		},
@@ -139,13 +167,16 @@
 			"@type": "ServiceChannel",
 			"name": "Blocks destroy (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/blocks/destroy.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Blocks destroy",
-					"url": "https://api.twitter.com/1.1/blocks/destroy.json",
-					"description": "Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Blocks destroy",
+						"url": "https://api.twitter.com/1.1/blocks/destroy.json",
+						"description": "Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored."
+					}
 				}
 			]
 		},
@@ -153,13 +184,16 @@
 			"@type": "ServiceChannel",
 			"name": "Blocks ids (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/blocks/ids.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Blocks ids",
-					"url": "https://api.twitter.com/1.1/blocks/ids.json",
-					"description": "Returns an array of numeric user ids the authenticating user is blocking."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Blocks ids",
+						"url": "https://api.twitter.com/1.1/blocks/ids.json",
+						"description": "Returns an array of numeric user ids the authenticating user is blocking."
+					}
 				}
 			]
 		},
@@ -167,13 +201,16 @@
 			"@type": "ServiceChannel",
 			"name": "Blocks list (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/blocks/list.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Blocks list",
-					"url": "https://api.twitter.com/1.1/blocks/list.json",
-					"description": "Allows one to enable or disable retweets and device notifications from the specified user."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Blocks list",
+						"url": "https://api.twitter.com/1.1/blocks/list.json",
+						"description": "Allows one to enable or disable retweets and device notifications from the specified user."
+					}
 				}
 			]
 		},
@@ -181,13 +218,16 @@
 			"@type": "ServiceChannel",
 			"name": "Direct messages (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/direct_messages.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Direct messages",
-					"url": "https://api.twitter.com/1.1/direct_messages.json",
-					"description": "Returns the 20 most recent direct messages sent to the authenticating user. Includes detailed information about the sender and recipient user. You can request up to 200 direct messages per call, up to a maximum of 800 incoming DMs.  Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Direct messages",
+						"url": "https://api.twitter.com/1.1/direct_messages.json",
+						"description": "Returns the 20 most recent direct messages sent to the authenticating user. Includes detailed information about the sender and recipient user. You can request up to 200 direct messages per call, up to a maximum of 800 incoming DMs.  Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information."
+					}
 				}
 			]
 		},
@@ -195,13 +235,16 @@
 			"@type": "ServiceChannel",
 			"name": "Direct messages destroy (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/direct_messages/destroy.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Direct messages destroy",
-					"url": "https://api.twitter.com/1.1/direct_messages/destroy.json",
-					"description": "Destroys the direct message specified in the required ID parameter. The authenticating user must be the recipient of the specified direct message.  Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Direct messages destroy",
+						"url": "https://api.twitter.com/1.1/direct_messages/destroy.json",
+						"description": "Destroys the direct message specified in the required ID parameter. The authenticating user must be the recipient of the specified direct message.  Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information."
+					}
 				}
 			]
 		},
@@ -209,13 +252,16 @@
 			"@type": "ServiceChannel",
 			"name": "Direct messages new (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/direct_messages/new.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Direct messages new",
-					"url": "https://api.twitter.com/1.1/direct_messages/new.json",
-					"description": "Sends a new direct message to the specified user from the authenticating user. Requires both the user and text parameters and must be a POST. Returns the sent message in the requested format if successful."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Direct messages new",
+						"url": "https://api.twitter.com/1.1/direct_messages/new.json",
+						"description": "Sends a new direct message to the specified user from the authenticating user. Requires both the user and text parameters and must be a POST. Returns the sent message in the requested format if successful."
+					}
 				}
 			]
 		},
@@ -223,13 +269,16 @@
 			"@type": "ServiceChannel",
 			"name": "Direct messages sent (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/direct_messages/sent.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Direct messages sent",
-					"url": "https://api.twitter.com/1.1/direct_messages/sent.json",
-					"description": "Returns the 20 most recent direct messages sent by the authenticating user. Includes detailed information about the sender and recipient user. You can request up to 200 direct messages per call, up to a maximum of 800 outgoing DMs.  Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Direct messages sent",
+						"url": "https://api.twitter.com/1.1/direct_messages/sent.json",
+						"description": "Returns the 20 most recent direct messages sent by the authenticating user. Includes detailed information about the sender and recipient user. You can request up to 200 direct messages per call, up to a maximum of 800 outgoing DMs.  Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information."
+					}
 				}
 			]
 		},
@@ -237,13 +286,16 @@
 			"@type": "ServiceChannel",
 			"name": "Direct messages show (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/direct_messages/show.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Direct messages show",
-					"url": "https://api.twitter.com/1.1/direct_messages/show.json",
-					"description": "Returns a single direct message, specified by an id parameter. Like the /1.1/direct_messages.format request, this method will include the user objects of the sender and recipient.  Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Direct messages show",
+						"url": "https://api.twitter.com/1.1/direct_messages/show.json",
+						"description": "Returns a single direct message, specified by an id parameter. Like the /1.1/direct_messages.format request, this method will include the user objects of the sender and recipient.  Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information."
+					}
 				}
 			]
 		},
@@ -251,13 +303,16 @@
 			"@type": "ServiceChannel",
 			"name": "Favorites create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/favorites/create.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Favorites create",
-					"url": "https://api.twitter.com/1.1/favorites/create.json",
-					"description": "Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.  This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Favorites create",
+						"url": "https://api.twitter.com/1.1/favorites/create.json",
+						"description": "Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.  This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not."
+					}
 				}
 			]
 		},
@@ -265,13 +320,16 @@
 			"@type": "ServiceChannel",
 			"name": "Favorites destroy (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/favorites/destroy.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Favorites destroy",
-					"url": "https://api.twitter.com/1.1/favorites/destroy.json",
-					"description": "Un-favorites the status specified in the ID parameter as the authenticating user. Returns the un-favorited status in the requested format when successful.  This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Favorites destroy",
+						"url": "https://api.twitter.com/1.1/favorites/destroy.json",
+						"description": "Un-favorites the status specified in the ID parameter as the authenticating user. Returns the un-favorited status in the requested format when successful.  This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not."
+					}
 				}
 			]
 		},
@@ -279,13 +337,16 @@
 			"@type": "ServiceChannel",
 			"name": "Favorites list (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/favorites/list.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Favorites list",
-					"url": "https://api.twitter.com/1.1/favorites/list.json",
-					"description": "Returns the 20 most recent Tweets favorited by the authenticating or specified user."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Favorites list",
+						"url": "https://api.twitter.com/1.1/favorites/list.json",
+						"description": "Returns the 20 most recent Tweets favorited by the authenticating or specified user."
+					}
 				}
 			]
 		},
@@ -293,13 +354,16 @@
 			"@type": "ServiceChannel",
 			"name": "Followers ids (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/followers/ids.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Followers ids",
-					"url": "https://api.twitter.com/1.1/followers/ids.json",
-					"description": "Returns a cursored collection of user IDs for every user following the specified user.  At this time, results are ordered with the most recent following first — however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent requests. See Using cursors to navigate collections for more information.  This method is especially powerful when used in conjunction with GET users/lookup, a method that allows you to convert user IDs into full user objects in bulk."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Followers ids",
+						"url": "https://api.twitter.com/1.1/followers/ids.json",
+						"description": "Returns a cursored collection of user IDs for every user following the specified user.  At this time, results are ordered with the most recent following first — however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent requests. See Using cursors to navigate collections for more information.  This method is especially powerful when used in conjunction with GET users/lookup, a method that allows you to convert user IDs into full user objects in bulk."
+					}
 				}
 			]
 		},
@@ -307,13 +371,16 @@
 			"@type": "ServiceChannel",
 			"name": "Friends ids (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friends/ids.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Friends ids",
-					"url": "https://api.twitter.com/1.1/friends/ids.json",
-					"description": "Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their \"friends\").  At this time, results are ordered with the most recent following first — however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent requests. See Using cursors to navigate collections for more information.  This method is especially powerful when used in conjunction with GET users/lookup, a method that allows you to convert user IDs into full user objects in bulk."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Friends ids",
+						"url": "https://api.twitter.com/1.1/friends/ids.json",
+						"description": "Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their \"friends\").  At this time, results are ordered with the most recent following first — however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent requests. See Using cursors to navigate collections for more information.  This method is especially powerful when used in conjunction with GET users/lookup, a method that allows you to convert user IDs into full user objects in bulk."
+					}
 				}
 			]
 		},
@@ -321,13 +388,16 @@
 			"@type": "ServiceChannel",
 			"name": "Friendships create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friendships/create.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Friendships create",
-					"url": "https://api.twitter.com/1.1/friendships/create.json",
-					"description": "Allows the authenticating users to follow the user specified in the ID parameter.  Returns the befriended user in the requested format when successful. Returns a string describing the failure condition when unsuccessful. If you are already friends with the user a HTTP 403 may be returned, though for performance reasons you may get a 200 OK message even if the friendship already exists.  Actions taken in this method are asynchronous and changes will be eventually consistent."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Friendships create",
+						"url": "https://api.twitter.com/1.1/friendships/create.json",
+						"description": "Allows the authenticating users to follow the user specified in the ID parameter.  Returns the befriended user in the requested format when successful. Returns a string describing the failure condition when unsuccessful. If you are already friends with the user a HTTP 403 may be returned, though for performance reasons you may get a 200 OK message even if the friendship already exists.  Actions taken in this method are asynchronous and changes will be eventually consistent."
+					}
 				}
 			]
 		},
@@ -335,13 +405,16 @@
 			"@type": "ServiceChannel",
 			"name": "Friendships destroy (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friendships/destroy.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Friendships destroy",
-					"url": "https://api.twitter.com/1.1/friendships/destroy.json",
-					"description": "Allows the authenticating user to unfollow the user specified in the ID parameter.  Returns the unfollowed user in the requested format when successful. Returns a string describing the failure condition when unsuccessful.  Actions taken in this method are asynchronous and changes will be eventually consistent."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Friendships destroy",
+						"url": "https://api.twitter.com/1.1/friendships/destroy.json",
+						"description": "Allows the authenticating user to unfollow the user specified in the ID parameter.  Returns the unfollowed user in the requested format when successful. Returns a string describing the failure condition when unsuccessful.  Actions taken in this method are asynchronous and changes will be eventually consistent."
+					}
 				}
 			]
 		},
@@ -349,13 +422,16 @@
 			"@type": "ServiceChannel",
 			"name": "Friendships incoming (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friendships/incoming.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Friendships incoming",
-					"url": "https://api.twitter.com/1.1/friendships/incoming.json",
-					"description": "Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Friendships incoming",
+						"url": "https://api.twitter.com/1.1/friendships/incoming.json",
+						"description": "Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none."
+					}
 				}
 			]
 		},
@@ -363,13 +439,16 @@
 			"@type": "ServiceChannel",
 			"name": "Friendships lookup (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friendships/lookup.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Friendships lookup",
-					"url": "https://api.twitter.com/1.1/friendships/lookup.json",
-					"description": "Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Friendships lookup",
+						"url": "https://api.twitter.com/1.1/friendships/lookup.json",
+						"description": "Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none."
+					}
 				}
 			]
 		},
@@ -377,13 +456,16 @@
 			"@type": "ServiceChannel",
 			"name": "Friendships outgoing (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friendships/outgoing.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Friendships outgoing",
-					"url": "https://api.twitter.com/1.1/friendships/outgoing.json",
-					"description": "Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Friendships outgoing",
+						"url": "https://api.twitter.com/1.1/friendships/outgoing.json",
+						"description": "Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request."
+					}
 				}
 			]
 		},
@@ -391,13 +473,16 @@
 			"@type": "ServiceChannel",
 			"name": "Friendships show (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friendships/show.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Friendships show",
-					"url": "https://api.twitter.com/1.1/friendships/show.json",
-					"description": "Returns detailed information about the relationship between two arbitrary users."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Friendships show",
+						"url": "https://api.twitter.com/1.1/friendships/show.json",
+						"description": "Returns detailed information about the relationship between two arbitrary users."
+					}
 				}
 			]
 		},
@@ -405,13 +490,16 @@
 			"@type": "ServiceChannel",
 			"name": "Friendships update (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/friendships/update.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Friendships update",
-					"url": "https://api.twitter.com/1.1/friendships/update.json",
-					"description": "Allows one to enable or disable retweets and device notifications from the specified user."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Friendships update",
+						"url": "https://api.twitter.com/1.1/friendships/update.json",
+						"description": "Allows one to enable or disable retweets and device notifications from the specified user."
+					}
 				}
 			]
 		},
@@ -419,13 +507,16 @@
 			"@type": "ServiceChannel",
 			"name": "Geo id place id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/geo/id/{place_id}.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Geo place id",
-					"url": "https://api.twitter.com/1.1/geo/id/{place_id}.json",
-					"description": "Returns all the information about a known place.Example Values: df51dec6f4ee2b2c"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Geo place id",
+						"url": "https://api.twitter.com/1.1/geo/id/{place_id}.json",
+						"description": "Returns all the information about a known place.Example Values: df51dec6f4ee2b2c"
+					}
 				}
 			]
 		},
@@ -433,13 +524,16 @@
 			"@type": "ServiceChannel",
 			"name": "Geo places (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/geo/places.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Geo places",
-					"url": "https://api.twitter.com/1.1/geo/places.json",
-					"description": "Creates a new place object at the given latitude and longitude.  Before creating a place you need to query GET geo/similar_places with the latitude, longitude and name of the place you wish to create. The query will return an array of places which are similar to the one you wish to create, and a token. If the place you wish to create isn't in the returned array you can use the token with this method to create a new one."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Geo places",
+						"url": "https://api.twitter.com/1.1/geo/places.json",
+						"description": "Creates a new place object at the given latitude and longitude.  Before creating a place you need to query GET geo/similar_places with the latitude, longitude and name of the place you wish to create. The query will return an array of places which are similar to the one you wish to create, and a token. If the place you wish to create isn't in the returned array you can use the token with this method to create a new one."
+					}
 				}
 			]
 		},
@@ -447,13 +541,16 @@
 			"@type": "ServiceChannel",
 			"name": "Geo reverse geocode (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/geo/reverse_geocode.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Geo reverse geocode",
-					"url": "https://api.twitter.com/1.1/geo/reverse_geocode.json",
-					"description": "Given a latitude and a longitude, searches for up to 20 places that can be used as a place_id when updating a status.  This request is an informative call and will deliver generalized results about geography"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Geo reverse geocode",
+						"url": "https://api.twitter.com/1.1/geo/reverse_geocode.json",
+						"description": "Given a latitude and a longitude, searches for up to 20 places that can be used as a place_id when updating a status.  This request is an informative call and will deliver generalized results about geography"
+					}
 				}
 			]
 		},
@@ -461,13 +558,16 @@
 			"@type": "ServiceChannel",
 			"name": "Geo search (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/geo/search.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Geo search",
-					"url": "https://api.twitter.com/1.1/geo/search.json",
-					"description": "Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.  Conceptually, a query can be made from the user's location, retrieve a list of places, have the user validate the location he or she is at, and then send the ID of this location with a call to POST statuses/update.  This is the recommended method to use find places that can be attached to statuses/update. Unlike GET geo/reverse_geocode which provides raw data access, this endpoint can potentially re-order places with regards to the user who is authenticated. This approach is also preferred for interactive place matching with the user."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Geo search",
+						"url": "https://api.twitter.com/1.1/geo/search.json",
+						"description": "Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.  Conceptually, a query can be made from the user's location, retrieve a list of places, have the user validate the location he or she is at, and then send the ID of this location with a call to POST statuses/update.  This is the recommended method to use find places that can be attached to statuses/update. Unlike GET geo/reverse_geocode which provides raw data access, this endpoint can potentially re-order places with regards to the user who is authenticated. This approach is also preferred for interactive place matching with the user."
+					}
 				}
 			]
 		},
@@ -475,13 +575,16 @@
 			"@type": "ServiceChannel",
 			"name": "Geo similar places (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/geo/similar_places.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Geo similar places",
-					"url": "https://api.twitter.com/1.1/geo/similar_places.json",
-					"description": "Locates places near the given coordinates which are similar in name.  Conceptually you would use this method to get a list of known places to choose from first. Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.  The token contained in the response is the token needed to be able to create a new place."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Geo similar places",
+						"url": "https://api.twitter.com/1.1/geo/similar_places.json",
+						"description": "Locates places near the given coordinates which are similar in name.  Conceptually you would use this method to get a list of known places to choose from first. Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.  The token contained in the response is the token needed to be able to create a new place."
+					}
 				}
 			]
 		},
@@ -489,13 +592,16 @@
 			"@type": "ServiceChannel",
 			"name": "Help configuration (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/help/configuration.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Help configurations",
-					"url": "https://api.twitter.com/1.1/help/configuration.json",
-					"description": "Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co URL lengths.  It is recommended applications request this endpoint when they are loaded, but no more than once a day."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Help configurations",
+						"url": "https://api.twitter.com/1.1/help/configuration.json",
+						"description": "Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co URL lengths.  It is recommended applications request this endpoint when they are loaded, but no more than once a day."
+					}
 				}
 			]
 		},
@@ -503,13 +609,16 @@
 			"@type": "ServiceChannel",
 			"name": "Help languages (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/help/languages.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Help languages",
-					"url": "https://api.twitter.com/1.1/help/languages.json",
-					"description": "Returns the list of languages supported by Twitter along with their ISO 639-1 code. The ISO 639-1 code is the two letter value to use if you include lang with any of your requests."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Help languages",
+						"url": "https://api.twitter.com/1.1/help/languages.json",
+						"description": "Returns the list of languages supported by Twitter along with their ISO 639-1 code. The ISO 639-1 code is the two letter value to use if you include lang with any of your requests."
+					}
 				}
 			]
 		},
@@ -517,13 +626,16 @@
 			"@type": "ServiceChannel",
 			"name": "Help privacy (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/help/privacy.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Help privacy",
-					"url": "https://api.twitter.com/1.1/help/privacy.json",
-					"description": "Returns Twitter's Privacy Policy"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Help privacy",
+						"url": "https://api.twitter.com/1.1/help/privacy.json",
+						"description": "Returns Twitter's Privacy Policy"
+					}
 				}
 			]
 		},
@@ -531,13 +643,16 @@
 			"@type": "ServiceChannel",
 			"name": "Help tos (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/help/tos.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Help tos",
-					"url": "https://api.twitter.com/1.1/help/tos.json",
-					"description": "Returns the Twitter Terms of Service in the requested format. These are not the same as the Developer Rules of the Road."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Help tos",
+						"url": "https://api.twitter.com/1.1/help/tos.json",
+						"description": "Returns the Twitter Terms of Service in the requested format. These are not the same as the Developer Rules of the Road."
+					}
 				}
 			]
 		},
@@ -545,13 +660,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/create.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists create",
-					"url": "https://api.twitter.com/1.1/lists/create.json",
-					"description": "Creates a new list for the authenticated user. Note that you can't create more than 20 lists per account."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists create",
+						"url": "https://api.twitter.com/1.1/lists/create.json",
+						"description": "Creates a new list for the authenticated user. Note that you can't create more than 20 lists per account."
+					}
 				}
 			]
 		},
@@ -559,13 +677,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists destroy (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/destroy.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists destroy",
-					"url": "https://api.twitter.com/1.1/lists/destroy.json",
-					"description": "Deletes the specified list. The authenticated user must own the list to be able to destroy it."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists destroy",
+						"url": "https://api.twitter.com/1.1/lists/destroy.json",
+						"description": "Deletes the specified list. The authenticated user must own the list to be able to destroy it."
+					}
 				}
 			]
 		},
@@ -573,13 +694,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists list (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/list.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists list",
-					"url": "https://api.twitter.com/1.1/lists/list.json",
-					"description": "Returns all lists the authenticating or specified user subscribes to, including their own. The user is specified using the user_id or screen_name parameters. If no user is given, the authenticating user is used.  This method used to be GET lists in version 1.0 of the API and has been renamed for consistency with other call."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists list",
+						"url": "https://api.twitter.com/1.1/lists/list.json",
+						"description": "Returns all lists the authenticating or specified user subscribes to, including their own. The user is specified using the user_id or screen_name parameters. If no user is given, the authenticating user is used.  This method used to be GET lists in version 1.0 of the API and has been renamed for consistency with other call."
+					}
 				}
 			]
 		},
@@ -587,13 +711,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists members (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/members.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists members",
-					"url": "https://api.twitter.com/1.1/lists/members.json",
-					"description": "Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists members",
+						"url": "https://api.twitter.com/1.1/lists/members.json",
+						"description": "Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list."
+					}
 				}
 			]
 		},
@@ -601,13 +728,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists members create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/members/create.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists members create",
-					"url": "https://api.twitter.com/1.1/lists/members/create.json",
-					"description": "Add a member to a list. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists members create",
+						"url": "https://api.twitter.com/1.1/lists/members/create.json",
+						"description": "Add a member to a list. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members."
+					}
 				}
 			]
 		},
@@ -615,13 +745,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists members create all (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/members/create_all.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists members create all",
-					"url": "https://api.twitter.com/1.1/lists/members/create_all.json",
-					"description": "Adds multiple members to a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members, and you are limited to adding up to 100 members to a list at a time with this method.  Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists members create all",
+						"url": "https://api.twitter.com/1.1/lists/members/create_all.json",
+						"description": "Adds multiple members to a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members, and you are limited to adding up to 100 members to a list at a time with this method.  Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list."
+					}
 				}
 			]
 		},
@@ -629,13 +762,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists members destroy (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/members/destroy.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists members destroy",
-					"url": "https://api.twitter.com/1.1/lists/members/destroy.json",
-					"description": "Removes the specified member from the list. The authenticated user must be the list's owner to remove members from the list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists members destroy",
+						"url": "https://api.twitter.com/1.1/lists/members/destroy.json",
+						"description": "Removes the specified member from the list. The authenticated user must be the list's owner to remove members from the list."
+					}
 				}
 			]
 		},
@@ -643,13 +779,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists members destroy all (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/members/destroy_all.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists members destroy all",
-					"url": "https://api.twitter.com/1.1/lists/members/destroy_all.json",
-					"description": "Removes multiple members from a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to remove members from it. Note that lists can't have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.  Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists members destroy all",
+						"url": "https://api.twitter.com/1.1/lists/members/destroy_all.json",
+						"description": "Removes multiple members from a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to remove members from it. Note that lists can't have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.  Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list."
+					}
 				}
 			]
 		},
@@ -657,13 +796,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists members show (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/members/show.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists members show",
-					"url": "https://api.twitter.com/1.1/lists/members/show.json",
-					"description": "Check if the specified user is a member of the specified list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists members show",
+						"url": "https://api.twitter.com/1.1/lists/members/show.json",
+						"description": "Check if the specified user is a member of the specified list."
+					}
 				}
 			]
 		},
@@ -671,13 +813,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists memberships (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/memberships.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists memberships",
-					"url": "https://api.twitter.com/1.1/lists/memberships.json",
-					"description": "Returns the lists the specified user has been added to. If user_id or screen_name are not provided the memberships for the authenticating user are returned."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists memberships",
+						"url": "https://api.twitter.com/1.1/lists/memberships.json",
+						"description": "Returns the lists the specified user has been added to. If user_id or screen_name are not provided the memberships for the authenticating user are returned."
+					}
 				}
 			]
 		},
@@ -685,13 +830,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists show (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/show.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists show",
-					"url": "https://api.twitter.com/1.1/lists/show.json",
-					"description": "Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists show",
+						"url": "https://api.twitter.com/1.1/lists/show.json",
+						"description": "Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list."
+					}
 				}
 			]
 		},
@@ -699,13 +847,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists statuses (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/statuses.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists statuses",
-					"url": "https://api.twitter.com/1.1/lists/statuses.json",
-					"description": "Returns tweet timeline for members of the specified list. Retweets are included by default. You can use the include_rts=false parameter to omit retweet objects."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists statuses",
+						"url": "https://api.twitter.com/1.1/lists/statuses.json",
+						"description": "Returns tweet timeline for members of the specified list. Retweets are included by default. You can use the include_rts=false parameter to omit retweet objects."
+					}
 				}
 			]
 		},
@@ -713,13 +864,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists subscribers (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/subscribers.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists subscribers",
-					"url": "https://api.twitter.com/1.1/lists/subscribers.json",
-					"description": "Returns the subscribers of the specified list. Private list subscribers will only be shown if the authenticated user owns the specified list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists subscribers",
+						"url": "https://api.twitter.com/1.1/lists/subscribers.json",
+						"description": "Returns the subscribers of the specified list. Private list subscribers will only be shown if the authenticated user owns the specified list."
+					}
 				}
 			]
 		},
@@ -727,13 +881,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists subscribers create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/subscribers/create.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists subscribers create",
-					"url": "https://api.twitter.com/1.1/lists/subscribers/create.json",
-					"description": "Subscribes the authenticated user to the specified list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists subscribers create",
+						"url": "https://api.twitter.com/1.1/lists/subscribers/create.json",
+						"description": "Subscribes the authenticated user to the specified list."
+					}
 				}
 			]
 		},
@@ -741,13 +898,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists subscribers destroy (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/subscribers/destroy.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists subscribers destroy",
-					"url": "https://api.twitter.com/1.1/lists/subscribers/destroy.json",
-					"description": "Unsubscribes the authenticated user from the specified list."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists subscribers destroy",
+						"url": "https://api.twitter.com/1.1/lists/subscribers/destroy.json",
+						"description": "Unsubscribes the authenticated user from the specified list."
+					}
 				}
 			]
 		},
@@ -755,13 +915,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists subscribers show (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/subscribers/show.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists subscribers show",
-					"url": "https://api.twitter.com/1.1/lists/subscribers/show.json",
-					"description": "Check if the specified user is a subscriber of the specified list. Returns the user if they are subscriber."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists subscribers show",
+						"url": "https://api.twitter.com/1.1/lists/subscribers/show.json",
+						"description": "Check if the specified user is a subscriber of the specified list. Returns the user if they are subscriber."
+					}
 				}
 			]
 		},
@@ -769,13 +932,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists subscriptions (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/subscriptions.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Lists subscriptions",
-					"url": "https://api.twitter.com/1.1/lists/subscriptions.json",
-					"description": "Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default. Does not include the user's own lists."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Lists subscriptions",
+						"url": "https://api.twitter.com/1.1/lists/subscriptions.json",
+						"description": "Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default. Does not include the user's own lists."
+					}
 				}
 			]
 		},
@@ -783,13 +949,16 @@
 			"@type": "ServiceChannel",
 			"name": "Lists update (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/lists/update.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Lists update",
-					"url": "https://api.twitter.com/1.1/lists/update.json",
-					"description": "Updates the specified list. The authenticated user must own the list to be able to update it."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Lists update",
+						"url": "https://api.twitter.com/1.1/lists/update.json",
+						"description": "Updates the specified list. The authenticated user must own the list to be able to update it."
+					}
 				}
 			]
 		},
@@ -797,13 +966,16 @@
 			"@type": "ServiceChannel",
 			"name": "Saved searches create (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/saved_searches/create.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Saved searches create",
-					"url": "https://api.twitter.com/1.1/saved_searches/create.json",
-					"description": "Create a new saved search for the authenticated user. A user may only have 25 saved searches."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Saved searches create",
+						"url": "https://api.twitter.com/1.1/saved_searches/create.json",
+						"description": "Create a new saved search for the authenticated user. A user may only have 25 saved searches."
+					}
 				}
 			]
 		},
@@ -811,13 +983,16 @@
 			"@type": "ServiceChannel",
 			"name": "Saved searches destroy id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/saved_searches/destroy/{id}.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Saved searches destroy",
-					"url": "https://api.twitter.com/1.1/saved_searches/destroy/{id}.json",
-					"description": "Destroys a saved search for the authenticating user. The authenticating user must be the owner of saved search id being destroyed."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Saved searches destroy",
+						"url": "https://api.twitter.com/1.1/saved_searches/destroy/{id}.json",
+						"description": "Destroys a saved search for the authenticating user. The authenticating user must be the owner of saved search id being destroyed."
+					}
 				}
 			]
 		},
@@ -825,13 +1000,16 @@
 			"@type": "ServiceChannel",
 			"name": "Saved searches list (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/saved_searches/list.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Saved searches list",
-					"url": "https://api.twitter.com/1.1/saved_searches/list.json",
-					"description": "Returns the authenticated user's saved search queries."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Saved searches list",
+						"url": "https://api.twitter.com/1.1/saved_searches/list.json",
+						"description": "Returns the authenticated user's saved search queries."
+					}
 				}
 			]
 		},
@@ -839,13 +1017,16 @@
 			"@type": "ServiceChannel",
 			"name": "Saved searches show id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/saved_searches/show/{id}.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Savedsearchesid",
-					"url": "https://api.twitter.com/1.1/saved_searches/show/{id}.json",
-					"description": "Returns the authenticated user's saved search queries."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Savedsearchesid",
+						"url": "https://api.twitter.com/1.1/saved_searches/show/{id}.json",
+						"description": "Returns the authenticated user's saved search queries."
+					}
 				}
 			]
 		},
@@ -853,13 +1034,16 @@
 			"@type": "ServiceChannel",
 			"name": "Search tweets (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/search/tweets.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Search tweets",
-					"url": "https://api.twitter.com/1.1/search/tweets.json",
-					"description": "Returns a collection of relevant Tweets matching a specified query.  Please note that Twitter's search service and, by extension, the Search API is not meant to be an exhaustive source of Tweets. Not all Tweets will be indexed or made available via the search interface.  In API v1.1, the response format of the Search API has been improved to return Tweet objects more similar to the objects you'll find across the REST API and platform. You may need to tolerate some inconsistencies and variance in perspectival values (fields that pertain to the perspective of the authenticating user) and embedded user objects."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Search tweets",
+						"url": "https://api.twitter.com/1.1/search/tweets.json",
+						"description": "Returns a collection of relevant Tweets matching a specified query.  Please note that Twitter's search service and, by extension, the Search API is not meant to be an exhaustive source of Tweets. Not all Tweets will be indexed or made available via the search interface.  In API v1.1, the response format of the Search API has been improved to return Tweet objects more similar to the objects you'll find across the REST API and platform. You may need to tolerate some inconsistencies and variance in perspectival values (fields that pertain to the perspective of the authenticating user) and embedded user objects."
+					}
 				}
 			]
 		},
@@ -867,13 +1051,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses destroy id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/destroy/{id}.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Statuses destroy",
-					"url": "https://api.twitter.com/1.1/statuses/destroy/{id}.json",
-					"description": "Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Statuses destroy",
+						"url": "https://api.twitter.com/1.1/statuses/destroy/{id}.json",
+						"description": "Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful."
+					}
 				}
 			]
 		},
@@ -881,13 +1068,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses home timeline (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/home_timeline.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Statuses home timeline",
-					"url": "https://api.twitter.com/1.1/statuses/home_timeline.json",
-					"description": "Returns a collection of the most recent Tweets and retweets posted by the authenticating user and the users they follow. The home timeline is central to how most users interact with the Twitter service.  Up to 800 Tweets are obtainable on the home timeline. It is more volatile for users that follow many users or follow users who tweet frequently."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Statuses home timeline",
+						"url": "https://api.twitter.com/1.1/statuses/home_timeline.json",
+						"description": "Returns a collection of the most recent Tweets and retweets posted by the authenticating user and the users they follow. The home timeline is central to how most users interact with the Twitter service.  Up to 800 Tweets are obtainable on the home timeline. It is more volatile for users that follow many users or follow users who tweet frequently."
+					}
 				}
 			]
 		},
@@ -895,13 +1085,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses mentions timeline (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/mentions_timeline.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Statuses mentions timeline",
-					"url": "https://api.twitter.com/1.1/statuses/mentions_timeline.json",
-					"description": "Returns the 20 most recent mentions (tweets containing a users's @screen_name) for the authenticating user.The timeline returned is the equivalent of the one seen when you view your mentions on twitter.com.This method can only return up to 800 statuses.This method will include retweets in the JSON response regardless of whether the include_rts parameter is set."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Statuses mentions timeline",
+						"url": "https://api.twitter.com/1.1/statuses/mentions_timeline.json",
+						"description": "Returns the 20 most recent mentions (tweets containing a users's @screen_name) for the authenticating user.The timeline returned is the equivalent of the one seen when you view your mentions on twitter.com.This method can only return up to 800 statuses.This method will include retweets in the JSON response regardless of whether the include_rts parameter is set."
+					}
 				}
 			]
 		},
@@ -909,13 +1102,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses oembed (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/oembed.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Statuses oembed",
-					"url": "https://api.twitter.com/1.1/statuses/oembed.json",
-					"description": "Returns information allowing the creation of an embedded representation of a Tweet on third party sites. See the oEmbed specification (http://oembed.com) for information about the response format. Either the id or url parameters must be specified in a request, it is not necessary to include both. While this endpoint allows a bit of customization for the final appearance of the embedded Tweet, be aware that the appearance of the rendered Tweet may change over time to be consistent with Twitter's Display Guidelines (https://dev.twitter.com/terms/display-guidelines). Do not rely on any class or id parameters to stay constant in the returned markup."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Statuses oembed",
+						"url": "https://api.twitter.com/1.1/statuses/oembed.json",
+						"description": "Returns information allowing the creation of an embedded representation of a Tweet on third party sites. See the oEmbed specification (http://oembed.com) for information about the response format. Either the id or url parameters must be specified in a request, it is not necessary to include both. While this endpoint allows a bit of customization for the final appearance of the embedded Tweet, be aware that the appearance of the rendered Tweet may change over time to be consistent with Twitter's Display Guidelines (https://dev.twitter.com/terms/display-guidelines). Do not rely on any class or id parameters to stay constant in the returned markup."
+					}
 				}
 			]
 		},
@@ -923,13 +1119,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses retweet id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/retweet/{id}.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Statusesretweetid",
-					"url": "https://api.twitter.com/1.1/statuses/retweet/{id}.json",
-					"description": "Retweets a tweet. Returns the original tweet with retweet details embedded."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Statusesretweetid",
+						"url": "https://api.twitter.com/1.1/statuses/retweet/{id}.json",
+						"description": "Retweets a tweet. Returns the original tweet with retweet details embedded."
+					}
 				}
 			]
 		},
@@ -937,13 +1136,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses retweets id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/retweets/{id}.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Statuses retweets",
-					"url": "https://api.twitter.com/1.1/statuses/retweets/{id}.json",
-					"description": "Returns up to 100 of the first retweets of a given tweet."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Statuses retweets",
+						"url": "https://api.twitter.com/1.1/statuses/retweets/{id}.json",
+						"description": "Returns up to 100 of the first retweets of a given tweet."
+					}
 				}
 			]
 		},
@@ -951,13 +1153,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses show id (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/show/{id}.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Statuses show",
-					"url": "https://api.twitter.com/1.1/statuses/show/{id}.json",
-					"description": "Returns a single status, specified by the id parameter below. The status's author will be returned inline."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Statuses show",
+						"url": "https://api.twitter.com/1.1/statuses/show/{id}.json",
+						"description": "Returns a single status, specified by the id parameter below. The status's author will be returned inline."
+					}
 				}
 			]
 		},
@@ -965,13 +1170,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses update (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/update.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Statuses update",
-					"url": "https://api.twitter.com/1.1/statuses/update.json",
-					"description": "Updates the authenticating user's status, also known as tweeting. To upload an image to accompany the tweet, use POST statuses/update_with_media (https://dev.twitter.com/docs/api/1/post/statuses/update_with_media). For each update attempt, the update text is compared with the authenticating user's recent tweets. Any attempt that would result in duplication will be blocked, resulting in a 403 error. Therefore, a user cannot submit the same status twice in a row. While not rate limited by the API a user is limited in the number of tweets they can create at a time. If the number of updates posted by the user reaches the current allowed limit this method will return an HTTP 403 error."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Statuses update",
+						"url": "https://api.twitter.com/1.1/statuses/update.json",
+						"description": "Updates the authenticating user's status, also known as tweeting. To upload an image to accompany the tweet, use POST statuses/update_with_media (https://dev.twitter.com/docs/api/1/post/statuses/update_with_media). For each update attempt, the update text is compared with the authenticating user's recent tweets. Any attempt that would result in duplication will be blocked, resulting in a 403 error. Therefore, a user cannot submit the same status twice in a row. While not rate limited by the API a user is limited in the number of tweets they can create at a time. If the number of updates posted by the user reaches the current allowed limit this method will return an HTTP 403 error."
+					}
 				}
 			]
 		},
@@ -979,13 +1187,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses update with media (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/update_with_media.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Statuses update with media",
-					"url": "https://api.twitter.com/1.1/statuses/update_with_media.json",
-					"description": "Updates the authenticating user's status and attaches media for upload. Unlike POST statuses/update (https://dev.twitter.com/docs/api/1.1/post/statuses/update), this method expects raw multipart data. Your POST request's Content-Type should be set to multipart/form-data with the media[] parameter. The Tweet text will be rewritten to include the media URL(s), which will reduce the number of characters allowed in the Tweet text. If the URL(s) cannot be appended without text truncation, the tweet will be rejected and this method will return an HTTP 403 error. Important: Make sure that you're using upload.twitter.com as your host while posting statuses with media. It is strongly recommended to use SSL with this method."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Statuses update with media",
+						"url": "https://api.twitter.com/1.1/statuses/update_with_media.json",
+						"description": "Updates the authenticating user's status and attaches media for upload. Unlike POST statuses/update (https://dev.twitter.com/docs/api/1.1/post/statuses/update), this method expects raw multipart data. Your POST request's Content-Type should be set to multipart/form-data with the media[] parameter. The Tweet text will be rewritten to include the media URL(s), which will reduce the number of characters allowed in the Tweet text. If the URL(s) cannot be appended without text truncation, the tweet will be rejected and this method will return an HTTP 403 error. Important: Make sure that you're using upload.twitter.com as your host while posting statuses with media. It is strongly recommended to use SSL with this method."
+					}
 				}
 			]
 		},
@@ -993,13 +1204,16 @@
 			"@type": "ServiceChannel",
 			"name": "Statuses user timeline (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/statuses/user_timeline.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Statuses user timeline",
-					"url": "https://api.twitter.com/1.1/statuses/user_timeline.json",
-					"description": "Returns the 20 most recent statuses posted by the authenticating user. It is also possible to request another user's timeline by using the screen_name or user_id parameter. The other users timeline will only be visible if they are not protected, or if the authenticating user's follow request was accepted by the protected user. The timeline returned is the equivalent of the one seen when you view a user's profile on twitter.com. This method can only return up to 3,200 of a user's most recent statuses. Native retweets of other statuses by the user is included in this total, regardless of whether include_rts is specified when requesting this resource. This method will not include retweets in the XML and JSON responses unless the include_rts parameter is set. The RSS and Atom responses will always include retweets as statuses prefixed with RT, regardless of provided parameters. Always specify either an user_id or screen_name when requesting a user timeline."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Statuses user timeline",
+						"url": "https://api.twitter.com/1.1/statuses/user_timeline.json",
+						"description": "Returns the 20 most recent statuses posted by the authenticating user. It is also possible to request another user's timeline by using the screen_name or user_id parameter. The other users timeline will only be visible if they are not protected, or if the authenticating user's follow request was accepted by the protected user. The timeline returned is the equivalent of the one seen when you view a user's profile on twitter.com. This method can only return up to 3,200 of a user's most recent statuses. Native retweets of other statuses by the user is included in this total, regardless of whether include_rts is specified when requesting this resource. This method will not include retweets in the XML and JSON responses unless the include_rts parameter is set. The RSS and Atom responses will always include retweets as statuses prefixed with RT, regardless of provided parameters. Always specify either an user_id or screen_name when requesting a user timeline."
+					}
 				}
 			]
 		},
@@ -1007,13 +1221,16 @@
 			"@type": "ServiceChannel",
 			"name": "Trends available (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/trends/available.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Trends available",
-					"url": "https://api.twitter.com/1.1/trends/available.json",
-					"description": "Returns the locations that Twitter has trending topic information for.  The response is an array of \"locations\" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.  A WOEID is a Yahoo! Where On Earth ID."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Trends available",
+						"url": "https://api.twitter.com/1.1/trends/available.json",
+						"description": "Returns the locations that Twitter has trending topic information for.  The response is an array of \"locations\" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.  A WOEID is a Yahoo! Where On Earth ID."
+					}
 				}
 			]
 		},
@@ -1021,13 +1238,16 @@
 			"@type": "ServiceChannel",
 			"name": "Trends closest (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/trends/closest.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Trends closest",
-					"url": "https://api.twitter.com/1.1/trends/closest.json",
-					"description": "Returns the locations that Twitter has trending topic information for, closest to a specified location.  The response is an array of \"locations\" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.  A WOEID is a Yahoo! Where On Earth ID."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Trends closest",
+						"url": "https://api.twitter.com/1.1/trends/closest.json",
+						"description": "Returns the locations that Twitter has trending topic information for, closest to a specified location.  The response is an array of \"locations\" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.  A WOEID is a Yahoo! Where On Earth ID."
+					}
 				}
 			]
 		},
@@ -1035,13 +1255,16 @@
 			"@type": "ServiceChannel",
 			"name": "Trends place (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/trends/place.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Trends place",
-					"url": "https://api.twitter.com/1.1/trends/place.json",
-					"description": "Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.  The response is an array of \"trend\" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.  This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Trends place",
+						"url": "https://api.twitter.com/1.1/trends/place.json",
+						"description": "Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.  The response is an array of \"trend\" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.  This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage."
+					}
 				}
 			]
 		},
@@ -1049,13 +1272,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users contributees (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/contributees.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Users contributees",
-					"url": "https://api.twitter.com/1.1/users/contributees.json",
-					"description": "Returns a collection of users that the specified user can contribute to."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Users contributees",
+						"url": "https://api.twitter.com/1.1/users/contributees.json",
+						"description": "Returns a collection of users that the specified user can contribute to."
+					}
 				}
 			]
 		},
@@ -1063,13 +1289,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users contributors (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/contributors.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Users contributors",
-					"url": "https://api.twitter.com/1.1/users/contributors.json",
-					"description": "Returns a collection of users who can contribute to the specified account."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Users contributors",
+						"url": "https://api.twitter.com/1.1/users/contributors.json",
+						"description": "Returns a collection of users who can contribute to the specified account."
+					}
 				}
 			]
 		},
@@ -1077,13 +1306,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users lookup (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/lookup.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Users lookup",
-					"url": "https://api.twitter.com/1.1/users/lookup.json",
-					"description": "Returns fully-hydrated user objects for up to 100 users per request, as specified by comma-separated values passed to the user_id and/or screen_name parameters.  This method is especially useful when used in conjunction with collections of user IDs returned from GET friends/ids and GET followers/ids.  GET users/show is used to retrieve a single user object."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Users lookup",
+						"url": "https://api.twitter.com/1.1/users/lookup.json",
+						"description": "Returns fully-hydrated user objects for up to 100 users per request, as specified by comma-separated values passed to the user_id and/or screen_name parameters.  This method is especially useful when used in conjunction with collections of user IDs returned from GET friends/ids and GET followers/ids.  GET users/show is used to retrieve a single user object."
+					}
 				}
 			]
 		},
@@ -1091,13 +1323,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users report spam (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/report_spam.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": "Users report spam",
-					"url": "https://api.twitter.com/1.1/users/report_spam.json",
-					"description": "The user specified in the id is blocked by the authenticated user and reported as a spammer."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": "Users report spam",
+						"url": "https://api.twitter.com/1.1/users/report_spam.json",
+						"description": "The user specified in the id is blocked by the authenticated user and reported as a spammer."
+					}
 				}
 			]
 		},
@@ -1105,13 +1340,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users search (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/search.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Users search",
-					"url": "https://api.twitter.com/1.1/users/search.json",
-					"description": "Provides a simple, relevance-based search interface to public user accounts on Twitter. Try querying by topical interest, full name, company name, location, or other criteria. Exact match searches are not supported.  Only the first 1,000 matching results are available."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Users search",
+						"url": "https://api.twitter.com/1.1/users/search.json",
+						"description": "Provides a simple, relevance-based search interface to public user accounts on Twitter. Try querying by topical interest, full name, company name, location, or other criteria. Exact match searches are not supported.  Only the first 1,000 matching results are available."
+					}
 				}
 			]
 		},
@@ -1119,13 +1357,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users show (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/show.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Users show",
-					"url": "https://api.twitter.com/1.1/users/show.json",
-					"description": "Returns a variety of information about the user specified by the required user_id or screen_name parameter. The author's most recent Tweet will be returned inline when possible.  GET users/lookup is used to retrieve a bulk collection of user objects."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Users show",
+						"url": "https://api.twitter.com/1.1/users/show.json",
+						"description": "Returns a variety of information about the user specified by the required user_id or screen_name parameter. The author's most recent Tweet will be returned inline when possible.  GET users/lookup is used to retrieve a bulk collection of user objects."
+					}
 				}
 			]
 		},
@@ -1133,13 +1374,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users suggestions (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/suggestions.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Users suggestions",
-					"url": "https://api.twitter.com/1.1/users/suggestions.json",
-					"description": "Access to Twitter's suggested user list. This returns the list of suggested user categories. The category can be used in GET users/suggestions/:slug to get the users in that category."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Users suggestions",
+						"url": "https://api.twitter.com/1.1/users/suggestions.json",
+						"description": "Access to Twitter's suggested user list. This returns the list of suggested user categories. The category can be used in GET users/suggestions/:slug to get the users in that category."
+					}
 				}
 			]
 		},
@@ -1147,13 +1391,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users suggestions slug (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/suggestions/{slug}.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Users suggestions slug",
-					"url": "https://api.twitter.com/1.1/users/suggestions/{slug}.json",
-					"description": "Access the users in a given category of the Twitter suggested user list. It is recommended that applications cache this data for no more than one hour."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Users suggestions slug",
+						"url": "https://api.twitter.com/1.1/users/suggestions/{slug}.json",
+						"description": "Access the users in a given category of the Twitter suggested user list. It is recommended that applications cache this data for no more than one hour."
+					}
 				}
 			]
 		},
@@ -1161,13 +1408,16 @@
 			"@type": "ServiceChannel",
 			"name": "Users suggestions slug members (json format)",
 			"serviceUrl": "https://api.twitter.com/1.1/users/suggestions/{slug}/members.json",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": "Users suggestionsslugmembers",
-					"url": "https://api.twitter.com/1.1/users/suggestions/{slug}/members.json",
-					"description": "Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": "Users suggestionsslugmembers",
+						"url": "https://api.twitter.com/1.1/users/suggestions/{slug}/members.json",
+						"description": "Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user."
+					}
 				}
 			]
 		}

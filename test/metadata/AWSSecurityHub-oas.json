@@ -22,32 +22,42 @@
 		"http://securityhub.{region}.amazonaws.com.cn",
 		"https://securityhub.{region}.amazonaws.com.cn"
 	],
+	"logo": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png",
 	"availableChannel": [
 		{
 			"@type": "ServiceChannel",
 			"name": "Accounts",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/accounts",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": " disable security hub",
-					"url": "http://securityhub.{region}.amazonaws.com/accounts",
-					"description": "<p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all Regions, you must submit one request per Region where you have enabled Security Hub.</p> <p>When you disable Security Hub for a master account, it doesn't disable Security Hub for any associated member accounts.</p> <p>When you disable Security Hub, your existing findings and insights and any Security Hub configuration settings are deleted after 90 days and cannot be recovered. Any standards that were enabled are disabled, and your master and member account associations are removed.</p> <p>If you want to save your existing findings, you must export them before you disable Security Hub.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": " disable security hub",
+						"url": "http://securityhub.{region}.amazonaws.com/accounts",
+						"description": "<p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all Regions, you must submit one request per Region where you have enabled Security Hub.</p> <p>When you disable Security Hub for a master account, it doesn't disable Security Hub for any associated member accounts.</p> <p>When you disable Security Hub, your existing findings and insights and any Security Hub configuration settings are deleted after 90 days and cannot be recovered. Any standards that were enabled are disabled, and your master and member account associations are removed.</p> <p>If you want to save your existing findings, you must export them before you disable Security Hub.</p>"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " describe hub",
-					"url": "http://securityhub.{region}.amazonaws.com/accounts",
-					"description": "Returns details about the Hub resource in your account, including the <code>HubArn</code> and the time when you enabled Security Hub."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " describe hub",
+						"url": "http://securityhub.{region}.amazonaws.com/accounts",
+						"description": "Returns details about the Hub resource in your account, including the <code>HubArn</code> and the time when you enabled Security Hub."
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " enable security hub",
-					"url": "http://securityhub.{region}.amazonaws.com/accounts",
-					"description": "<p>Enables Security Hub for your account in the current Region or the Region you specify in the request.</p> <p>When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings from AWS Config, Amazon GuardDuty, Amazon Inspector, and Amazon Macie.</p> <p>When you use the <code>EnableSecurityHub</code> operation to enable Security Hub, you also automatically enable the CIS AWS Foundations standard. You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard. To enable a standard, use the <code> <a>BatchEnableStandards</a> </code> operation. To disable a standard, use the <code> <a>BatchDisableStandards</a> </code> operation.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html\">Setting Up AWS Security Hub</a> in the <i>AWS Security Hub User Guide</i>.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " enable security hub",
+						"url": "http://securityhub.{region}.amazonaws.com/accounts",
+						"description": "<p>Enables Security Hub for your account in the current Region or the Region you specify in the request.</p> <p>When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings from AWS Config, Amazon GuardDuty, Amazon Inspector, and Amazon Macie.</p> <p>When you use the <code>EnableSecurityHub</code> operation to enable Security Hub, you also automatically enable the CIS AWS Foundations standard. You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard. To enable a standard, use the <code> <a>BatchEnableStandards</a> </code> operation. To disable a standard, use the <code> <a>BatchDisableStandards</a> </code> operation.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html\">Setting Up AWS Security Hub</a> in the <i>AWS Security Hub User Guide</i>.</p>"
+					}
 				}
 			]
 		},
@@ -55,13 +65,16 @@
 			"@type": "ServiceChannel",
 			"name": "Action targets",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/actionTargets",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " create action target",
-					"url": "http://securityhub.{region}.amazonaws.com/actionTargets",
-					"description": "<p>Creates a custom action target in Security Hub.</p> <p>You can use custom actions on findings and insights in Security Hub to trigger target actions in Amazon CloudWatch Events.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " create action target",
+						"url": "http://securityhub.{region}.amazonaws.com/actionTargets",
+						"description": "<p>Creates a custom action target in Security Hub.</p> <p>You can use custom actions on findings and insights in Security Hub to trigger target actions in Amazon CloudWatch Events.</p>"
+					}
 				}
 			]
 		},
@@ -69,13 +82,16 @@
 			"@type": "ServiceChannel",
 			"name": "Action targets get",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/actionTargets/get",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " describe action targets",
-					"url": "http://securityhub.{region}.amazonaws.com/actionTargets/get",
-					"description": "Returns a list of the custom action targets in Security Hub in your account."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " describe action targets",
+						"url": "http://securityhub.{region}.amazonaws.com/actionTargets/get",
+						"description": "Returns a list of the custom action targets in Security Hub in your account."
+					}
 				}
 			]
 		},
@@ -83,20 +99,26 @@
 			"@type": "ServiceChannel",
 			"name": "Action targets  action target arn",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/actionTargets/{ActionTargetArn}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": " delete action target",
-					"url": "http://securityhub.{region}.amazonaws.com/actionTargets/{ActionTargetArn}",
-					"description": "<p>Deletes a custom action target from Security Hub.</p> <p>Deleting a custom action target does not affect any findings or insights that were already sent to Amazon CloudWatch Events using the custom action.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": " delete action target",
+						"url": "http://securityhub.{region}.amazonaws.com/actionTargets/{ActionTargetArn}",
+						"description": "<p>Deletes a custom action target from Security Hub.</p> <p>Deleting a custom action target does not affect any findings or insights that were already sent to Amazon CloudWatch Events using the custom action.</p>"
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": " update action target",
-					"url": "http://securityhub.{region}.amazonaws.com/actionTargets/{ActionTargetArn}",
-					"description": "Updates the name and description of a custom action target in Security Hub."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": " update action target",
+						"url": "http://securityhub.{region}.amazonaws.com/actionTargets/{ActionTargetArn}",
+						"description": "Updates the name and description of a custom action target in Security Hub."
+					}
 				}
 			]
 		},
@@ -104,20 +126,26 @@
 			"@type": "ServiceChannel",
 			"name": "Findings",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/findings",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": " update findings",
-					"url": "http://securityhub.{region}.amazonaws.com/findings",
-					"description": "Updates the <code>Note</code> and <code>RecordState</code> of the Security Hub-aggregated findings that the filter attributes specify. Any member account that can view the finding also sees the update to the finding."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": " update findings",
+						"url": "http://securityhub.{region}.amazonaws.com/findings",
+						"description": "Updates the <code>Note</code> and <code>RecordState</code> of the Security Hub-aggregated findings that the filter attributes specify. Any member account that can view the finding also sees the update to the finding."
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " get findings",
-					"url": "http://securityhub.{region}.amazonaws.com/findings",
-					"description": "Returns a list of findings that match the specified criteria."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " get findings",
+						"url": "http://securityhub.{region}.amazonaws.com/findings",
+						"description": "Returns a list of findings that match the specified criteria."
+					}
 				}
 			]
 		},
@@ -125,13 +153,16 @@
 			"@type": "ServiceChannel",
 			"name": "Findings import",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/findings/import",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " batch import findings",
-					"url": "http://securityhub.{region}.amazonaws.com/findings/import",
-					"description": "<p>Imports security findings generated from an integrated third-party product into Security Hub. This action is requested by the integrated product to import its findings into Security Hub.</p> <p>The maximum allowed size for a finding is 240 Kb. An error is returned for any finding larger than 240 Kb.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " batch import findings",
+						"url": "http://securityhub.{region}.amazonaws.com/findings/import",
+						"description": "<p>Imports security findings generated from an integrated third-party product into Security Hub. This action is requested by the integrated product to import its findings into Security Hub.</p> <p>The maximum allowed size for a finding is 240 Kb. An error is returned for any finding larger than 240 Kb.</p>"
+					}
 				}
 			]
 		},
@@ -139,13 +170,16 @@
 			"@type": "ServiceChannel",
 			"name": "Insights",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/insights",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " create insight",
-					"url": "http://securityhub.{region}.amazonaws.com/insights",
-					"description": "<p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate to a security issue that requires attention or remediation.</p> <p>To group the related findings in the insight, use the <code>GroupByAttribute</code>.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " create insight",
+						"url": "http://securityhub.{region}.amazonaws.com/insights",
+						"description": "<p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate to a security issue that requires attention or remediation.</p> <p>To group the related findings in the insight, use the <code>GroupByAttribute</code>.</p>"
+					}
 				}
 			]
 		},
@@ -153,13 +187,16 @@
 			"@type": "ServiceChannel",
 			"name": "Insights get",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/insights/get",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " get insights",
-					"url": "http://securityhub.{region}.amazonaws.com/insights/get",
-					"description": "Lists and describes insights for the specified insight ARNs."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " get insights",
+						"url": "http://securityhub.{region}.amazonaws.com/insights/get",
+						"description": "Lists and describes insights for the specified insight ARNs."
+					}
 				}
 			]
 		},
@@ -167,13 +204,16 @@
 			"@type": "ServiceChannel",
 			"name": "Insights results  insight arn",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/insights/results/{InsightArn}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " get insight results",
-					"url": "http://securityhub.{region}.amazonaws.com/insights/results/{InsightArn}",
-					"description": "Lists the results of the Security Hub insight specified by the insight ARN."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " get insight results",
+						"url": "http://securityhub.{region}.amazonaws.com/insights/results/{InsightArn}",
+						"description": "Lists the results of the Security Hub insight specified by the insight ARN."
+					}
 				}
 			]
 		},
@@ -181,20 +221,26 @@
 			"@type": "ServiceChannel",
 			"name": "Insights  insight arn",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/insights/{InsightArn}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": " delete insight",
-					"url": "http://securityhub.{region}.amazonaws.com/insights/{InsightArn}",
-					"description": "Deletes the insight specified by the <code>InsightArn</code>."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": " delete insight",
+						"url": "http://securityhub.{region}.amazonaws.com/insights/{InsightArn}",
+						"description": "Deletes the insight specified by the <code>InsightArn</code>."
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": " update insight",
-					"url": "http://securityhub.{region}.amazonaws.com/insights/{InsightArn}",
-					"description": "Updates the Security Hub insight identified by the specified insight ARN."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": " update insight",
+						"url": "http://securityhub.{region}.amazonaws.com/insights/{InsightArn}",
+						"description": "Updates the Security Hub insight identified by the specified insight ARN."
+					}
 				}
 			]
 		},
@@ -202,13 +248,16 @@
 			"@type": "ServiceChannel",
 			"name": "Invitations",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/invitations",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " list invitations",
-					"url": "http://securityhub.{region}.amazonaws.com/invitations",
-					"description": "Lists all Security Hub membership invitations that were sent to the current AWS account. "
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " list invitations",
+						"url": "http://securityhub.{region}.amazonaws.com/invitations",
+						"description": "Lists all Security Hub membership invitations that were sent to the current AWS account. "
+					}
 				}
 			]
 		},
@@ -216,13 +265,16 @@
 			"@type": "ServiceChannel",
 			"name": "Invitations count",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/invitations/count",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " get invitations count",
-					"url": "http://securityhub.{region}.amazonaws.com/invitations/count",
-					"description": "Returns the count of all Security Hub membership invitations that were sent to the current member account, not including the currently accepted invitation. "
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " get invitations count",
+						"url": "http://securityhub.{region}.amazonaws.com/invitations/count",
+						"description": "Returns the count of all Security Hub membership invitations that were sent to the current member account, not including the currently accepted invitation. "
+					}
 				}
 			]
 		},
@@ -230,13 +282,16 @@
 			"@type": "ServiceChannel",
 			"name": "Invitations decline",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/invitations/decline",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " decline invitations",
-					"url": "http://securityhub.{region}.amazonaws.com/invitations/decline",
-					"description": "Declines invitations to become a member account."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " decline invitations",
+						"url": "http://securityhub.{region}.amazonaws.com/invitations/decline",
+						"description": "Declines invitations to become a member account."
+					}
 				}
 			]
 		},
@@ -244,13 +299,16 @@
 			"@type": "ServiceChannel",
 			"name": "Invitations delete",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/invitations/delete",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " delete invitations",
-					"url": "http://securityhub.{region}.amazonaws.com/invitations/delete",
-					"description": "Deletes invitations received by the AWS account to become a member account."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " delete invitations",
+						"url": "http://securityhub.{region}.amazonaws.com/invitations/delete",
+						"description": "Deletes invitations received by the AWS account to become a member account."
+					}
 				}
 			]
 		},
@@ -258,20 +316,26 @@
 			"@type": "ServiceChannel",
 			"name": "Master",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/master",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " get master account",
-					"url": "http://securityhub.{region}.amazonaws.com/master",
-					"description": "Provides the details for the Security Hub master account for the current member account. "
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " get master account",
+						"url": "http://securityhub.{region}.amazonaws.com/master",
+						"description": "Provides the details for the Security Hub master account for the current member account. "
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " accept invitation",
-					"url": "http://securityhub.{region}.amazonaws.com/master",
-					"description": "<p>Accepts the invitation to be a member account and be monitored by the Security Hub master account that the invitation was sent from.</p> <p>When the member account accepts the invitation, permission is granted to the master account to view findings generated in the member account.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " accept invitation",
+						"url": "http://securityhub.{region}.amazonaws.com/master",
+						"description": "<p>Accepts the invitation to be a member account and be monitored by the Security Hub master account that the invitation was sent from.</p> <p>When the member account accepts the invitation, permission is granted to the master account to view findings generated in the member account.</p>"
+					}
 				}
 			]
 		},
@@ -279,13 +343,16 @@
 			"@type": "ServiceChannel",
 			"name": "Master disassociate",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/master/disassociate",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " disassociate from master account",
-					"url": "http://securityhub.{region}.amazonaws.com/master/disassociate",
-					"description": "Disassociates the current Security Hub member account from the associated master account."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " disassociate from master account",
+						"url": "http://securityhub.{region}.amazonaws.com/master/disassociate",
+						"description": "Disassociates the current Security Hub member account from the associated master account."
+					}
 				}
 			]
 		},
@@ -293,20 +360,26 @@
 			"@type": "ServiceChannel",
 			"name": "Members",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/members",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " list members",
-					"url": "http://securityhub.{region}.amazonaws.com/members",
-					"description": "Lists details about all member accounts for the current Security Hub master account."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " list members",
+						"url": "http://securityhub.{region}.amazonaws.com/members",
+						"description": "Lists details about all member accounts for the current Security Hub master account."
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " create members",
-					"url": "http://securityhub.{region}.amazonaws.com/members",
-					"description": "<p>Creates a member association in Security Hub between the specified accounts and the account used to make the request, which is the master account. To successfully create a member, you must use this action from an account that already has Security Hub enabled. To enable Security Hub, you can use the <code> <a>EnableSecurityHub</a> </code> operation.</p> <p>After you use <code>CreateMembers</code> to create member account associations in Security Hub, you must use the <code> <a>InviteMembers</a> </code> operation to invite the accounts to enable Security Hub and become member accounts in Security Hub.</p> <p>If the account owner accepts the invitation, the account becomes a member account in Security Hub, and a permission policy is added that permits the master account to view the findings generated in the member account. When Security Hub is enabled in the invited account, findings start to be sent to both the member and master accounts.</p> <p>To remove the association between the master and member accounts, use the <code> <a>DisassociateFromMasterAccount</a> </code> or <code> <a>DisassociateMembers</a> </code> operation.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " create members",
+						"url": "http://securityhub.{region}.amazonaws.com/members",
+						"description": "<p>Creates a member association in Security Hub between the specified accounts and the account used to make the request, which is the master account. To successfully create a member, you must use this action from an account that already has Security Hub enabled. To enable Security Hub, you can use the <code> <a>EnableSecurityHub</a> </code> operation.</p> <p>After you use <code>CreateMembers</code> to create member account associations in Security Hub, you must use the <code> <a>InviteMembers</a> </code> operation to invite the accounts to enable Security Hub and become member accounts in Security Hub.</p> <p>If the account owner accepts the invitation, the account becomes a member account in Security Hub, and a permission policy is added that permits the master account to view the findings generated in the member account. When Security Hub is enabled in the invited account, findings start to be sent to both the member and master accounts.</p> <p>To remove the association between the master and member accounts, use the <code> <a>DisassociateFromMasterAccount</a> </code> or <code> <a>DisassociateMembers</a> </code> operation.</p>"
+					}
 				}
 			]
 		},
@@ -314,13 +387,16 @@
 			"@type": "ServiceChannel",
 			"name": "Members delete",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/members/delete",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " delete members",
-					"url": "http://securityhub.{region}.amazonaws.com/members/delete",
-					"description": "Deletes the specified member accounts from Security Hub."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " delete members",
+						"url": "http://securityhub.{region}.amazonaws.com/members/delete",
+						"description": "Deletes the specified member accounts from Security Hub."
+					}
 				}
 			]
 		},
@@ -328,13 +404,16 @@
 			"@type": "ServiceChannel",
 			"name": "Members disassociate",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/members/disassociate",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " disassociate members",
-					"url": "http://securityhub.{region}.amazonaws.com/members/disassociate",
-					"description": "Disassociates the specified member accounts from the associated master account."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " disassociate members",
+						"url": "http://securityhub.{region}.amazonaws.com/members/disassociate",
+						"description": "Disassociates the specified member accounts from the associated master account."
+					}
 				}
 			]
 		},
@@ -342,13 +421,16 @@
 			"@type": "ServiceChannel",
 			"name": "Members get",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/members/get",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " get members",
-					"url": "http://securityhub.{region}.amazonaws.com/members/get",
-					"description": "Returns the details for the Security Hub member accounts for the specified account IDs."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " get members",
+						"url": "http://securityhub.{region}.amazonaws.com/members/get",
+						"description": "Returns the details for the Security Hub member accounts for the specified account IDs."
+					}
 				}
 			]
 		},
@@ -356,13 +438,16 @@
 			"@type": "ServiceChannel",
 			"name": "Members invite",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/members/invite",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " invite members",
-					"url": "http://securityhub.{region}.amazonaws.com/members/invite",
-					"description": "<p>Invites other AWS accounts to become member accounts for the Security Hub master account that the invitation is sent from.</p> <p>Before you can use this action to invite a member, you must first use the <code> <a>CreateMembers</a> </code> action to create the member account in Security Hub.</p> <p>When the account owner accepts the invitation to become a member account and enables Security Hub, the master account can view the findings generated from the member account.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " invite members",
+						"url": "http://securityhub.{region}.amazonaws.com/members/invite",
+						"description": "<p>Invites other AWS accounts to become member accounts for the Security Hub master account that the invitation is sent from.</p> <p>Before you can use this action to invite a member, you must first use the <code> <a>CreateMembers</a> </code> action to create the member account in Security Hub.</p> <p>When the account owner accepts the invitation to become a member account and enables Security Hub, the master account can view the findings generated from the member account.</p>"
+					}
 				}
 			]
 		},
@@ -370,20 +455,26 @@
 			"@type": "ServiceChannel",
 			"name": "Product subscriptions",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/productSubscriptions",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " list enabled products for import",
-					"url": "http://securityhub.{region}.amazonaws.com/productSubscriptions",
-					"description": "Lists all findings-generating solutions (products) that you are subscribed to receive findings from in Security Hub."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " list enabled products for import",
+						"url": "http://securityhub.{region}.amazonaws.com/productSubscriptions",
+						"description": "Lists all findings-generating solutions (products) that you are subscribed to receive findings from in Security Hub."
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " enable import findings for product",
-					"url": "http://securityhub.{region}.amazonaws.com/productSubscriptions",
-					"description": "<p>Enables the integration of a partner product with Security Hub. Integrated products send findings to Security Hub.</p> <p>When you enable a product integration, a permission policy that grants permission for the product to send findings to Security Hub is applied.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " enable import findings for product",
+						"url": "http://securityhub.{region}.amazonaws.com/productSubscriptions",
+						"description": "<p>Enables the integration of a partner product with Security Hub. Integrated products send findings to Security Hub.</p> <p>When you enable a product integration, a permission policy that grants permission for the product to send findings to Security Hub is applied.</p>"
+					}
 				}
 			]
 		},
@@ -391,13 +482,16 @@
 			"@type": "ServiceChannel",
 			"name": "Product subscriptions  product subscription arn",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/productSubscriptions/{ProductSubscriptionArn}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": " disable import findings for product",
-					"url": "http://securityhub.{region}.amazonaws.com/productSubscriptions/{ProductSubscriptionArn}",
-					"description": "Disables the integration of the specified product with Security Hub. After the integration is disabled, findings from that product are no longer sent to Security Hub."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": " disable import findings for product",
+						"url": "http://securityhub.{region}.amazonaws.com/productSubscriptions/{ProductSubscriptionArn}",
+						"description": "Disables the integration of the specified product with Security Hub. After the integration is disabled, findings from that product are no longer sent to Security Hub."
+					}
 				}
 			]
 		},
@@ -405,13 +499,16 @@
 			"@type": "ServiceChannel",
 			"name": "Products",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/products",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " describe products",
-					"url": "http://securityhub.{region}.amazonaws.com/products",
-					"description": "Returns information about the available products that you can subscribe to and integrate with Security Hub in order to consolidate findings."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " describe products",
+						"url": "http://securityhub.{region}.amazonaws.com/products",
+						"description": "Returns information about the available products that you can subscribe to and integrate with Security Hub in order to consolidate findings."
+					}
 				}
 			]
 		},
@@ -419,13 +516,16 @@
 			"@type": "ServiceChannel",
 			"name": "Standards",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/standards",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " describe standards",
-					"url": "http://securityhub.{region}.amazonaws.com/standards",
-					"description": "<p>Returns a list of the available standards in Security Hub.</p> <p>For each standard, the results include the standard ARN, the name, and a description. </p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " describe standards",
+						"url": "http://securityhub.{region}.amazonaws.com/standards",
+						"description": "<p>Returns a list of the available standards in Security Hub.</p> <p>For each standard, the results include the standard ARN, the name, and a description. </p>"
+					}
 				}
 			]
 		},
@@ -433,13 +533,16 @@
 			"@type": "ServiceChannel",
 			"name": "Standards control  standards control arn",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/standards/control/{StandardsControlArn}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "patch",
-					"name": " update standards control",
-					"url": "http://securityhub.{region}.amazonaws.com/standards/control/{StandardsControlArn}",
-					"description": "Used to control whether an individual security standard control is enabled or disabled."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "PATCH",
+						"name": " update standards control",
+						"url": "http://securityhub.{region}.amazonaws.com/standards/control/{StandardsControlArn}",
+						"description": "Used to control whether an individual security standard control is enabled or disabled."
+					}
 				}
 			]
 		},
@@ -447,13 +550,16 @@
 			"@type": "ServiceChannel",
 			"name": "Standards controls  standards subscription arn",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/standards/controls/{StandardsSubscriptionArn}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " describe standards controls",
-					"url": "http://securityhub.{region}.amazonaws.com/standards/controls/{StandardsSubscriptionArn}",
-					"description": "<p>Returns a list of security standards controls.</p> <p>For each control, the results include information about whether it is currently enabled, the severity, and a link to remediation information.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " describe standards controls",
+						"url": "http://securityhub.{region}.amazonaws.com/standards/controls/{StandardsSubscriptionArn}",
+						"description": "<p>Returns a list of security standards controls.</p> <p>For each control, the results include information about whether it is currently enabled, the severity, and a link to remediation information.</p>"
+					}
 				}
 			]
 		},
@@ -461,13 +567,16 @@
 			"@type": "ServiceChannel",
 			"name": "Standards deregister",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/standards/deregister",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " batch disable standards",
-					"url": "http://securityhub.{region}.amazonaws.com/standards/deregister",
-					"description": "<p>Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html\">Security Standards</a> section of the <i>AWS Security Hub User Guide</i>.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " batch disable standards",
+						"url": "http://securityhub.{region}.amazonaws.com/standards/deregister",
+						"description": "<p>Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html\">Security Standards</a> section of the <i>AWS Security Hub User Guide</i>.</p>"
+					}
 				}
 			]
 		},
@@ -475,13 +584,16 @@
 			"@type": "ServiceChannel",
 			"name": "Standards get",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/standards/get",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " get enabled standards",
-					"url": "http://securityhub.{region}.amazonaws.com/standards/get",
-					"description": "Returns a list of the standards that are currently enabled."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " get enabled standards",
+						"url": "http://securityhub.{region}.amazonaws.com/standards/get",
+						"description": "Returns a list of the standards that are currently enabled."
+					}
 				}
 			]
 		},
@@ -489,13 +601,16 @@
 			"@type": "ServiceChannel",
 			"name": "Standards register",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/standards/register",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " batch enable standards",
-					"url": "http://securityhub.{region}.amazonaws.com/standards/register",
-					"description": "<p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the ARN for a standard, use the <code> <a>DescribeStandards</a> </code> operation.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html\">Security Standards</a> section of the <i>AWS Security Hub User Guide</i>.</p>"
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " batch enable standards",
+						"url": "http://securityhub.{region}.amazonaws.com/standards/register",
+						"description": "<p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the ARN for a standard, use the <code> <a>DescribeStandards</a> </code> operation.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html\">Security Standards</a> section of the <i>AWS Security Hub User Guide</i>.</p>"
+					}
 				}
 			]
 		},
@@ -503,20 +618,26 @@
 			"@type": "ServiceChannel",
 			"name": "Tags  resource arn",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/tags/{ResourceArn}",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "get",
-					"name": " list tags for resource",
-					"url": "http://securityhub.{region}.amazonaws.com/tags/{ResourceArn}",
-					"description": "Returns a list of tags associated with a resource."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "GET",
+						"name": " list tags for resource",
+						"url": "http://securityhub.{region}.amazonaws.com/tags/{ResourceArn}",
+						"description": "Returns a list of tags associated with a resource."
+					}
 				},
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "post",
-					"name": " tag resource",
-					"url": "http://securityhub.{region}.amazonaws.com/tags/{ResourceArn}",
-					"description": "Adds one or more tags to a resource."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "POST",
+						"name": " tag resource",
+						"url": "http://securityhub.{region}.amazonaws.com/tags/{ResourceArn}",
+						"description": "Adds one or more tags to a resource."
+					}
 				}
 			]
 		},
@@ -524,13 +645,16 @@
 			"@type": "ServiceChannel",
 			"name": "Tags  resource arn#tag keys",
 			"serviceUrl": "http://securityhub.{region}.amazonaws.com/tags/{ResourceArn}#tagKeys",
-			"providesService": [
+			"potentialAction": [
 				{
-					"@type": "EntryPoint",
-					"httpMethod": "delete",
-					"name": " untag resource",
-					"url": "http://securityhub.{region}.amazonaws.com/tags/{ResourceArn}#tagKeys",
-					"description": "Removes one or more tags from a resource."
+					"@type": "Action",
+					"target": {
+						"@type": "EntryPoint",
+						"httpMethod": "DELETE",
+						"name": " untag resource",
+						"url": "http://securityhub.{region}.amazonaws.com/tags/{ResourceArn}#tagKeys",
+						"description": "Removes one or more tags from a resource."
+					}
 				}
 			]
 		}
