@@ -70,7 +70,7 @@ The matching described in the following diagrams has been split in three for mor
 
 ### It is also possible to specify the pricing of distinct offers for paying APIs
 
-(You can specify offers as much as you want in a array as value of WebAPI offers property)
+(You can specify as much offers as you want in a array as value of WebAPI offers property)
 
 ![OAS Submappings with Offer ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-Offer.png?raw=true "OAS Submappings with Offer ontology")
 
