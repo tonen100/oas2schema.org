@@ -56,7 +56,7 @@ The matching described in the following diagrams has been split in three for mor
 
 ### For the main API:
 
-![OAS Mappings with WebAPI ontology](hhttps://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-WebAPI.png?raw=true "OAS Submappings with WebAPI ontology")
+![OAS Mappings with WebAPI ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-WebAPI.png?raw=true "OAS Submappings with WebAPI ontology")
 
 (The aggregate rating is pending implementation and is not yet 100% sure to really be implemented)
 
