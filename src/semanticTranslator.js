@@ -49,7 +49,7 @@ class SemanticTranslator {
      * <ul><li> {} for an object keys (property names) that will be transformed into a list (the keys can be specified within the brackets to include only the values of these keys into the list, separated with the operator |)</li></ul>
      * This symbol can be used at the end of the last property
      * <ul><li> ~ for to transform the retrieved value string into a normal sentence (replaces slashes, dots, camelCase, Snakecase...  with the required spaces)</li>
-     * <li> ~U which the same but with the result uppercased </li></ul>
+     * <li> ^U which the same but with the result uppercased (can be combined with ~) </li></ul>
      * Constants names defined in EXTERNAL_VALUES can be used INSTEAD of a path
      * <p>Here are the currents mappings beeing made:</p>
      * <ul>
@@ -174,13 +174,13 @@ class SemanticTranslator {
             const lengthPath = oasPath.split('.').length;
             //iterates on properties of the path
             for(var [index, property] of oasPath.split('.').entries()) {
-                if(property.endsWith('~')) { // ~ cases
-                    to_normalize_value = true;
-                    property = property.slice(0, property.length - 1);
-                }  else if(property.endsWith('~^U')) { // ~U cases
+                if(property.endsWith('~^U') || property.endsWith('^U~')) { // ~U cases
                     to_normalize_value = true;
                     to_uppercase_value = true;
                     property = property.slice(0, property.length - 3);
+                } else if(property.endsWith('~')) { // ~ cases
+                    to_normalize_value = true;
+                    property = property.slice(0, property.length - 1);
                 } else if(property.endsWith('^U')) { // ~U cases
                     to_uppercase_value = true;
                     property = property.slice(0, property.length - 2);
