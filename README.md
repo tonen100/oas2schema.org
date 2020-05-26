@@ -5,6 +5,7 @@
 2. [Use Case](#use_case)
 3. [Functionality](#functionality)
 4. [Output metadata structure](#structure)
+4. [Version updates details](#updates)
 5. [Licensing](#licensing)
 
 ## Introduction <a name="introduction"></a>
@@ -55,7 +56,7 @@ The matching described in the following diagrams has been split in three for mor
 
 ### For the main API:
 
-![OAS Mappings with WebAPI ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-WebAPI.png?raw=true "OAS Submappings with WebAPI ontology")
+![OAS Mappings with WebAPI ontology](hhttps://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-WebAPI.png?raw=true "OAS Submappings with WebAPI ontology")
 
 (The aggregate rating is pending implementation and is not yet 100% sure to really be implemented)
 
@@ -66,6 +67,19 @@ The matching described in the following diagrams has been split in three for mor
 ### For each HTTP operation of each route:
 
 ![OAS Submappings with EntryPoint ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-EntryPoint.png?raw=true "OAS Submappings with EntryPoint ontology")
+
+### It is also possible to specify the pricing distinct offers for paying APIs
+
+![OAS Submappings with Offer ontology](https://github.com/tonen100/oas2schema.org/blob/master/images/Correspondences.SchemaOrg.OAS-Offer.png?raw=true "OAS Submappings with Offer ontology")
+
+## Version updates details <a name="updates"></a>
+
+### 1.1
+- Fixed linking between Service Channel and EntryPoint ontologies
+- Added mappings for OAS custom extension
+  - info.x-logo.url => WebAPI.logo
+  - x-documentation-url => WebAPI.documentation
+  - x-pricing => Offer
 
 ## Licensing <a name="licensing"></a>
 
