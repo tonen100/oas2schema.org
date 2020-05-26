@@ -67,11 +67,11 @@ class SemanticTranslator {
      * <li>['termsOfService', 'info.termsOfService']</li>
      * <li>['logo', 'x-logo.url']</li>
      * <li>['documentation', 'URL_DOC || x-documentation.url']</li>
-     * <li>['offers:Offer[].name', 'x-princing[].name']</li>
-     * <li>['offers:Offer[].category', 'x-princing[].type']</li>
-     * <li>['offers:Offer[].price', 'x-princing[].price']</li>
-     * <li>['offers:Offer[].priceCurrency', 'x-princing[].currency']</li>
-     * <li>['offers:Offer[].description', 'x-princing[].description']</li>
+     * <li>['offers:Offer[].name', 'x-pricing[].name']</li>
+     * <li>['offers:Offer[].category', 'x-pricing[].type']</li>
+     * <li>['offers:Offer[].price', 'x-pricing[].price']</li>
+     * <li>['offers:Offer[].priceCurrency', 'x-pricing[].currency']</li>
+     * <li>['offers:Offer[].description', 'x-pricing[].description']</li>
      * <li>['availableChannel:ServiceChannel[].name', 'paths.{}~']</li>
      * <li>['availableChannel:ServiceChannel[].description', 'paths.{}.description']</li>
      * <li>['availableChannel:ServiceChannel[].disambiguatingDescription', 'paths.{}.summary']</li>
@@ -105,12 +105,12 @@ class SemanticTranslator {
         ['termsOfService', 'info.termsOfService'],
         ['logo', 'info.x-logo.url'],
         ['documentation', 'URL_DOC || x-documentation-url'],
-        ['offers:Offer[].name', 'x-princing[].name'],
-        ['offers:Offer[].identifier', 'x-princing[].type'],
-        ['offers:Offer[].category', 'x-princing[].type~'],
-        ['offers:Offer[].price', 'x-princing[].price'],
-        ['offers:Offer[].priceCurrency', 'x-princing[].currency'],
-        ['offers:Offer[].description', 'x-princing[].description'],
+        ['offers:Offer[].name', 'x-pricing[].name'],
+        ['offers:Offer[].identifier', 'x-pricing[].type'],
+        ['offers:Offer[].category', 'x-pricing[].type~'],
+        ['offers:Offer[].price', 'x-pricing[].price'],
+        ['offers:Offer[].priceCurrency', 'x-pricing[].currency'],
+        ['offers:Offer[].description', 'x-pricing[].description'],
         ['availableChannel:ServiceChannel[].name', 'paths.{}~'],
         ['availableChannel:ServiceChannel[].description', 'paths.{}.description'],
         ['availableChannel:ServiceChannel[].disambiguatingDescription', 'paths.{}.summary'],
