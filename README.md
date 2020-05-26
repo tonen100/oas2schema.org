@@ -76,7 +76,7 @@ The matching described in the following diagrams has been split in three for mor
 
 ### 1.1
 - Fixed linking between Service Channel and EntryPoint ontologies
-- Added mappings for OAS custom extension
+- Added mappings for OAS custom extension (see more details in diagrams above or in JS doc)
   - info.x-logo.url => WebAPI.logo
   - x-documentation-url => WebAPI.documentation
   - x-pricing => Offer
