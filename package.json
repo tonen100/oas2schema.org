@@ -35,7 +35,7 @@
     "js-yaml": "^3.13.1",
     "jslint": "^0.12.1",
     "minimist": "^1.2.5",
-    "mocha": "^7.1.1",
+    "mocha": "^10.2.0",
     "npm": "^6.14.2",
     "oas-raml-converter": "^1.1.43",
     "openapi-enforcer": "^1.10.0",
